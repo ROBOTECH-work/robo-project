@@ -102,6 +102,32 @@ s0.parentNode.insertBefore(s1,s0);
     </div>
   </section>
 
+  <!-- Code Snippet Section -->
+  <section class="py-14 bg-white">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-3xl font-bold mb-4">Turtle-like Drawing with JavaScript</h2>
+        <p class="mb-4 text-gray-700">Inspired by Turtle in Python, here's a JavaScript example using Canvas to draw a square:</p>
+        <canvas id="turtleCanvas" width="300" height="300" class="border border-gray-300 rounded-lg"></canvas>
+      </div>
+      <pre class="bg-gray-900 text-green-300 rounded-lg p-4 overflow-auto text-sm">
+<code>// JavaScript Turtle-style drawing
+const canvas = document.getElementById('turtleCanvas');
+const ctx = canvas.getContext('2d');
+ctx.strokeStyle = '#2563eb';
+ctx.lineWidth = 3;
+
+ctx.beginPath();
+ctx.moveTo(50, 50);
+ctx.lineTo(150, 50);
+ctx.lineTo(150, 150);
+ctx.lineTo(50, 150);
+ctx.lineTo(50, 50);
+ctx.stroke();</code>
+      </pre>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section id="contact" class="py-12 bg-white">
     <div class="max-w-6xl mx-auto px-4">
