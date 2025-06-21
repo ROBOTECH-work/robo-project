@@ -105,12 +105,57 @@
 
         <span class="text-2xl font-bold text-blue-900">Robotech Digital Solutions</span>
       </div>
-      <div class="hidden md:flex space-x-6">
-        <a href="#" class="text-blue-900 hover:underline">Home</a>
-        <a href="#about" class="text-blue-900 hover:underline">About</a>
-        <a href="#blogs" class="text-blue-900 hover:underline">Blogs</a>
-        <a href="#contact" class="text-blue-900 hover:underline">Contact</a>
-      </div>
+      <!-- Navbar -->
+<div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #f8f9fa; font-family: sans-serif;">
+  <div style="font-size: 1.2rem; font-weight: bold; color: #1e3a8a;">Robotech</div>
+
+  <!-- Menu Toggle Button (Mobile only) -->
+  <button onclick="toggleMenu()" style="display: none; font-size: 24px; background: none; border: none;" id="menu-btn">
+    ☰
+  </button>
+
+  <!-- Nav Links -->
+  <div id="nav-links" style="display: flex; gap: 20px;">
+    <a href="#" style="text-decoration: none; color: #1e3a8a;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Home</a>
+    <a href="#about" style="text-decoration: none; color: #1e3a8a;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">About</a>
+    <a href="#blogs" style="text-decoration: none; color: #1e3a8a;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Blogs</a>
+    <a href="#contact" style="text-decoration: none; color: #1e3a8a;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Contact</a>
+  </div>
+</div>
+
+<!-- Inline Responsive Script -->
+<script>
+  // Show/hide nav links
+  function toggleMenu() {
+    var nav = document.getElementById('nav-links');
+    if (nav.style.display === 'flex') {
+      nav.style.display = 'none';
+    } else {
+      nav.style.display = 'flex';
+      nav.style.flexDirection = 'column';
+      nav.style.gap = '10px';
+      nav.style.marginTop = '10px';
+    }
+  }
+
+  // Handle responsive behavior
+  function handleResize() {
+    var nav = document.getElementById('nav-links');
+    var btn = document.getElementById('menu-btn');
+    if (window.innerWidth < 768) {
+      nav.style.display = 'none';
+      btn.style.display = 'block';
+    } else {
+      nav.style.display = 'flex';
+      nav.style.flexDirection = 'row';
+      btn.style.display = 'none';
+    }
+  }
+
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('load', handleResize);
+</script>
+
     </div>
   </nav>
 
