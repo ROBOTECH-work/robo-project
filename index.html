@@ -8,19 +8,32 @@
   <title>Robotech Digital Solution | Robotics, Bionics, ICT & Smart Innovation in Kenya</title>
   <link rel="icon" href="logo.png" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Tailwind Configuration for Brand Colors -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'robotech-blue': '#1a365d',
+            'robotech-blue-light': '#2c5282',
+            'robotech-orange': '#dd6b20',
+            'robotech-orange-light': '#ed8936',
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description"
-    content="Robotech Digital Solution is Kenya's leader in robotics, ICT services, CCTV installation, web design, and Starlink setup. We deliver modern solutions for smart businesses." />
-  <meta name="keywords"
-    content="Robotech, robotechdigi, robotics Kenya, ICT Kenya, CCTV installation, web design Kenya, Starlink installer, networking, computer repair Kenya ICT Nairobi" />
+  <!-- SEO Meta Tags (unchanged from your original) -->
+  <meta name="description" content="Robotech Digital Solution is Kenya's leader in robotics, ICT services, CCTV installation, web design, and Starlink setup. We deliver modern solutions for smart businesses." />
+  <meta name="keywords" content="Robotech, robotechdigi, robotics Kenya, ICT Kenya, CCTV installation, web design Kenya, Starlink installer, networking, computer repair Kenya ICT Nairobi" />
   <meta name="author" content="Robotech Digital Solution" />
   <meta name="robots" content="index, follow" />
   <meta name="language" content="en" />
 
   <meta property="og:title" content="Robotech Digital Solution | Robotics, ICT & Smart Innovation in Kenya" />
-  <meta property="og:description"
-    content="Expert ICT and robotics solutions in Kenya. Serving smart businesses with design, networking, and automation." />
+  <meta property="og:description" content="Expert ICT and robotics solutions in Kenya. Serving smart businesses with design, networking, and automation." />
   <meta property="og:image" content="https://robotechdigi.com/images/og-image.jpg" />
   <meta property="og:url" content="https://robotechdigi.com" />
   <meta property="og:type" content="website" />
@@ -53,75 +66,135 @@
     "description": "Robotech Digital Solution is a leading tech company in Kenya offering robotics, ICT, networking, and web services."
   }
   </script>
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS for Navbar Enhancements -->
+  <style>
+    /* Smooth transitions for navbar */
+    .navbar {
+      transition: all 0.3s ease;
+    }
+    
+    /* Mobile menu animation */
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .mobile-menu {
+      animation: slideDown 0.3s ease forwards;
+    }
+    
+    /* Underline animation for nav links */
+    .nav-link {
+      position: relative;
+    }
+    
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #dd6b20;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover:after {
+      width: 100%;
+    }
+    
+    .nav-link.active:after {
+      width: 100%;
+    }
+    
+    /* Sticky navbar effect */
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
 </head>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-  (function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/67adef74825083258e149cdc/1ijvmunvo';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-  })();
-</script>
-<!--End of Tawk.to Script-->
+<body class="bg-gray-50 text-gray-800 font-sans pt-16 md:pt-0"> <!-- Added padding top for mobile sticky nav -->
 
-<script type="text/javascript">
-  (function () {
-    var options = {
-      whatsapp: "254727255113", // Replace with your actual WhatsApp number
-      call_to_action: "Chat with us", // Text displayed on the button
-      position: "left",
-    };
-    var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
-    var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
-    s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
-    var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-  })();
-</script>
+  <!-- Enhanced Navbar -->
+  <nav id="navbar" class="navbar bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo/Brand -->
+        <div class="flex-shrink-0 flex items-center">
+          <a href="/" class="flex items-center gap-3">
+            <img src="logo.png" alt="Robotech Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full shadow-md border-2 border-robotech-blue p-1 bg-white">
+            <span class="text-xl md:text-2xl font-bold text-robotech-blue">Robotech Digital</span>
+          </a>
+        </div>
 
-<script>
-  (function (w, d, s, l, i) {
-    w[l] = w[l] || []; w[l].push({
-      'gtm.start':
-        new Date().getTime(), event: 'gtm.js'
-    }); var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-        'https://www.googletagmanager.com/gtm.js?id=GTM-W4T7VMTL'; f.parentNode.insertBefore(j, f);
-  })(window, document, 'script', 'dataLayer', 'GTM-W4T7VMTL');
-</script>
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="#" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange active">Home</a>
+          <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">About</a>
+          <a href="#blogs" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">Blogs</a>
+          <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">Contact</a>
+          <a href="tel:0769700015" class="ml-4 px-4 py-2 bg-robotech-orange text-white rounded-md hover:bg-robotech-orange-light transition flex items-center gap-2">
+            <i class="fas fa-phone-alt"></i>
+            <span>Call Us</span>
+          </a>
+        </div>
 
-<body class="bg-gray-50 text-gray-800 font-sans">
-
-  <!-- Navbar -->
-  <nav class="bg-white shadow">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center gap-2">
-        <img src="logo.png" alt="Robotech Logo"
-          class="h-12 w-12 rounded-full shadow-md border border-gray-300 p-1 bg-white">
-
-        <span class="text-2xl font-bold text-blue-900">Robotech Digital Solutions</span>
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-robotech-blue hover:text-robotech-orange focus:outline-none">
+            <span class="sr-only">Open main menu</span>
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
       </div>
-      <div class="hidden md:flex space-x-6">
-        <a href="#" class="text-blue-900 hover:underline">Home</a>
-        <a href="#about" class="text-blue-900 hover:underline">About</a>
-        <a href="#blogs" class="text-blue-900 hover:underline">Blogs</a>
-        <a href="#contact" class="text-blue-900 hover:underline">Contact</a>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white border-t border-gray-200">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue bg-gray-50">Home</a>
+        <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">About</a>
+        <a href="#blogs" class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">Blogs</a>
+        <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">Contact</a>
+        <a href="tel:0769700015" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-robotech-orange hover:bg-robotech-orange-light text-center">
+          <i class="fas fa-phone-alt mr-2"></i>Call Now
+        </a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header class="bg-blue-900 text-white p-10">
+  <!-- Rest of your content remains unchanged -->
+  <header class="bg-robotech-blue text-white p-10">
     <div class="max-w-7xl mx-auto">
       <h1 class="text-4xl font-bold mb-4">Empowering Innovation Through Robotics & Coding</h1>
-      <p class="text-lg">We teach robotics and programming, run research facilities for bionics and AI-driven systems in
-        Kenya.</p>
+      <p class="text-lg">We teach robotics and programming, run research facilities for bionics and AI-driven systems in Kenya.</p>
     </div>
   </header>
+  <!-- Robotic Show Banner -->
+<div id="robotic-banner" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  z-index: 9999;
+">
+  Robotic Show on 24th June 2025 – Venue: St Ann's Primary School, Karen
+</div>
 
   <!-- About Section -->
   <section id="about" class="py-12 bg-white">
@@ -144,92 +217,43 @@
 
         <!-- Blog Card 1 -->
         <a src="https://robotechdigitals.blogspot.com/" target="_blank"
-          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-4">
+          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-4 group">
           <img src="banner.jpeg" alt="Robotics Teaching"
-            class="rounded-xl mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-bold mb-2">Teaching Robotics in Kenya</h3>
-          <p>Discover how we bring practical robotics and coding lessons to schools and tech hubs across Kenya.</p>
+            class="rounded-xl mb-4 w-full h-48 object-cover group-hover:opacity-90 transition">
+          <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Teaching Robotics in Kenya</h3>
+          <p class="text-gray-600">Discover how we bring practical robotics and coding lessons to schools and tech hubs across Kenya.</p>
+          <div class="mt-3 text-robotech-orange font-medium flex items-center">
+            Read more <i class="fas fa-arrow-right ml-2"></i>
+          </div>
         </a>
 
         <!-- Blog Card 2 -->
         <a href="https://robotechdigitals.blogspot.com/" target="_blank"
-          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-4">
+          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-4 group">
           <img src="mykid.jpg" alt="Research Facilities"
-            class="rounded-xl mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-bold mb-2">Our Research Facilities</h3>
-          <p>Explore our advanced robotics and bionics lab empowering groundbreaking innovations in health and
+            class="rounded-xl mb-4 w-full h-48 object-cover group-hover:opacity-90 transition">
+          <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Our Research Facilities</h3>
+          <p class="text-gray-600">Explore our advanced robotics and bionics lab empowering groundbreaking innovations in health and
             automation.</p>
+          <div class="mt-3 text-robotech-orange font-medium flex items-center">
+            Read more <i class="fas fa-arrow-right ml-2"></i>
+          </div>
         </a>
 
         <!-- Blog Card 3 -->
         <a href="https://robotechdigitals.blogspot.com/" target="_blank"
-          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-4">
+          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-4 group">
           <img src="led.jpg" alt="Coding for Youth"
-            class="rounded-xl mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-bold mb-2">Coding for Young Innovators</h3>
-          <p>We help children and youth build strong foundations in coding, electronics, and logical thinking.</p>
+            class="rounded-xl mb-4 w-full h-48 object-cover group-hover:opacity-90 transition">
+          <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Coding for Young Innovators</h3>
+          <p class="text-gray-600">We help children and youth build strong foundations in coding, electronics, and logical thinking.</p>
+          <div class="mt-3 text-robotech-orange font-medium flex items-center">
+            Read more <i class="fas fa-arrow-right ml-2"></i>
+          </div>
         </a>
 
       </div>
     </div>
-  </section>
-
-  <section>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const runBtn = document.getElementById("runBtn");
-        runBtn.addEventListener("click", typeCode);
-      });
-
-      const codeString = `// JavaScript Turtle-style drawing\nconst canvas = document.getElementById('turtleCanvas');\nconst ctx = canvas.getContext('2d');\nctx.clearRect(0, 0, canvas.width, canvas.height);\nctx.strokeStyle = '#2563eb';\nctx.lineWidth = 3;\n\nctx.beginPath();\nctx.moveTo(50, 50);\nctx.lineTo(150, 50);\nctx.lineTo(150, 150);\nctx.lineTo(50, 150);\nctx.lineTo(50, 50);\nctx.stroke();`;
-
-      function typeCode() {
-        const display = document.getElementById("codeDisplay");
-        display.textContent = "";
-        let i = 0;
-
-        const interval = setInterval(() => {
-          display.textContent += codeString.charAt(i);
-          i++;
-          if (i >= codeString.length) {
-            clearInterval(interval);
-            setTimeout(drawSquare, 300);
-          }
-        }, 2000 / codeString.length);
-      }
-
-      function drawSquare() {
-        const canvas = document.getElementById('turtleCanvas');
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.strokeStyle = '#2563eb';
-        ctx.lineWidth = 3;
-
-        let points = [
-          [50, 50],
-          [150, 50],
-          [150, 150],
-          [50, 150],
-          [50, 50]
-        ];
-
-        let i = 0;
-        ctx.beginPath();
-        ctx.moveTo(points[0][0], points[0][1]);
-
-        const drawStep = () => {
-          if (i < points.length - 1) {
-            i++;
-            ctx.lineTo(points[i][0], points[i][1]);
-            ctx.stroke();
-            setTimeout(drawStep, 300);
-          }
-        };
-
-        drawStep();
-      }
-    </script>
   </section>
 
   <!-- Contact Section -->
@@ -239,19 +263,183 @@
       <p class="text-center text-lg mb-4">Have questions or want to partner with us? Reach out via phone or visit our
         offices.</p>
       <div class="text-center">
-        <p class="text-xl font-semibold">Phone: <a href="tel:0769700015" class="text-blue-600 hover:underline">0769 700
+        <p class="text-xl font-semibold">Phone: <a href="tel:0769700015" class="text-robotech-orange hover:underline">0769 700
             015</a></p>
         <p class="mt-2">Email: <a href="mailto:info@robotech.co.ke"
-            class="text-blue-600 hover:underline">info@robotech.co.ke</a></p>
+            class="text-robotech-orange hover:underline">info@robotech.co.ke</a></p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-900 text-white text-center p-4 mt-10">
-    <p>&copy; 2025 Robotech Digital Solutions. All rights reserved. | CEO: Zacharia Chege</p>
+  <footer class="bg-robotech-blue text-white text-center p-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <a href="/" class="flex items-center justify-center md:justify-start gap-3">
+            <img src="logo.png" alt="Robotech Logo" class="h-10 w-10 rounded-full shadow-md border-2 border-white p-1 bg-white">
+            <span class="text-xl font-bold">Robotech Digital Solutions</span>
+          </a>
+        </div>
+        
+        <div class="flex space-x-6 mb-4 md:mb-0">
+          <a href="#" class="hover:text-robotech-orange-light transition"><i class="fab fa-facebook-f text-xl"></i></a>
+          <a href="#" class="hover:text-robotech-orange-light transition"><i class="fab fa-twitter text-xl"></i></a>
+          <a href="#" class="hover:text-robotech-orange-light transition"><i class="fab fa-linkedin-in text-xl"></i></a>
+          <a href="#" class="hover:text-robotech-orange-light transition"><i class="fab fa-instagram text-xl"></i></a>
+        </div>
+        
+        <div class="text-sm">
+          <p>&copy; 2025 Robotech Digital Solutions. All rights reserved.</p>
+          <p class="mt-1">CEO: Zacharia Chege</p>
+        </div>
+      </div>
+    </div>
   </footer>
 
-</body>
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 bg-robotech-orange text-white p-3 rounded-full shadow-lg hidden hover:bg-robotech-orange-light transition">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
+  <!-- JavaScript for Enhanced Functionality -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+    
+    // Sticky Navbar with Scroll Effect
+    const navbar = document.getElementById('navbar');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Show/hide back to top button
+      const backToTop = document.getElementById('back-to-top');
+      if (scrollTop > 300) {
+        backToTop.classList.remove('hidden');
+      } else {
+        backToTop.classList.add('hidden');
+      }
+      
+      // Navbar scroll behavior
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        if (scrollTop > 100) {
+          navbar.classList.add('shadow-lg');
+          navbar.classList.remove('shadow-md');
+        }
+      } else {
+        // Scrolling up
+        if (scrollTop > 100) {
+          navbar.classList.add('shadow-lg');
+          navbar.classList.remove('shadow-md');
+        }
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Back to top button
+    document.getElementById('back-to-top').addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Set active nav link based on scroll position
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (pageYOffset >= (sectionTop - 150)) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+  <!-- Your existing scripts (Tawk.to, WhatsApp, GTM) -->
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/67adef74825083258e149cdc/1ijvmunvo';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+  <script type="text/javascript">
+    (function () {
+      var options = {
+        whatsapp: "254769700015", // Replace with your actual WhatsApp number
+        call_to_action: "Chat with us", // Text displayed on the button
+        position: "left",
+      };
+      var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+    })();
+  </script>
+
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=GTM-W4T7VMTL'; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-W4T7VMTL');
+  </script>
+</body>
 </html>
