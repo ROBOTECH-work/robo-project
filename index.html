@@ -179,22 +179,46 @@
       <p class="text-lg">We teach robotics and programming, run research facilities for bionics and AI-driven systems in Kenya.</p>
     </div>
   </header>
-  <!-- Robotic Show Banner -->
-<div id="robotic-banner" style="
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: red;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  padding: 10px;
-  z-index: 9999;
-">
-  Robotic Show on 24th June 2025 – Venue: St Ann's Primary School, Karen
+<!-- Twinkling Side Banner -->
+<div class="twinkle-banner">
+  ✨ Robotic Show<br>
+  📅 24th June 2025<br>
+  📍 St Ann's Primary School, Karen
 </div>
+
+<style>
+  .twinkle-banner {
+    position: fixed;
+    top: 40%;
+    right: 0;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 15px;
+    border-top-left-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+    box-shadow: 0 0 10px white;
+    animation: twinkle 1.5s infinite;
+    z-index: 9999;
+    line-height: 1.5;
+    text-align: center;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 12px white;
+    }
+    50% {
+      opacity: 0.4;
+      box-shadow: 0 0 2px white;
+    }
+  }
+</style>
+
 
   <!-- About Section -->
   <section id="about" class="py-12 bg-white">
