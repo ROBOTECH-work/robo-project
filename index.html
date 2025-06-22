@@ -8,7 +8,7 @@
   <title>Robotech Digital Solution | Robotics, Bionics, ICT & Smart Innovation in Kenya</title>
   <link rel="icon" href="logo.png" type="image/png">
   <script src="https://cdn.tailwindcss.com"></script>
-  
+
   <!-- Custom Tailwind Configuration for Brand Colors -->
   <script>
     tailwind.config = {
@@ -26,14 +26,17 @@
   </script>
 
   <!-- SEO Meta Tags (unchanged from your original) -->
-  <meta name="description" content="Robotech Digital Solution is Kenya's leader in robotics, ICT services, CCTV installation, web design, and Starlink setup. We deliver modern solutions for smart businesses." />
-  <meta name="keywords" content="Robotech, robotechdigi, robotics Kenya, ICT Kenya, CCTV installation, web design Kenya, Starlink installer, networking, computer repair Kenya ICT Nairobi" />
+  <meta name="description"
+    content="Robotech Digital Solution is Kenya's leader in robotics, ICT services, CCTV installation, web design, and Starlink setup. We deliver modern solutions for smart businesses." />
+  <meta name="keywords"
+    content="Robotech, robotechdigi, robotics Kenya, ICT Kenya, CCTV installation, web design Kenya, Starlink installer, networking, computer repair Kenya ICT Nairobi" />
   <meta name="author" content="Robotech Digital Solution" />
   <meta name="robots" content="index, follow" />
   <meta name="language" content="en" />
 
   <meta property="og:title" content="Robotech Digital Solution | Robotics, ICT & Smart Innovation in Kenya" />
-  <meta property="og:description" content="Expert ICT and robotics solutions in Kenya. Serving smart businesses with design, networking, and automation." />
+  <meta property="og:description"
+    content="Expert ICT and robotics solutions in Kenya. Serving smart businesses with design, networking, and automation." />
   <meta property="og:image" content="https://robotechdigi.com/images/og-image.jpg" />
   <meta property="og:url" content="https://robotechdigi.com" />
   <meta property="og:type" content="website" />
@@ -66,32 +69,39 @@
     "description": "Robotech Digital Solution is a leading tech company in Kenya offering robotics, ICT, networking, and web services."
   }
   </script>
-  
+
   <!-- Font Awesome for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
   <!-- Custom CSS for Navbar Enhancements -->
   <style>
     /* Smooth transitions for navbar */
     .navbar {
       transition: all 0.3s ease;
     }
-    
+
     /* Mobile menu animation */
     @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    
+
     .mobile-menu {
       animation: slideDown 0.3s ease forwards;
     }
-    
+
     /* Underline animation for nav links */
     .nav-link {
       position: relative;
     }
-    
+
     .nav-link:after {
       content: '';
       position: absolute;
@@ -102,15 +112,15 @@
       background-color: #dd6b20;
       transition: width 0.3s ease;
     }
-    
+
     .nav-link:hover:after {
       width: 100%;
     }
-    
+
     .nav-link.active:after {
       width: 100%;
     }
-    
+
     /* Sticky navbar effect */
     .sticky {
       position: fixed;
@@ -131,18 +141,24 @@
         <!-- Logo/Brand -->
         <div class="flex-shrink-0 flex items-center">
           <a href="/" class="flex items-center gap-3">
-            <img src="logo.png" alt="Robotech Logo" class="h-10 w-10 md:h-12 md:w-12 rounded-full shadow-md border-2 border-robotech-blue p-1 bg-white">
+            <img src="logo.png" alt="Robotech Logo"
+              class="h-10 w-10 md:h-12 md:w-12 rounded-full shadow-md border-2 border-robotech-blue p-1 bg-white">
             <span class="text-xl md:text-2xl font-bold text-robotech-blue">Robotech Digital</span>
           </a>
         </div>
 
         <!-- Desktop Navigation -->
         <div class="hidden md:flex items-center space-x-1">
-          <a href="#" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange active">Home</a>
-          <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">About</a>
-          <a href="#blogs" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">Blogs</a>
-          <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">Contact</a>
-          <a href="tel:0769700015" class="ml-4 px-4 py-2 bg-robotech-orange text-white rounded-md hover:bg-robotech-orange-light transition flex items-center gap-2">
+          <a href="#"
+            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange active">Home</a>
+          <a href="#about"
+            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">About</a>
+          <a href="#blogs"
+            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">Blogs</a>
+          <a href="#contact"
+            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">Contact</a>
+          <a href="tel:0769700015"
+            class="ml-4 px-4 py-2 bg-robotech-orange text-white rounded-md hover:bg-robotech-orange-light transition flex items-center gap-2">
             <i class="fas fa-phone-alt"></i>
             <span>Call Us</span>
           </a>
@@ -150,7 +166,8 @@
 
         <!-- Mobile menu button -->
         <div class="md:hidden flex items-center">
-          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-robotech-blue hover:text-robotech-orange focus:outline-none">
+          <button id="mobile-menu-button"
+            class="inline-flex items-center justify-center p-2 rounded-md text-robotech-blue hover:text-robotech-orange focus:outline-none">
             <span class="sr-only">Open main menu</span>
             <i class="fas fa-bars text-xl"></i>
           </button>
@@ -162,10 +179,14 @@
     <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white border-t border-gray-200">
       <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
         <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue bg-gray-50">Home</a>
-        <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">About</a>
-        <a href="#blogs" class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">Blogs</a>
-        <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">Contact</a>
-        <a href="tel:0769700015" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-robotech-orange hover:bg-robotech-orange-light text-center">
+        <a href="#about"
+          class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">About</a>
+        <a href="#blogs"
+          class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">Blogs</a>
+        <a href="#contact"
+          class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">Contact</a>
+        <a href="tel:0769700015"
+          class="block px-3 py-2 rounded-md text-base font-medium text-white bg-robotech-orange hover:bg-robotech-orange-light text-center">
           <i class="fas fa-phone-alt mr-2"></i>Call Now
         </a>
       </div>
@@ -176,48 +197,52 @@
   <header class="bg-robotech-blue text-white p-10">
     <div class="max-w-7xl mx-auto">
       <h1 class="text-4xl font-bold mb-4">Empowering Innovation Through Robotics & Coding</h1>
-      <p class="text-lg">We teach robotics and programming, run research facilities for bionics and AI-driven systems in Kenya.</p>
+      <p class="text-lg">We teach robotics and programming, run research facilities for bionics and AI-driven systems in
+        Kenya.</p>
     </div>
   </header>
-<!-- Twinkling Side Banner -->
-<div class="twinkle-banner">
-  ✨ Robotic Show<br>
-  📅 24th June 2025<br>
-  📍 St Ann's Primary School, Karen
-</div>
+  <!-- Twinkling Side Banner -->
+  <div class="twinkle-banner">
+    ✨ Robotic Show<br>
+    📅 24th June 2025<br>
+    📍 St Ann's Primary School, Karen
+  </div>
 
-<style>
-  .twinkle-banner {
-    position: fixed;
-    top: 40%;
-    right: 0;
-    background-color: red;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    padding: 15px;
-    border-top-left-radius: 50% 50%;
-    border-bottom-left-radius: 50% 50%;
-    box-shadow: 0 0 10px white;
-    animation: twinkle 1.5s infinite;
-    z-index: 9999;
-    line-height: 1.5;
-    text-align: center;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-  }
+  <style>
+    .twinkle-banner {
+      position: fixed;
+      top: 40%;
+      right: 0;
+      background-color: red;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 15px;
+      border-top-left-radius: 50% 50%;
+      border-bottom-left-radius: 50% 50%;
+      box-shadow: 0 0 10px white;
+      animation: twinkle 1.5s infinite;
+      z-index: 9999;
+      line-height: 1.5;
+      text-align: center;
+      writing-mode: horizontal-tb;
+      transform: rotate(180deg);
+    }
 
-  @keyframes twinkle {
-    0%, 100% {
-      opacity: 1;
-      box-shadow: 0 0 12px white;
+    @keyframes twinkle {
+
+      0%,
+      100% {
+        opacity: 1;
+        box-shadow: 0 0 12px white;
+      }
+
+      50% {
+        opacity: 0.4;
+        box-shadow: 0 0 2px white;
+      }
     }
-    50% {
-      opacity: 0.4;
-      box-shadow: 0 0 2px white;
-    }
-  }
-</style>
+  </style>
 
 
   <!-- About Section -->
@@ -225,10 +250,14 @@
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-bold text-center mb-6">About Us</h2>
       <p class="text-lg leading-relaxed text-center text-gray-700 max-w-3xl mx-auto">
-        Robotech Digital Solutions is a Kenyan-based company focused on nurturing innovation through robotics, coding
-        education, and pioneering bionics research. Led by CEO Zacharia Chege, our mission is to equip individuals and
-        institutions with the tools and knowledge needed to thrive in the future of automation and artificial
-        intelligence.
+        Robotech Digital Solutions is a forward-thinking tech company based in Kenya, dedicated to shaping the future
+        through hands-on innovation in robotics, coding education, and bionics research.
+        Under the leadership of CEO Zacharia Chege, we empower individuals, schools, and
+        institutions with the skills and tools they need to succeed in the fast-evolving world
+        of automation, artificial intelligence, and 21st-century technology.
+
+        At Robotech, we're not just teaching technology — we're building problem-solvers,
+        critical thinkers, and future-ready innovators who can design solutions for local and global challenges alike.
       </p>
     </div>
   </section>
@@ -244,8 +273,10 @@
           class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-4 group">
           <img src="banner.jpeg" alt="Robotics Teaching"
             class="rounded-xl mb-4 w-full h-48 object-cover group-hover:opacity-90 transition">
-          <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Teaching Robotics in Kenya</h3>
-          <p class="text-gray-600">Discover how we bring practical robotics and coding lessons to schools and tech hubs across Kenya.</p>
+          <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Teaching
+            Robotics in Kenya</h3>
+          <p class="text-gray-600">Discover how we bring practical robotics and coding lessons to schools and tech hubs
+            across Kenya.</p>
           <div class="mt-3 text-robotech-orange font-medium flex items-center">
             Read more <i class="fas fa-arrow-right ml-2"></i>
           </div>
@@ -256,8 +287,10 @@
           class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-4 group">
           <img src="mykid.jpg" alt="Research Facilities"
             class="rounded-xl mb-4 w-full h-48 object-cover group-hover:opacity-90 transition">
-          <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Our Research Facilities</h3>
-          <p class="text-gray-600">Explore our advanced robotics and bionics lab empowering groundbreaking innovations in health and
+          <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Our Research
+            Facilities</h3>
+          <p class="text-gray-600">Explore our advanced robotics and bionics lab empowering groundbreaking innovations
+            in health and
             automation.</p>
           <div class="mt-3 text-robotech-orange font-medium flex items-center">
             Read more <i class="fas fa-arrow-right ml-2"></i>
@@ -269,8 +302,10 @@
           class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition p-4 group">
           <img src="led.jpg" alt="Coding for Youth"
             class="rounded-xl mb-4 w-full h-48 object-cover group-hover:opacity-90 transition">
-          <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Coding for Young Innovators</h3>
-          <p class="text-gray-600">We help children and youth build strong foundations in coding, electronics, and logical thinking.</p>
+          <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Coding for
+            Young Innovators</h3>
+          <p class="text-gray-600">We help children and youth build strong foundations in coding, electronics, and
+            logical thinking.</p>
           <div class="mt-3 text-robotech-orange font-medium flex items-center">
             Read more <i class="fas fa-arrow-right ml-2"></i>
           </div>
@@ -287,7 +322,8 @@
       <p class="text-center text-lg mb-4">Have questions or want to partner with us? Reach out via phone or visit our
         offices.</p>
       <div class="text-center">
-        <p class="text-xl font-semibold">Phone: <a href="tel:0769700015" class="text-robotech-orange hover:underline">0769 700
+        <p class="text-xl font-semibold">Phone: <a href="tel:0769700015"
+            class="text-robotech-orange hover:underline">0769 700
             015</a></p>
         <p class="mt-2">Email: <a href="mailto:info@robotech.co.ke"
             class="text-robotech-orange hover:underline">info@robotech.co.ke</a></p>
@@ -301,18 +337,19 @@
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-4 md:mb-0">
           <a href="/" class="flex items-center justify-center md:justify-start gap-3">
-            <img src="logo.png" alt="Robotech Logo" class="h-10 w-10 rounded-full shadow-md border-2 border-white p-1 bg-white">
+            <img src="logo.png" alt="Robotech Logo"
+              class="h-10 w-10 rounded-full shadow-md border-2 border-white p-1 bg-white">
             <span class="text-xl font-bold">Robotech Digital Solutions</span>
           </a>
         </div>
-        
+
         <div class="flex space-x-6 mb-4 md:mb-0">
           <a href="#" class="hover:text-robotech-orange-light transition"><i class="fab fa-facebook-f text-xl"></i></a>
           <a href="#" class="hover:text-robotech-orange-light transition"><i class="fab fa-twitter text-xl"></i></a>
           <a href="#" class="hover:text-robotech-orange-light transition"><i class="fab fa-linkedin-in text-xl"></i></a>
           <a href="#" class="hover:text-robotech-orange-light transition"><i class="fab fa-instagram text-xl"></i></a>
         </div>
-        
+
         <div class="text-sm">
           <p>&copy; 2025 Robotech Digital Solutions. All rights reserved.</p>
           <p class="mt-1">CEO: Zacharia Chege</p>
@@ -322,7 +359,8 @@
   </footer>
 
   <!-- Back to Top Button -->
-  <button id="back-to-top" class="fixed bottom-6 right-6 bg-robotech-orange text-white p-3 rounded-full shadow-lg hidden hover:bg-robotech-orange-light transition">
+  <button id="back-to-top"
+    class="fixed bottom-6 right-6 bg-robotech-orange text-white p-3 rounded-full shadow-lg hidden hover:bg-robotech-orange-light transition">
     <i class="fas fa-arrow-up"></i>
   </button>
 
@@ -331,25 +369,25 @@
     // Mobile Menu Toggle
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
-    
+
     mobileMenuButton.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
-    
+
     // Close mobile menu when clicking on a link
     document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.add('hidden');
       });
     });
-    
+
     // Sticky Navbar with Scroll Effect
     const navbar = document.getElementById('navbar');
     let lastScrollTop = 0;
-    
+
     window.addEventListener('scroll', () => {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
+
       // Show/hide back to top button
       const backToTop = document.getElementById('back-to-top');
       if (scrollTop > 300) {
@@ -357,7 +395,7 @@
       } else {
         backToTop.classList.add('hidden');
       }
-      
+
       // Navbar scroll behavior
       if (scrollTop > lastScrollTop) {
         // Scrolling down
@@ -374,15 +412,15 @@
       }
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
-    
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
+      anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           window.scrollTo({
@@ -392,7 +430,7 @@
         }
       });
     });
-    
+
     // Back to top button
     document.getElementById('back-to-top').addEventListener('click', () => {
       window.scrollTo({
@@ -400,23 +438,23 @@
         behavior: 'smooth'
       });
     });
-    
+
     // Set active nav link based on scroll position
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     window.addEventListener('scroll', () => {
       let current = '';
-      
+
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        
+
         if (pageYOffset >= (sectionTop - 150)) {
           current = section.getAttribute('id');
         }
       });
-      
+
       navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
@@ -466,4 +504,5 @@
     })(window, document, 'script', 'dataLayer', 'GTM-W4T7VMTL');
   </script>
 </body>
+
 </html>
