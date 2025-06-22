@@ -246,21 +246,37 @@
 
 
   <!-- About Section -->
-  <section id="about" class="py-12 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-6">About Us</h2>
-      <p class="text-lg leading-relaxed text-center text-gray-700 max-w-3xl mx-auto">
-        Robotech Digital Solutions is a forward-thinking tech company based in Kenya, dedicated to shaping the future
-        through hands-on innovation in robotics, coding education, and bionics research.
-        Under the leadership of CEO Zacharia Chege, we empower individuals, schools, and
-        institutions with the skills and tools they need to succeed in the fast-evolving world
-        of automation, artificial intelligence, and 21st-century technology.
+<div class="grid md:grid-cols-2 gap-8 items-center">  
+  <!-- Text Content -->  
+  <div class="space-y-6">  
+    <ul class="space-y-4 text-gray-700">  
+      <li class="flex items-start">  
+        <span class="mr-3 text-2xl">🌍</span>  
+        <span><strong>Kenya-Based Tech Pioneers</strong> – Leading hands-on innovation in robotics, AI, and bionics research.</span>  
+      </li>  
+      <li class="flex items-start">  
+        <span class="mr-3 text-2xl">👨‍💼</span>  
+        <span><strong>Visionary Leadership</strong> – Founded by <strong>Zacharia Chege</strong>, empowering the next generation of problem-solvers.</span>  
+      </li>  
+      <li class="flex items-start">  
+        <span class="mr-3 text-2xl">🎓</span>  
+        <span><strong>Future-Ready Education</strong> – Teaching robotics, coding & automation to schools, institutions, and individuals.</span>  
+      </li>  
+      <li class="flex items-start">  
+        <span class="mr-3 text-2xl">💡</span>  
+        <span><strong>Beyond Theory</strong> – We build <strong>critical thinkers</strong> who solve real-world challenges with tech.</span>  
+      </li>  
+    </ul>  
+    <div class="text-center md:text-left">  
+      <button id="slideImageBtn" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Explore Our Work →</button>  
+    </div>  
+  </div>  
 
-        At Robotech, we're not just teaching technology — we're building problem-solvers,
-        critical thinkers, and future-ready innovators who can design solutions for local and global challenges alike.
-      </p>
-    </div>
-  </section>
+  <!-- Image Slider (Hidden on mobile-first) -->  
+  <div class="hidden md:block relative h-64 rounded-lg overflow-hidden shadow-xl">  
+    <img id="aboutSlider" src="1.jpg" alt="Robotech Innovations" class="w-full h-full object-cover transition-opacity duration-500">  
+  </div>  
+</div>  
 
   <!-- Blog Cards Section -->
   <section id="blogs" class="py-14 bg-gray-100">
@@ -502,6 +518,14 @@
         j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
           'https://www.googletagmanager.com/gtm.js?id=GTM-W4T7VMTL'; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-W4T7VMTL');
+  </script>
+
+  <script>
+
+    document.getElementById('slideImageBtn').addEventListener('click', function() {  
+  const slider = document.getElementById('aboutSlider');  
+  slider.src = (slider.src.includes('1.jpg')) ? '2.jpg' : '1.jpg';  
+});  
   </script>
 </body>
 
