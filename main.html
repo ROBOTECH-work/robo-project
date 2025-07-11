@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotech Digital Solution | Vision Leaders in AI and Bionics</title>
+    <meta name="description" content="Robotech Digital Solution - Merging Robotics, AI, and Business Tech for a smarter Africa">
+    <meta name="keywords" content="AI, bionics, robotics, security systems, solar installation, access control">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#0b1b2b',
+                        'neon-green': '#4fff75',
+                        'light-grey': '#f0f4f8'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #0b1b2b;
+            --accent: #4fff75;
+            --light: #f0f4f8;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a1725 0%, #0b1b2b 100%);
+            color: #e0e7ff;
+            overflow-x: hidden;
+        }
+        
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(79, 255, 117, 0.7);
+        }
+        
+        .neon-border {
+            border: 1px solid rgba(79, 255, 117, 0.3);
+            box-shadow: 0 0 15px rgba(79, 255, 117, 0.3);
+        }
+        
+        .grid-background {
+            background-image: 
+                linear-gradient(rgba(79, 255, 117, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 255, 117, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at center, rgba(11, 27, 43, 0.9) 0%, rgba(11, 27, 43, 1) 70%),
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,100" stroke="rgba(79,255,117,0.1)" stroke-width="0.5"/></svg>');
+            background-size: cover;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            background: rgba(15, 30, 45, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 255, 117, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(79, 255, 117, 0.4);
+        }
+        
+        .team-card {
+            background: rgba(15, 30, 45, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 255, 117, 0.1);
+        }
+        
+        .testimonial-card {
+            background: rgba(15, 30, 45, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 255, 117, 0.1);
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4fff75;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #4fff75 0%, #3bd15f 100%);
+            color: #0b1b2b;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(79, 255, 117, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(79, 255, 117, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #4fff75;
+            color: #4fff75;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(79, 255, 117, 0.1);
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 4px 15px rgba(18, 140, 126, 0.4);
+        }
+        
+        .mpesa-banner {
+            background: linear-gradient(135deg, #0b1b2b 0%, #1a365d 100%);
+            border: 2px solid #4fff75;
+            box-shadow: 0 0 20px rgba(79, 255, 117, 0.4);
+        }
+        
+        .research-section {
+            background: linear-gradient(rgba(11, 27, 43, 0.9), rgba(11, 27, 43, 0.9)), 
+                         url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M0,0 L200,200" stroke="rgba(79,255,117,0.1)" stroke-width="0.5"/></svg>');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="grid-background">
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="fixed bottom-8 right-8 z-50 whatsapp-btn w-14 h-14 rounded-full flex items-center justify-center text-white animate-pulse-slow">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-40 bg-deep-blue bg-opacity-90 backdrop-blur-sm py-4 px-6 border-b border-neon-green border-opacity-20">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full bg-neon-green flex items-center justify-center text-deep-blue font-bold text-xl">
+                    RD
+                </div>
+                <span class="text-xl font-bold text-white">Robotech<span class="text-neon-green">Digital</span></span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-white hover:text-neon-green nav-link">Home</a>
+                <a href="#about" class="text-white hover:text-neon-green nav-link">About</a>
+                <a href="#services" class="text-white hover:text-neon-green nav-link">Services</a>
+                <a href="#gallery" class="text-white hover:text-neon-green nav-link">Gallery</a>
+                <a href="#team" class="text-white hover:text-neon-green nav-link">Team</a>
+                <a href="#research" class="text-white hover:text-neon-green nav-link">Research</a>
+                <a href="#contact" class="text-white hover:text-neon-green nav-link">Contact</a>
+                <a href="#contact" class="btn-primary px-6 py-2 rounded-full">Get Started</a>
+            </div>
+            
+            <button class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen hero-bg flex items-center pt-16 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
+                Vision Leaders in <span class="text-neon-green neon-glow">AI & Bionics</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-light-grey">
+                Merging Robotics, AI, and Business Tech for a smarter Africa
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#services" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold">
+                    Explore Our Smart Solutions
+                </a>
+                <a href="#contact" class="btn-outline px-8 py-4 rounded-full text-lg font-semibold">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-neon-green text-4xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-black">About Robotech Digital Solution</h2>
+                <div class="w-24 h-1 bg-neon-green mx-auto mb-6"></div>
+                <p class="text-2xl max-w-3xl mx-auto text-black font-medium mb-8">
+                    Pioneering the future of technology in Africa through innovation and excellence
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-black">Our Vision</h3>
+                    <p class="text-lg mb-6 text-black">
+                        Robotech Digital Solution is at the forefront of technological innovation, dedicated to transforming Africa through cutting-edge solutions in artificial intelligence, robotics, and bionics.
+                    </p>
+                    <p class="text-lg mb-8 text-black">
+                        We specialize in creating smart, sustainable solutions that address real-world challenges while pushing the boundaries of what's possible with technology.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-neon-green text-xl">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-black ">Our Mission</h4>
+                                <p class="text-black">
+                                    To develop and implement innovative technology solutions that enhance business efficiency, security, and sustainability across Africa.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-neon-green text-xl">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2 text-black">Our Approach</h4>
+                                <p class="text-black">
+                                    Combining research-driven development with practical implementation to deliver solutions that are both advanced and accessible.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl border border-neon-green border-opacity-20 fade-in">
+                        <div class="text-neon-green text-4xl mb-4">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">AI Research</h4>
+                        <p class="text-light-grey">
+                            Advanced machine learning algorithms for predictive analytics and automation.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl border border-neon-green border-opacity-20 fade-in">
+                        <div class="text-neon-green text-4xl mb-4">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">Bionic Systems</h4>
+                        <p class="text-light-grey">
+                            Revolutionary prosthetic technology enhancing human capabilities.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl border border-neon-green border-opacity-20 fade-in">
+                        <div class="text-neon-green text-4xl mb-4">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">Sustainable Tech</h4>
+                        <p class="text-light-grey">
+                            Eco-friendly energy solutions for a greener future.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl border border-neon-green border-opacity-20 fade-in">
+                        <div class="text-neon-green text-4xl mb-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">Security Systems</h4>
+                        <p class="text-light-grey">
+                            Next-generation protection for homes and businesses.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 bg-deep-blue bg-opacity-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Our Smart Business Services</h2>
+                <div class="w-24 h-1 bg-neon-green mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    Comprehensive solutions designed to transform your business operations
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card rounded-xl p-8 fade-in">
+                    <div class="text-neon-green text-4xl mb-6">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Web & App Development</h3>
+                    <p class="text-light-grey mb-6">
+                        Business websites, eCommerce platforms, SaaS solutions tailored to your needs.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Responsive design
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            E-commerce integration
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Custom web applications
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card rounded-xl p-8 fade-in">
+                    <div class="text-neon-green text-4xl mb-6">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Autonomous Security Systems</h3>
+                    <p class="text-light-grey mb-6">
+                        Advanced security solutions for comprehensive protection.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            CCTV (Regular + Hidden)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Intruder Alarm Systems
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Motion-activated Systems
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card rounded-xl p-8 fade-in">
+                    <div class="text-neon-green text-4xl mb-6">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Solar & Smart Energy</h3>
+                    <p class="text-light-grey mb-6">
+                        Sustainable energy solutions for homes and businesses.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Hybrid solar systems
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Smart power meters
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Energy storage solutions
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card rounded-xl p-8 fade-in">
+                    <div class="text-neon-green text-4xl mb-6">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Access Control Systems</h3>
+                    <p class="text-light-grey mb-6">
+                        Secure access management for modern facilities.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Biometric systems
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            RFID access
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Face Recognition
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card rounded-xl p-8 fade-in">
+                    <div class="text-neon-green text-4xl mb-6">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">AI & Robotics Solutions</h3>
+                    <p class="text-light-grey mb-6">
+                        Cutting-edge automation and robotics technology.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Human Body Bionic Parts
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Logic Robots & Automation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Custom robotic builds
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card rounded-xl p-8 fade-in">
+                    <div class="text-neon-green text-4xl mb-6">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Graphic Design</h3>
+                    <p class="text-light-grey mb-6">
+                        Visual solutions that elevate your brand presence.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Logo & Branding
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Posters & Marketing Materials
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-neon-green mr-2"></i>
+                            Motion Graphics
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-black">Innovation Gallery</h2>
+                <div class="w-24 h-1 bg-neon-green mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-black">
+                    Explore our cutting-edge projects and solutions
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64" src="Gripper.jpg" alt="Bionic arm prototype"></div>
+                    <div class="p-4 bg-deep-blue">
+                        <h4 class="text-lg font-semibold text-white">Advanced Bionic Arm</h4>
+                        <p class="text-light-grey">Prosthetic with neural interface</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64" alt="Robotic hand gripping object"></div>
+                    <div class="p-4 bg-deep-blue">
+                        <h4 class="text-lg font-semibold text-white">Robotic Gripper System</h4>
+                        <p class="text-light-grey">Precision manipulation technology</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64" alt="Smart CCTV setup"></div>
+                    <div class="p-4 bg-deep-blue">
+                        <h4 class="text-lg font-semibold text-white">AI Surveillance System</h4>
+                        <p class="text-light-grey">Intelligent threat detection</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64" alt="Solar roof installation"></div>
+                    <div class="p-4 bg-deep-blue">
+                        <h4 class="text-lg font-semibold text-white">Commercial Solar Installation</h4>
+                        <p class="text-light-grey">Hybrid energy solutions</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64" alt="Face recognition access"></div>
+                    <div class="p-4 bg-deep-blue">
+                        <h4 class="text-lg font-semibold text-white">Biometric Access Control</h4>
+                        <p class="text-light-grey">Secure facility entry systems</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item rounded-xl overflow-hidden">
+                    <div class="bg-gray-200 border-2 border-dashed rounded-xl w-full h-64" alt="Team in lab"></div>
+                    <div class="p-4 bg-deep-blue">
+                        <h4 class="text-lg font-semibold text-white">Research & Development</h4>
+                        <p class="text-light-grey">Innovation in our robotics lab</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section - Fixed Text Visibility -->
+    <section id="team" class="py-20 px-6 bg-deep-blue bg-opacity-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Meet Our Visionary Team</h2>
+                <div class="w-24 h-1 bg-neon-green mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    Experts driving innovation in AI and bionics
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-card rounded-xl p-6 text-center fade-in">
+                    <div class="w-32 h-32 rounded-full mx-auto bg-gray-200 border-2 border-dashed mb-6"></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Chege</h3>
+                    <p class="text-neon-green mb-3">CEO & Robotics Visionary</p>
+                    <p class="text-gray-200">
+                        Strategic leadership with a passion for robotic innovation and AI integration.
+                    </p>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-card rounded-xl p-6 text-center fade-in">
+                    <div class="w-32 h-32 rounded-full mx-auto bg-gray-200 border-2 border-dashed mb-6"></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Ondari</h3>
+                    <p class="text-neon-green mb-3">Manager</p>
+                    <p class="text-gray-200">
+                        Operations and client service expert ensuring seamless project delivery.
+                    </p>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-card rounded-xl p-6 text-center fade-in">
+                    <div class="w-32 h-32 rounded-full mx-auto bg-gray-200 border-2 border-dashed mb-6"></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Simon</h3>
+                    <p class="text-neon-green mb-3">Asst. Manager</p>
+                    <p class="text-gray-200">
+                        Specializes in security systems implementation and project management.
+                    </p>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-card rounded-xl p-6 text-center fade-in">
+                    <div class="w-32 h-32 rounded-full mx-auto bg-gray-200 border-2 border-dashed mb-6"></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">George</h3>
+                    <p class="text-neon-green mb-3">Social Media Lead</p>
+                    <p class="text-gray-200">
+                        Driving engagement and brand awareness through strategic content creation.
+                    </p>
+                </div>
+                
+                <!-- Team Member 5 -->
+                <div class="team-card rounded-xl p-6 text-center fade-in">
+                    <div class="w-32 h-32 rounded-full mx-auto bg-gray-200 border-2 border-dashed mb-6"></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Msanii</h3>
+                    <p class="text-neon-green mb-3">Mechanical Designer</p>
+                    <p class="text-gray-200">
+                        Innovator in bionic parts and smart hardware integration.
+                    </p>
+                </div>
+                
+                <!-- Team Member 6 -->
+                <div class="team-card rounded-xl p-6 text-center fade-in">
+                    <div class="w-32 h-32 rounded-full mx-auto bg-gray-200 border-2 border-dashed mb-6"></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Owen</h3>
+                    <p class="text-neon-green mb-3">Computer Scientist</p>
+                    <p class="text-gray-200">
+                        Expert in AI algorithms, backend systems, and machine learning.
+                    </p>
+                </div>
+                
+                <!-- Team Member 7 -->
+                <div class="team-card rounded-xl p-6 text-center fade-in">
+                    <div class="w-32 h-32 rounded-full mx-auto bg-gray-200 border-2 border-dashed mb-6"></div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Simon</h3>
+                    <p class="text-neon-green mb-3">Network Specialist</p>
+                    <p class="text-gray-200">
+                        Cybersecurity expert with focus on penetration testing and defense.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Support Section -->
+    <section id="research" class="py-20 px-6 research-section">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Support Our Research</h2>
+                <div class="w-24 h-1 bg-neon-green mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    Help us pioneer the future of AI and bionic technology in Africa
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-white">Become a Patron of Innovation</h3>
+                    <p class="text-lg mb-6 text-light-grey">
+                        Your support enables us to continue groundbreaking research in artificial intelligence, robotics, and bionic systems. As a patron, you'll be directly contributing to:
+                    </p>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <div class="mt-1 mr-4 text-neon-green text-xl">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1 text-white">Advanced Prosthetics</h4>
+                                <p class="text-light-grey">Developing affordable bionic limbs for amputees</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="mt-1 mr-4 text-neon-green text-xl">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1 text-white">AI for Healthcare</h4>
+                                <p class="text-light-grey">Creating diagnostic tools for rural communities</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start">
+                            <div class="mt-1 mr-4 text-neon-green text-xl">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1 text-white">Sustainable Robotics</h4>
+                                <p class="text-light-grey">Building eco-friendly automation solutions</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <a href="#mpesa" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-block">
+                        Support via M-Pesa
+                    </a>
+                </div>
+                
+                <div class="mpesa-banner rounded-xl p-8 text-center fade-in">
+                    <div class="text-5xl mb-6 text-white">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Contribute via M-Pesa</h3>
+                    <p class="text-light-grey mb-6">
+                        Support our research with a secure M-Pesa donation
+                    </p>
+                    
+                    <div class="bg-deep-blue p-6 rounded-lg mb-6">
+                        <div class="flex justify-center mb-4">
+                            <div class="bg-white w-16 h-16 rounded-full flex items-center justify-center">
+                                <span class="text-3xl text-green-600">RD</span>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 text-white">Paybill: 247247</h4>
+                        <p class="text-light-grey">Account: 175452</p>
+                    </div>
+                    
+                    <p class="text-light-grey text-sm">
+                        Use the paybill details above to support our research initiatives.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-black">What Our Partners Say</h2>
+                <div class="w-24 h-1 bg-neon-green mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-black">
+                    Hear from businesses and organizations we've transformed
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card rounded-xl p-8 fade-in">
+                    <div class="text-yellow-400 text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-light-grey mb-6 italic">
+                        "Robotech's security systems transformed our facility. The AI-powered CCTV detected an intrusion attempt within the first week of installation, preventing a potential loss of thousands of dollars."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-dashed mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-white">James Kariuki</h4>
+                            <p class="text-light-grey">Facility Manager, Nairobi</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card rounded-xl p-8 fade-in">
+                    <div class="text-yellow-400 text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-light-grey mb-6 italic">
+                        "The solar installation from Robotech has reduced our energy costs by 60%. Their smart monitoring system gives us complete control over our energy usage."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-dashed mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-white">Sarah Mwangi</h4>
+                            <p class="text-light-grey">Manufacturing Director, Mombasa</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card rounded-xl p-8 fade-in">
+                    <div class="text-yellow-400 text-2xl mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-light-grey mb-6 italic">
+                        "Working with Robotech on our bionic limb project has been revolutionary. Their expertise in neural interfaces has dramatically improved patient outcomes."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 border-2 border-dashed mr-4"></div>
+                        <div>
+                            <h4 class="font-bold text-white">Dr. Wanjiku Njoroge</h4>
+                            <p class="text-light-grey">Medical Director, Kisumu</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-deep-blue">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Get In Touch</h2>
+                <div class="w-24 h-1 bg-neon-green mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    Ready to transform your business with smart solutions? Contact us today.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-deep-blue bg-opacity-50 rounded-xl p-8 border border-neon-green border-opacity-20">
+                        <h3 class="text-2xl font-bold mb-6 text-white">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-neon-green text-xl">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-1 text-white">Our Location</h4>
+                                    <p class="text-light-grey">Nairobi, Kenya</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-neon-green text-xl">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-1 text-white">Phone</h4>
+                                    <p class="text-light-grey">+254 769 700 015</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-neon-green text-xl">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-1 text-white">Email</h4>
+                                    <p class="text-light-grey">info@robotech.co.ke</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-neon-green text-xl">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-1 text-white">Business Hours</h4>
+                                    <p class="text-light-grey">Monday - Friday: 8AM - 6PM</p>
+                                    <p class="text-light-grey">Saturday: 9AM - 1PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10">
+                            <h4 class="text-lg font-semibold mb-4 text-white">Connect With Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-12 h-12 rounded-full bg-deep-blue border border-neon-green border-opacity-30 flex items-center justify-center text-neon-green hover:bg-neon-green hover:text-deep-blue transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-full bg-deep-blue border border-neon-green border-opacity-30 flex items-center justify-center text-neon-green hover:bg-neon-green hover:text-deep-blue transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-full bg-deep-blue border border-neon-green border-opacity-30 flex items-center justify-center text-neon-green hover:bg-neon-green hover:text-deep-blue transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="w-12 h-12 rounded-full bg-deep-blue border border-neon-green border-opacity-30 flex items-center justify-center text-neon-green hover:bg-neon-green hover:text-deep-blue transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-gray-800 bg-opacity-30 rounded-xl overflow-hidden">
+                        <div class="w-full h-64 bg-gray-200 border-2 border-dashed flex items-center justify-center">
+                            <i class="fas fa-map-marked-alt text-4xl text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-deep-blue bg-opacity-50 rounded-xl p-8 border border-neon-green border-opacity-20">
+                        <h3 class="text-2xl font-bold mb-6 text-white">Send Us a Message</h3>
+                        
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block mb-2 text-light-grey">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 bg-deep-blue border border-neon-green border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green text-white">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block mb-2 text-light-grey">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 bg-deep-blue border border-neon-green border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green text-white">
+                            </div>
+                            
+                            <div>
+                                <label for="service" class="block mb-2 text-light-grey">Service Interested In</label>
+                                <select id="service" class="w-full px-4 py-3 bg-deep-blue border border-neon-green border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green text-white">
+                                    <option>Web & App Development</option>
+                                    <option>Graphic Design</option>
+                                    <option>Autonomous Security Systems</option>
+                                    <option>Solar Installation & Smart Energy</option>
+                                    <option>Access Control Systems</option>
+                                    <option>AI & Robotics Solutions</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block mb-2 text-light-grey">Your Message</label>
+                                <textarea id="message" rows="5" class="w-full px-4 py-3 bg-deep-blue border border-neon-green border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-neon-green text-white"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary w-full py-4 rounded-lg text-lg font-semibold">
+                                Partner with Vision Leaders Today
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-deep-blue border-t border-neon-green border-opacity-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-neon-green flex items-center justify-center text-deep-blue font-bold">
+                            RD
+                        </div>
+                        <span class="text-xl font-bold text-white">Robotech<span class="text-neon-green">Digital</span></span>
+                    </div>
+                    <p class="text-light-grey mb-6">
+                        Vision Leaders in AI and Bionics, transforming Africa through technological innovation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-light-grey hover:text-neon-green">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-light-grey hover:text-neon-green">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-light-grey hover:text-neon-green">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-light-grey hover:text-neon-green">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-light-grey hover:text-neon-green">Web & App Development</a></li>
+                        <li><a href="#" class="text-light-grey hover:text-neon-green">Graphic Design</a></li>
+                        <li><a href="#" class="text-light-grey hover:text-neon-green">Security Systems</a></li>
+                        <li><a href="#" class="text-light-grey hover:text-neon-green">Solar Installation</a></li>
+                        <li><a href="#" class="text-light-grey hover:text-neon-green">Access Control</a></li>
+                        <li><a href="#" class="text-light-grey hover:text-neon-green">AI & Robotics</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-light-grey hover:text-neon-green">Home</a></li>
+                        <li><a href="#about" class="text-light-grey hover:text-neon-green">About Us</a></li>
+                        <li><a href="#services" class="text-light-grey hover:text-neon-green">Services</a></li>
+                        <li><a href="#gallery" class="text-light-grey hover:text-neon-green">Gallery</a></li>
+                        <li><a href="#team" class="text-light-grey hover:text-neon-green">Our Team</a></li>
+                        <li><a href="#contact" class="text-light-grey hover:text-neon-green">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white">Newsletter</h3>
+                    <p class="text-light-grey mb-4">
+                        Subscribe for updates on our latest innovations and projects.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-3 bg-deep-blue border border-neon-green border-opacity-20 rounded-l-lg focus:outline-none text-white w-full">
+                        <button class="bg-neon-green text-deep-blue px-4 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-neon-green border-opacity-20 mt-12 pt-8 text-center">
+                <p class="text-light-grey">
+                    &copy; 2025 Robotech Digital Solution. All rights reserved. | Designed with <i class="fas fa-heart text-red-500"></i> for a smarter Africa
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for elements with fade-in class
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(element);
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuButton = document.querySelector('.md\\:hidden button');
+            const mobileMenu = document.querySelector('#mobile-menu');
+            
+            if (mobileMenuButton) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
