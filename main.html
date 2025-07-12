@@ -214,6 +214,175 @@
                 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M0,0 L200,200" stroke="rgba(79,255,117,0.1)" stroke-width="0.5"/></svg>');
             background-size: cover;
         }
+
+        /* Enhanced Gallery Styles */
+        .gallery-section {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70%;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .gallery-card {
+            background: rgba(15, 30, 45, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(79, 255, 117, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(79, 255, 117, 0.4);
+        }
+        
+        .card-image {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(11, 27, 43, 0.9), transparent);
+            padding: 1.5rem;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+            padding-top: 1rem;
+        }
+        
+        .tech-tag {
+            background: rgba(79, 255, 117, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .ceo-highlight {
+            border: 2px solid rgba(79, 255, 117, 0.5);
+            position: relative;
+            overflow: visible;
+        }
+        
+        .ceo-highlight:before {
+            content: "CEO's Choice";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            z-index: 10;
+            box-shadow: 0 4px 10px rgba(79, 255, 117, 0.3);
+        }
+        
+        .ceo-quote {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0 1.5rem;
+            font-style: italic;
+            color: var(--light);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            font-size: 0.95rem;
+        }
+        
+        .ceo-name {
+            font-weight: 600;
+            margin-top: 5px;
+            display: block;
+            font-style: normal;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ceo-highlight:before {
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
     </style>
 </head>
 
@@ -546,13 +715,12 @@
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <!-- Gallery Section -->
-    <section class="gallery-section">
+    <!-- Gallery Section - Enhanced -->
+    <section id="gallery" class="gallery-section">
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold mb-4 text-white">Our Cutting-Edge Solutions</h2>
-            <div class="w-24 h-1 bg-[#4fff75] mx-auto mb-6"></div>
-            <p class="text-xl max-w-3xl mx-auto text-[#f0f4f8]">
+            <div class="w-24 h-1 bg-neon-green mx-auto mb-6"></div>
+            <p class="text-xl max-w-3xl mx-auto text-light-grey">
                 Explore our innovative projects and technological advancements
             </p>
         </div>
@@ -567,15 +735,14 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <p class="text-[#f0f4f8]">Advanced robotic gripper capable of handling delicate objects with
-                        precision, using AI-powered force feedback for optimal manipulation.</p>
+                    <p class="text-light-grey">Advanced robotic gripper capable of handling delicate objects with precision, using AI-powered force feedback for optimal manipulation.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">AI-Powered</span>
                         <span class="tech-tag">Precision Control</span>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Card 2: Bionic Arm -->
             <div class="gallery-card animate-fade-in delay-100">
                 <div class="card-image">
@@ -585,15 +752,14 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <p class="text-[#f0f4f8]">Neural-controlled bionic arm with tactile feedback, providing natural
-                        movement and sensory experience for amputees.</p>
+                    <p class="text-light-grey">Neural-controlled bionic arm with tactile feedback, providing natural movement and sensory experience for amputees.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Neural Interface</span>
                         <span class="tech-tag">Tactile Feedback</span>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Card 3: CCTV Security -->
             <div class="gallery-card animate-fade-in delay-200">
                 <div class="card-image">
@@ -603,15 +769,14 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <p class="text-[#f0f4f8]">Intelligent security system with facial recognition, motion detection, and
-                        real-time threat analysis for comprehensive protection.</p>
+                    <p class="text-light-grey">Intelligent security system with facial recognition, motion detection, and real-time threat analysis for comprehensive protection.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Facial Recognition</span>
                         <span class="tech-tag">Real-time Analysis</span>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Card 4: Biometric Access -->
             <div class="gallery-card animate-fade-in delay-300">
                 <div class="card-image">
@@ -621,15 +786,14 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <p class="text-[#f0f4f8]">Advanced biometric security system using fingerprint, facial, and iris
-                        recognition for secure facility access.</p>
+                    <p class="text-light-grey">Advanced biometric security system using fingerprint, facial, and iris recognition for secure facility access.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Multi-factor Auth</span>
                         <span class="tech-tag">Military-grade</span>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Card 5: Solar Installation -->
             <div class="gallery-card animate-fade-in delay-400">
                 <div class="card-image">
@@ -639,15 +803,14 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <p class="text-[#f0f4f8]">High-efficiency solar systems with smart energy management for commercial
-                        properties, reducing energy costs by up to 70%.</p>
+                    <p class="text-light-grey">High-efficiency solar systems with smart energy management for commercial properties, reducing energy costs by up to 70%.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Renewable Energy</span>
                         <span class="tech-tag">Smart Grid</span>
                     </div>
                 </div>
             </div>
-
+            
             <!-- Card 6: Research Lab -->
             <div class="gallery-card animate-fade-in delay-500">
                 <div class="card-image">
@@ -657,11 +820,32 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <p class="text-[#f0f4f8]">Our state-of-the-art research facility where we develop next-generation AI
-                        and robotics solutions for African challenges.</p>
+                    <p class="text-light-grey">Our state-of-the-art research facility where we develop next-generation AI and robotics solutions for African challenges.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Innovation Hub</span>
                         <span class="tech-tag">Next-gen Tech</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 7: CEO Highlight -->
+            <div class="gallery-card ceo-highlight animate-fade-in delay-600">
+                <div class="card-image">
+                    <img src="ceo.jpg" alt="CEO of Robotech Digital Solution">
+                    <div class="card-overlay">
+                        <h3 class="text-xl font-bold text-white">Visionary Leadership</h3>
+                    </div>
+                    <div class="ceo-quote">
+                        "We build technology that empowers people and transforms societies"
+                        <span class="ceo-name">- CEO, Robotech Digital</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p class="text-light-grey">Our CEO's commitment to innovation and ethical practices drives our mission to transform Africa through technology.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Best Practices</span>
+                        <span class="tech-tag">Strategic Vision</span>
+                        <span class="tech-tag">Leadership</span>
                     </div>
                 </div>
             </div>
@@ -669,12 +853,13 @@
 
         <div class="text-center mt-16">
             <a href="#"
-                class="inline-block bg-[#4fff75] text-[#0b1b2b] font-bold py-3 px-8 rounded-full text-lg hover:bg-[#3bd15f] transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl shadow-[#4fff7533]">
+                class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-block">
                 Explore All Solutions
                 <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
     </section>
+
     <!-- Research Support Section -->
     <section id="research" class="py-20 px-6 research-section">
         <div class="max-w-7xl mx-auto">
@@ -1100,8 +1285,26 @@
                 });
             });
         });
-    </script>
-   
-</body>
 
+        // Gallery animation observer
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
 </html>
