@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robotech Innovator</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+      background: #f0f9ff;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background-color: #002244;
+      color: #fff;
+      border-radius: 10px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      background: #e6f7ff;
+    }
+
+    .lesson-content {
+      display: none;
+      padding-top: 10px;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    #editor-section {
+      margin-top: 30px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      font-family: monospace;
+      font-size: 14px;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🤖 Robotech Innovator</h1>
+    <p>Learn to Code. Play. Build Robots.</p>
+  </header>
+
+  <section class="cards">
+
+    <div class="card" onclick="toggleLesson('html')">
+      <h2>🧑‍💻 Learn HTML</h2>
+      <div class="lesson-content" id="html">
+        <p>HTML stands for HyperText Markup Language. It's used to create webpages with headings, paragraphs, images, and links.</p>
+        <ul>
+          <li>&lt;h1&gt; to &lt;h6&gt; — Headings</li>
+          <li>&lt;p&gt; — Paragraph</li>
+          <li>&lt;img&gt; — Image</li>
+          <li>&lt;a&gt; — Link</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleLesson('css')">
+      <h2>🎨 Learn CSS</h2>
+      <div class="lesson-content" id="css">
+        <p>CSS stands for Cascading Style Sheets. It is used to style your HTML like adding colors, borders, and layout!</p>
+        <ul>
+          <li><code>color</code> — Changes text color</li>
+          <li><code>background-color</code> — Sets background</li>
+          <li><code>border</code> — Adds borders</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleLesson('robotics')">
+      <h2>🤖 Intro to Robotics</h2>
+      <div class="lesson-content" id="robotics">
+        <p>Robots are machines that can move, sense, and make decisions. Some clean our homes, others explore space!</p>
+        <ul>
+          <li>Sensors — Help robots see or hear</li>
+          <li>Motors — Let robots move</li>
+          <li>Logic — Helps robots make decisions</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="editor-section">
+    <h2>🧪 Code Playground</h2>
+    <p>Write HTML & CSS code below and click "Run Code" to see the result!</p>
+
+    <textarea id="codeInput">
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { background-color: lightyellow; color: darkblue; text-align: center; }
+    h1 { font-size: 30px; }
+  </style>
+</head>
+<body>
+  <h1>Hello, Young Coder!</h1>
+  <p>Welcome to Robotech Innovator!</p>
+</body>
+</html>
+    </textarea>
+
+    <button onclick="runCode()">▶ Run Code</button>
+
+    <iframe id="preview"></iframe>
+  </section>
+
+  <script>
+    function toggleLesson(id) {
+      const content = document.getElementById(id);
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function runCode() {
+      const code = document.getElementById('codeInput').value;
+      const iframe = document.getElementById('preview');
+      iframe.srcdoc = code;
+    }
+  </script>
+
+</body>
+</html>
