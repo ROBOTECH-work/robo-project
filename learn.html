@@ -1,184 +1,395 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Robotech Innovator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn coding and robotics with Robotech Innovator - interactive lessons and playground for young developers">
+  <title>Robotech Innovator | Learn Coding & Robotics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Comic Sans MS', sans-serif;
-      background: #f0f9ff;
+    :root {
+      --primary-color: #0066cc;
+      --primary-dark: #004d99;
+      --secondary-color: #002244;
+      --background-light: #f8faff;
+      --text-color: #2d3748;
+      --text-light: #4a5568;
+      --white: #ffffff;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 20px;
-      color: #333;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background-color: var(--background-light);
+      color: var(--text-color);
+      padding: 0;
+      margin: 0;
     }
 
     header {
+      background-color: var(--secondary-color);
+      color: var(--white);
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 20px;
-      background-color: #002244;
-      color: #fff;
-      border-radius: 10px;
+      margin-bottom: 2rem;
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      font-weight: 300;
+      opacity: 0.9;
     }
 
     .cards {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .card {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: 0.3s ease;
+      background: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid rgba(0, 0, 0, 0.05);
     }
 
-    .card:hover {
-      background: #e6f7ff;
+    .card-header {
+      padding: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .card-header:hover {
+      background-color: rgba(0, 102, 204, 0.05);
+    }
+
+    .card-header h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
     }
 
     .lesson-content {
-      display: none;
-      padding-top: 10px;
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
     }
 
-    a {
-      color: #0077cc;
-      text-decoration: none;
+    .lesson-content.active {
+      padding: 0 1.5rem 1.5rem;
+      max-height: 500px;
     }
 
-    #editor-section {
-      margin-top: 30px;
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .lesson-content p {
+      margin-bottom: 1rem;
+      color: var(--text-light);
+    }
+
+    .lesson-content ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .lesson-content li {
+      margin-bottom: 0.5rem;
+    }
+
+    code {
+      font-family: 'Roboto Mono', monospace;
+      background-color: rgba(0, 0, 0, 0.05);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .editor-section {
+      background-color: var(--white);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .editor-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .editor-section p {
+      margin-bottom: 1.5rem;
+      color: var(--text-light);
+    }
+
+    .editor-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .editor-container {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     textarea {
       width: 100%;
-      height: 200px;
-      font-family: monospace;
-      font-size: 14px;
-      padding: 10px;
-      margin-top: 10px;
+      min-height: 300px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
+      padding: 1rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: var(--border-radius);
+      resize: vertical;
+    }
+
+    .preview-container {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: var(--border-radius);
+      overflow: hidden;
     }
 
     iframe {
       width: 100%;
-      height: 200px;
-      border: 1px solid #ccc;
-      margin-top: 10px;
+      height: 100%;
+      min-height: 300px;
+      border: none;
+      background-color: var(--white);
     }
 
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      background-color: #0077cc;
-      color: white;
+    .button {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary-color);
+      color: var(--white);
       border: none;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .button:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .button:active {
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Accessibility improvements */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    [role="button"] {
       cursor: pointer;
     }
 
-    button:hover {
-      background-color: #005fa3;
+    /* Focus styles for keyboard navigation */
+    :focus-visible {
+      outline: 2px solid var(--primary-color);
+      outline-offset: 2px;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>🤖 Robotech Innovator</h1>
-    <p>Learn to Code. Play. Build Robots.</p>
+    <div class="container">
+      <h1><span aria-hidden="true">🤖</span> Robotech Innovator</h1>
+      <p class="subtitle">Learn to code, build projects, and create robots</p>
+    </div>
   </header>
 
-  <section class="cards">
+  <main class="container">
+    <section class="cards">
+      <article class="card">
+        <div class="card-header" onclick="toggleLesson('html')" role="button" tabindex="0" aria-expanded="false" aria-controls="html">
+          <span aria-hidden="true">🧑‍💻</span>
+          <h2>Learn HTML</h2>
+        </div>
+        <div class="lesson-content" id="html" aria-labelledby="html-heading">
+          <p>HTML (HyperText Markup Language) is the foundation of all web content. It provides the structure for webpages with elements like headings, paragraphs, images, and links.</p>
+          <h3 id="html-heading">Key HTML Elements:</h3>
+          <ul>
+            <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> — Section headings (h1 is most important)</li>
+            <li><code>&lt;p&gt;</code> — Paragraphs of text</li>
+            <li><code>&lt;img&gt;</code> — Embeds images (always use alt text for accessibility)</li>
+            <li><code>&lt;a&gt;</code> — Creates hyperlinks to other pages or resources</li>
+            <li><code>&lt;div&gt;</code> — Generic container for layout and styling</li>
+          </ul>
+        </div>
+      </article>
 
-    <div class="card" onclick="toggleLesson('html')">
-      <h2>🧑‍💻 Learn HTML</h2>
-      <div class="lesson-content" id="html">
-        <p>HTML stands for HyperText Markup Language. It's used to create webpages with headings, paragraphs, images, and links.</p>
-        <ul>
-          <li>&lt;h1&gt; to &lt;h6&gt; — Headings</li>
-          <li>&lt;p&gt; — Paragraph</li>
-          <li>&lt;img&gt; — Image</li>
-          <li>&lt;a&gt; — Link</li>
-        </ul>
-      </div>
-    </div>
+      <article class="card">
+        <div class="card-header" onclick="toggleLesson('css')" role="button" tabindex="0" aria-expanded="false" aria-controls="css">
+          <span aria-hidden="true">🎨</span>
+          <h2>Learn CSS</h2>
+        </div>
+        <div class="lesson-content" id="css" aria-labelledby="css-heading">
+          <p>CSS (Cascading Style Sheets) brings your HTML to life with colors, layouts, animations, and responsive designs that work on any device.</p>
+          <h3 id="css-heading">CSS Fundamentals:</h3>
+          <ul>
+            <li><code>color</code> — Sets text color (hex, rgb, or named colors)</li>
+            <li><code>background-color</code> — Sets element background</li>
+            <li><code>margin</code>/<code>padding</code> — Controls spacing</li>
+            <li><code>display: flex</code> — Modern layout system</li>
+            <li><code>@media</code> — Creates responsive designs</li>
+          </ul>
+        </div>
+      </article>
 
-    <div class="card" onclick="toggleLesson('css')">
-      <h2>🎨 Learn CSS</h2>
-      <div class="lesson-content" id="css">
-        <p>CSS stands for Cascading Style Sheets. It is used to style your HTML like adding colors, borders, and layout!</p>
-        <ul>
-          <li><code>color</code> — Changes text color</li>
-          <li><code>background-color</code> — Sets background</li>
-          <li><code>border</code> — Adds borders</li>
-        </ul>
-      </div>
-    </div>
+      <article class="card">
+        <div class="card-header" onclick="toggleLesson('robotics')" role="button" tabindex="0" aria-expanded="false" aria-controls="robotics">
+          <span aria-hidden="true">🤖</span>
+          <h2>Intro to Robotics</h2>
+        </div>
+        <div class="lesson-content" id="robotics" aria-labelledby="robotics-heading">
+          <p>Robotics combines mechanical engineering, electronics, and computer programming to create machines that can perform tasks autonomously or with guidance.</p>
+          <h3 id="robotics-heading">Core Robotics Concepts:</h3>
+          <ul>
+            <li><strong>Sensors:</strong> Allow robots to perceive their environment (light, sound, temperature, proximity)</li>
+            <li><strong>Actuators:</strong> Motors and servos that enable movement</li>
+            <li><strong>Control Systems:</strong> Logic that processes sensor input and determines actions</li>
+            <li><strong>Programming:</strong> Instructions that define robot behavior (often using Python or C++)</li>
+          </ul>
+        </div>
+      </article>
+    </section>
 
-    <div class="card" onclick="toggleLesson('robotics')">
-      <h2>🤖 Intro to Robotics</h2>
-      <div class="lesson-content" id="robotics">
-        <p>Robots are machines that can move, sense, and make decisions. Some clean our homes, others explore space!</p>
-        <ul>
-          <li>Sensors — Help robots see or hear</li>
-          <li>Motors — Let robots move</li>
-          <li>Logic — Helps robots make decisions</li>
-        </ul>
-      </div>
-    </div>
-
-  </section>
-
-  <section id="editor-section">
-    <h2>🧪 Code Playground</h2>
-    <p>Write HTML & CSS code below and click "Run Code" to see the result!</p>
-
-    <textarea id="codeInput">
+    <section class="editor-section">
+      <h2>Interactive Code Playground</h2>
+      <p>Experiment with HTML and CSS in real-time. Write your code in the editor and see the results instantly in the preview pane.</p>
+      
+      <div class="editor-container">
+        <div>
+          <label for="codeInput" class="sr-only">HTML and CSS code editor</label>
+          <textarea id="codeInput" spellcheck="false">
 <!DOCTYPE html>
 <html>
 <head>
   <style>
-    body { background-color: lightyellow; color: darkblue; text-align: center; }
-    h1 { font-size: 30px; }
+    body { 
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f8ff;
+      color: #002244;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #0066cc;
+      margin-bottom: 1rem;
+    }
+    .robot {
+      font-size: 3rem;
+      animation: bounce 1s infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0); }
+      to { transform: translateY(-10px); }
+    }
   </style>
 </head>
 <body>
-  <h1>Hello, Young Coder!</h1>
-  <p>Welcome to Robotech Innovator!</p>
+  <h1>Welcome to Robotech Innovator!</h1>
+  <p>Edit this code to create your own webpage.</p>
+  <div class="robot">🤖</div>
 </body>
 </html>
-    </textarea>
+          </textarea>
+          <button class="button" onclick="runCode()">Run Code</button>
+        </div>
+        <div class="preview-container">
+          <iframe id="preview" title="Code preview output"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <button onclick="runCode()">▶ Run Code</button>
-
-    <iframe id="preview"></iframe>
-  </section>
+  <footer>
+    <div class="container">
+      <p>© 2023 Robotech Innovator | Designed for future coders and engineers</p>
+    </div>
+  </footer>
 
   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Run code initially to show default example
+      runCode();
+      
+      // Add keyboard accessibility for lesson toggles
+      document.querySelectorAll('[role="button"]').forEach(button => {
+        button.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const lessonId = this.getAttribute('aria-controls');
+            toggleLesson(lessonId);
+          }
+        });
+      });
+    });
+
     function toggleLesson(id) {
       const content = document.getElementById(id);
-      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      const button = document.querySelector(`[aria-controls="${id}"]`);
+      const isExpanded = content.classList.toggle('active');
+      
+      // Update ARIA attributes for accessibility
+      button.setAttribute('aria-expanded', isExpanded);
     }
 
     function runCode() {
       const code = document.getElementById('codeInput').value;
       const iframe = document.getElementById('preview');
       iframe.srcdoc = code;
+      
+      // Focus the preview for better UX
+      iframe.focus();
     }
   </script>
-
 </body>
 </html>
