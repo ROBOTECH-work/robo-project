@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn coding and robotics with Robotech Innovator - interactive lessons and playground for young developers">
-  <title>Robotech Innovator | Learn Coding & Robotics</title>
+  <title>RoboKids Innovator | Coding & Robotics for Kids</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary-color: #0066cc;
-      --primary-dark: #004d99;
-      --secondary-color: #002244;
-      --background-light: #f8faff;
-      --text-color: #2d3748;
-      --text-light: #4a5568;
+      --primary-color: #00c6ff;
+      --primary-dark: #0072ff;
+      --secondary-color: #1a1c2c;
+      --tertiary-color: #ff2a6d;
+      --background-dark: #0c0f1d;
+      --background-light: #1d2035;
+      --text-color: #e0e0ff;
+      --text-light: #a0a8d0;
+      --card-bg: rgba(30, 33, 60, 0.7);
       --white: #ffffff;
-      --border-radius: 8px;
-      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --border-radius: 12px;
+      --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       --transition: all 0.3s ease;
+      --glow: 0 0 15px rgba(0, 198, 255, 0.7);
     }
 
     * {
@@ -29,54 +33,168 @@
     }
 
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Patrick Hand', cursive;
       line-height: 1.6;
-      background-color: var(--background-light);
+      background: linear-gradient(135deg, var(--background-dark), var(--secondary-color));
       color: var(--text-color);
+      min-height: 100vh;
       padding: 0;
       margin: 0;
+      overflow-x: hidden;
+      background-attachment: fixed;
+      font-size: 1.2rem;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
     }
 
     header {
-      background-color: var(--secondary-color);
+      background: linear-gradient(90deg, var(--secondary-color), rgba(26, 28, 44, 0.8));
       color: var(--white);
-      padding: 2rem 1rem;
+      padding: 1.5rem 1rem;
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      border-bottom: 1px solid rgba(0, 198, 255, 0.3);
+      box-shadow: var(--box-shadow);
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(0, 198, 255, 0.1), transparent 70%);
+      pointer-events: none;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
-      font-weight: 700;
+      background: linear-gradient(to right, var(--primary-color), var(--tertiary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
 
     .subtitle {
-      font-size: 1.25rem;
-      font-weight: 300;
+      font-size: 1.5rem;
+      font-weight: 500;
       opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--text-light);
+    }
+
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      border: 1px solid rgba(0, 198, 255, 0.2);
+      box-shadow: var(--box-shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .robot-head {
+      width: 180px;
+      height: 180px;
+      background: linear-gradient(145deg, #1d2035, #0c0f1d);
+      border-radius: 50%;
+      position: relative;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 198, 255, 0.5);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: float 4s infinite ease-in-out;
+    }
+
+    .robot-head::before {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+      top: 50px;
+      left: 40px;
+      animation: pulse 2s infinite alternate;
+    }
+
+    .robot-head::after {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+      top: 50px;
+      right: 40px;
+      animation: pulse 2s infinite alternate 0.5s;
+    }
+
+    .robot-mouth {
+      position: absolute;
+      width: 80px;
+      height: 20px;
+      background: #ff2a6d;
+      border-radius: 10px;
+      bottom: 50px;
+      box-shadow: 0 0 15px rgba(255, 42, 109, 0.7);
+      animation: mouth 3s infinite alternate;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
 
     .card {
-      background: var(--white);
+      background: var(--card-bg);
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
       overflow: hidden;
       transition: var(--transition);
-      border: 1px solid rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 198, 255, 0.1);
+      backdrop-filter: blur(5px);
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), var(--glow);
+      border-color: rgba(0, 198, 255, 0.4);
     }
 
     .card-header {
@@ -84,267 +202,697 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.5rem;
+      background: rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
     }
 
     .card-header:hover {
-      background-color: rgba(0, 102, 204, 0.05);
+      background: rgba(0, 102, 204, 0.15);
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+      box-shadow: var(--glow);
     }
 
     .card-header h2 {
-      font-size: 1.5rem;
-      font-weight: 500;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
     }
 
     .lesson-content {
       padding: 0 1.5rem;
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
+      transition: max-height 0.4s ease, padding 0.4s ease;
     }
 
     .lesson-content.active {
       padding: 0 1.5rem 1.5rem;
-      max-height: 500px;
+      max-height: 2000px;
     }
 
     .lesson-content p {
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
       color: var(--text-light);
+      line-height: 1.7;
+      font-size: 1.3rem;
     }
 
     .lesson-content ul {
       padding-left: 1.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      list-style-type: none;
     }
 
     .lesson-content li {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 2.5rem;
+      font-size: 1.3rem;
     }
 
-    code {
-      font-family: 'Roboto Mono', monospace;
-      background-color: rgba(0, 0, 0, 0.05);
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-size: 0.9em;
+    .lesson-content li::before {
+      content: '🤖';
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
+    }
+
+    .lesson-content h3 {
+      font-size: 1.8rem;
+      margin: 1.5rem 0 1rem;
+      color: var(--primary-color);
+      text-shadow: 0 0 8px rgba(0, 198, 255, 0.5);
+    }
+
+    .lesson-content .note {
+      background: rgba(0, 0, 0, 0.3);
+      border-left: 4px solid var(--tertiary-color);
+      padding: 1.2rem;
+      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      margin: 1.5rem 0;
     }
 
     .editor-section {
-      background-color: var(--white);
+      background: var(--card-bg);
       border-radius: var(--border-radius);
       box-shadow: var(--box-shadow);
-      padding: 2rem;
-      margin-bottom: 2rem;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      border: 1px solid rgba(0, 198, 255, 0.2);
+      backdrop-filter: blur(5px);
     }
 
     .editor-section h2 {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+      color: var(--primary-color);
+      text-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
     }
 
     .editor-section p {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.8rem;
       color: var(--text-light);
+      font-size: 1.3rem;
+      max-width: 800px;
     }
 
     .editor-container {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       .editor-container {
         grid-template-columns: 1fr 1fr;
       }
     }
 
+    .hacker-window {
+      background-color: #0a0a12;
+      border: 2px solid #00ff41;
+      border-radius: var(--border-radius);
+      box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .terminal-header {
+      background: #0d0d15;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid #00ff41;
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .terminal-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #00ff41;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.2rem;
+    }
+
     textarea {
       width: 100%;
-      min-height: 300px;
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.9rem;
-      padding: 1rem;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: var(--border-radius);
+      min-height: 350px;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      padding: 1.5rem;
+      background: #0a0a12;
+      color: #00ff41;
+      border: none;
       resize: vertical;
+      line-height: 1.6;
+    }
+
+    textarea:focus {
+      outline: none;
     }
 
     .preview-container {
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      border: 2px solid var(--primary-color);
       border-radius: var(--border-radius);
       overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 198, 255, 0.4);
+      background: #000;
     }
 
     iframe {
       width: 100%;
       height: 100%;
-      min-height: 300px;
+      min-height: 350px;
       border: none;
       background-color: var(--white);
     }
 
     .button {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background-color: var(--primary-color);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.2rem;
+      background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
       color: var(--white);
       border: none;
       border-radius: var(--border-radius);
-      font-size: 1rem;
-      font-weight: 500;
+      font-size: 1.3rem;
+      font-weight: 600;
       cursor: pointer;
       transition: var(--transition);
+      box-shadow: var(--glow);
+      margin-top: 1rem;
+      font-family: 'Fredoka', sans-serif;
     }
 
     .button:hover {
-      background-color: var(--primary-dark);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 198, 255, 0.6);
     }
 
     .button:active {
-      transform: translateY(0);
+      transform: translateY(1px);
     }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem 2rem;
       color: var(--text-light);
-      font-size: 0.9rem;
+      font-size: 1.1rem;
+      border-top: 1px solid rgba(0, 198, 255, 0.2);
+      background: rgba(10, 12, 30, 0.6);
+      margin-top: 2rem;
     }
 
-    /* Accessibility improvements */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
     }
 
-    [role="button"] {
-      cursor: pointer;
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
     }
 
-    /* Focus styles for keyboard navigation */
-    :focus-visible {
-      outline: 2px solid var(--primary-color);
-      outline-offset: 2px;
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(0, 198, 255, 0.1);
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      color: var(--white);
+      transform: translateY(-5px);
+      box-shadow: var(--glow);
+    }
+
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    @keyframes pulse {
+      0% { opacity: 0.7; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes mouth {
+      0% { height: 10px; }
+      50% { height: 20px; }
+      100% { height: 5px; }
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .toc-container {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(0, 198, 255, 0.2);
+      box-shadow: var(--box-shadow);
+    }
+
+    .toc-title {
+      font-size: 1.8rem;
+      margin-bottom: 1.2rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .toc-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      list-style: none;
+    }
+
+    .toc-item {
+      padding: 1rem 1.2rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      border-left: 4px solid var(--primary-color);
+      font-size: 1.3rem;
+    }
+
+    .toc-item:hover {
+      background: rgba(0, 102, 204, 0.15);
+      transform: translateX(5px);
+    }
+
+    .toc-item a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .toc-item i {
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      animation: blink 2s infinite;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-section {
+        flex-direction: column;
+      }
+      
+      .robot-head {
+        width: 160px;
+        height: 160px;
+      }
+      
+      .toc-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      
+      .editor-section {
+        padding: 1.5rem;
+      }
+      
+      .card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1><span aria-hidden="true">🤖</span> Robotech Innovator</h1>
-      <p class="subtitle">Learn to code, build projects, and create robots</p>
+      <h1><i class="fas fa-robot"></i> RoboKids Innovator</h1>
+      <p class="subtitle">Learn coding, build robots, and create amazing things!</p>
     </div>
   </header>
 
   <main class="container">
+    <!-- Table of Contents -->
+    <section class="toc-container">
+      <h2 class="toc-title"><i class="fas fa-list"></i> Learning Path</h2>
+      <ul class="toc-list">
+        <li class="toc-item">
+          <a href="#html"><i class="fas fa-code"></i> HTML Adventures</a>
+        </li>
+        <li class="toc-item">
+          <a href="#css"><i class="fas fa-paint-brush"></i> CSS Magic</a>
+        </li>
+        <li class="toc-item">
+          <a href="#robotics"><i class="fas fa-microchip"></i> Robotics Fun</a>
+        </li>
+        <li class="toc-item">
+          <a href="#playground"><i class="fas fa-laptop-code"></i> Hacker Playground</a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="hero-section">
+      <div class="hero-content">
+        <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Welcome to RoboKids!</h2>
+        <p style="font-size: 1.4rem; line-height: 1.7; margin-bottom: 1.5rem;">
+          Hello future inventors! This is your space to learn how to code, build robots, and create amazing things. 
+          Click on the robot cards below to learn about HTML, CSS, and robotics!
+        </p>
+        <p style="font-size: 1.4rem; line-height: 1.7; margin-bottom: 2rem;">
+          <strong>Fun Things You'll Learn:</strong> Build your own websites, program robots, create games, and design animations!
+        </p>
+        <button class="button">
+          <i class="fas fa-graduation-cap"></i> Start Learning
+        </button>
+      </div>
+      <div class="hero-image">
+        <div class="robot-head">
+          <div class="robot-mouth"></div>
+        </div>
+      </div>
+    </section>
+
     <section class="cards">
-      <article class="card">
+      <article class="card" id="html">
         <div class="card-header" onclick="toggleLesson('html')" role="button" tabindex="0" aria-expanded="false" aria-controls="html">
-          <span aria-hidden="true">🧑‍💻</span>
-          <h2>Learn HTML</h2>
+          <div class="card-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h2>HTML Adventures</h2>
         </div>
         <div class="lesson-content" id="html" aria-labelledby="html-heading">
-          <p>HTML (HyperText Markup Language) is the foundation of all web content. It provides the structure for webpages with elements like headings, paragraphs, images, and links.</p>
-          <h3 id="html-heading">Key HTML Elements:</h3>
+          <h3 id="html-heading">What is HTML?</h3>
+          <p>HTML stands for HyperText Markup Language. It's the code that makes up all websites on the internet! Think of HTML as the skeleton of a webpage - it gives it structure.</p>
+          
+          <div class="note">
+            <p><strong>Fun Fact:</strong> The first website ever created is still online! You can visit it at http://info.cern.ch</p>
+          </div>
+          
+          <h3>HTML Building Blocks</h3>
+          <p>HTML uses "tags" to create different parts of a webpage. Tags are like containers that hold your content:</p>
           <ul>
-            <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> — Section headings (h1 is most important)</li>
-            <li><code>&lt;p&gt;</code> — Paragraphs of text</li>
-            <li><code>&lt;img&gt;</code> — Embeds images (always use alt text for accessibility)</li>
-            <li><code>&lt;a&gt;</code> — Creates hyperlinks to other pages or resources</li>
-            <li><code>&lt;div&gt;</code> — Generic container for layout and styling</li>
+            <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> - Headings (h1 is the biggest)</li>
+            <li><code>&lt;p&gt;</code> - Paragraphs for text</li>
+            <li><code>&lt;img&gt;</code> - For showing pictures</li>
+            <li><code>&lt;a&gt;</code> - Links to other pages</li>
+            <li><code>&lt;div&gt;</code> - A box to put things in</li>
+            <li><code>&lt;button&gt;</code> - Clickable buttons</li>
           </ul>
+          
+          <h3>Creating Your First Webpage</h3>
+          <p>Every HTML page starts with this basic structure:</p>
+          <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--border-radius); overflow: auto; font-family: 'Courier New', monospace; color: var(--primary-color);">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Awesome Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome to My Website!&lt;/h1&gt;
+  &lt;p&gt;This is my first webpage. I made it myself!&lt;/p&gt;
+  &lt;img src="robot.jpg" alt="A friendly robot"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+          
+          <div class="note">
+            <p><strong>Pro Tip:</strong> Always close your tags! For every <code>&lt;tag&gt;</code> there should be a matching <code>&lt;/tag&gt;</code></p>
+          </div>
+          
+          <h3>HTML for Robotics</h3>
+          <p>HTML is used to create control panels for robots! You can make buttons to move a robot, displays to show sensor readings, and more.</p>
+          <p>As you learn more HTML, you'll be able to create interfaces to control real robots from your computer or tablet!</p>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="css">
         <div class="card-header" onclick="toggleLesson('css')" role="button" tabindex="0" aria-expanded="false" aria-controls="css">
-          <span aria-hidden="true">🎨</span>
-          <h2>Learn CSS</h2>
+          <div class="card-icon">
+            <i class="fas fa-paint-brush"></i>
+          </div>
+          <h2>CSS Magic</h2>
         </div>
         <div class="lesson-content" id="css" aria-labelledby="css-heading">
-          <p>CSS (Cascading Style Sheets) brings your HTML to life with colors, layouts, animations, and responsive designs that work on any device.</p>
-          <h3 id="css-heading">CSS Fundamentals:</h3>
+          <h3 id="css-heading">What is CSS?</h3>
+          <p>CSS stands for Cascading Style Sheets. If HTML is the skeleton of a webpage, CSS is the clothes, makeup, and hairstyle! CSS makes websites look beautiful.</p>
+          
+          <div class="note">
+            <p><strong>Fun Fact:</strong> CSS was first proposed in 1994 by Håkon Wium Lie while working at CERN (the same place where the web was invented)!</p>
+          </div>
+          
+          <h3>CSS Superpowers</h3>
+          <p>With CSS you can change almost anything about how a webpage looks:</p>
           <ul>
-            <li><code>color</code> — Sets text color (hex, rgb, or named colors)</li>
-            <li><code>background-color</code> — Sets element background</li>
-            <li><code>margin</code>/<code>padding</code> — Controls spacing</li>
-            <li><code>display: flex</code> — Modern layout system</li>
-            <li><code>@media</code> — Creates responsive designs</li>
+            <li><strong>Colors:</strong> Make text any color you want</li>
+            <li><strong>Fonts:</strong> Choose fun and cool fonts</li>
+            <li><strong>Layout:</strong> Position things exactly where you want them</li>
+            <li><strong>Animations:</strong> Make things move and dance</li>
+            <li><strong>Responsive Design:</strong> Make websites work on phones, tablets, and computers</li>
           </ul>
+          
+          <h3>CSS in Action</h3>
+          <p>Here's how you would make all paragraphs have blue text and a fun font:</p>
+          <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--border-radius); overflow: auto; font-family: 'Courier New', monospace; color: var(--primary-color);">
+p {
+  color: #00c6ff;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 20px;
+  text-shadow: 0 0 5px rgba(0, 198, 255, 0.5);
+}</pre>
+          
+          <h3>Animating Robots with CSS</h3>
+          <p>CSS animations are perfect for making robot characters come to life! You can make robot eyes blink, arms wave, and bodies move around the screen.</p>
+          <p>Here's how to make a simple animation that moves a robot from left to right:</p>
+          <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--border-radius); overflow: auto; font-family: 'Courier New', monospace; color: var(--primary-color);">
+@keyframes robot-walk {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(300px); }
+}
+
+.robot {
+  animation: robot-walk 3s infinite alternate;
+}</pre>
+          
+          <div class="note">
+            <p><strong>Try it:</strong> You can create animations for robot parts, lights, and sensors to make your robot interfaces more exciting!</p>
+          </div>
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" id="robotics">
         <div class="card-header" onclick="toggleLesson('robotics')" role="button" tabindex="0" aria-expanded="false" aria-controls="robotics">
-          <span aria-hidden="true">🤖</span>
-          <h2>Intro to Robotics</h2>
+          <div class="card-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h2>Robotics Fun</h2>
         </div>
         <div class="lesson-content" id="robotics" aria-labelledby="robotics-heading">
-          <p>Robotics combines mechanical engineering, electronics, and computer programming to create machines that can perform tasks autonomously or with guidance.</p>
-          <h3 id="robotics-heading">Core Robotics Concepts:</h3>
+          <h3 id="robotics-heading">What is Robotics?</h3>
+          <p>Robotics is the science of designing, building, and programming robots! Robots are machines that can do tasks automatically or with some guidance.</p>
+          
+          <div class="note">
+            <p><strong>Fun Fact:</strong> The word "robot" comes from the Czech word "robota" which means "forced labor" or "work." It was first used in a 1920 play!</p>
+          </div>
+          
+          <h3>Parts of a Robot</h3>
+          <p>Robots are made up of several important parts:</p>
           <ul>
-            <li><strong>Sensors:</strong> Allow robots to perceive their environment (light, sound, temperature, proximity)</li>
-            <li><strong>Actuators:</strong> Motors and servos that enable movement</li>
-            <li><strong>Control Systems:</strong> Logic that processes sensor input and determines actions</li>
-            <li><strong>Programming:</strong> Instructions that define robot behavior (often using Python or C++)</li>
+            <li><strong>Brain:</strong> Usually a small computer like Arduino or Raspberry Pi</li>
+            <li><strong>Sensors:</strong> Eyes and ears for the robot (cameras, microphones, touch sensors)</li>
+            <li><strong>Actuators:</strong> Muscles that make the robot move (motors, servos)</li>
+            <li><strong>Power Source:</strong> Batteries that give the robot energy</li>
+            <li><strong>Body:</strong> The frame that holds everything together</li>
           </ul>
+          
+          <h3>Programming Robots</h3>
+          <p>We program robots using special coding languages. Some popular ones for robotics are:</p>
+          <ul>
+            <li><strong>Scratch:</strong> Easy visual programming with blocks</li>
+            <li><strong>Python:</strong> A text-based language that's great for beginners</li>
+            <li><strong>Blockly:</strong> Drag-and-drop coding that creates real code</li>
+          </ul>
+          
+          <h3>Simple Robot Program</h3>
+          <p>Here's what a simple robot program in Python might look like to make a robot move forward until it sees an obstacle:</p>
+          <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--border-radius); overflow: auto; font-family: 'Courier New', monospace; color: var(--primary-color);">
+from robot_library import *
+
+# Start the robot's sensors
+ultrasonic_sensor = UltrasonicSensor()
+
+# Move forward until something is closer than 20cm
+while ultrasonic_sensor.distance() > 20:
+    move_forward()
+    
+# Stop when something is too close
+stop()</pre>
+          
+          <h3>Robots in Our World</h3>
+          <p>Robots are everywhere today! Here are some cool places you'll find robots:</p>
+          <ul>
+            <li><strong>Factories:</strong> Building cars and assembling electronics</li>
+            <li><strong>Hospitals:</strong> Helping doctors with surgery</li>
+            <li><strong>Space:</strong> Exploring Mars and other planets</li>
+            <li><strong>Homes:</strong> Vacuuming floors and mowing lawns</li>
+            <li><strong>Entertainment:</strong> Acting in movies and playing games</li>
+          </ul>
+          
+          <div class="note">
+            <p><strong>Future Inventor:</strong> Maybe you'll create the next generation of robots that will help people in amazing ways!</p>
+          </div>
         </div>
       </article>
     </section>
 
-    <section class="editor-section">
-      <h2>Interactive Code Playground</h2>
-      <p>Experiment with HTML and CSS in real-time. Write your code in the editor and see the results instantly in the preview pane.</p>
+    <section class="editor-section" id="playground">
+      <h2><i class="fas fa-laptop-code"></i> Hacker Playground</h2>
+      <p>Try out your coding skills in this hacker-style terminal! Change the code and see what happens in the preview window.</p>
       
       <div class="editor-container">
         <div>
-          <label for="codeInput" class="sr-only">HTML and CSS code editor</label>
-          <textarea id="codeInput" spellcheck="false">
+          <div class="hacker-window">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <div class="terminal-dot dot-red"></div>
+                <div class="terminal-dot dot-yellow"></div>
+                <div class="terminal-dot dot-green"></div>
+              </div>
+              <div class="terminal-title">ROBOTICS TERMINAL</div>
+            </div>
+            <textarea id="codeInput" spellcheck="false">
 <!DOCTYPE html>
 <html>
 <head>
   <style>
-    body { 
-      font-family: 'Roboto', sans-serif;
-      background-color: #f0f8ff;
-      color: #002244;
+    body {
+      background: #0c0f1d;
+      color: #e0e0ff;
+      font-family: 'Fredoka', sans-serif;
+      text-align: center;
       padding: 2rem;
-      line-height: 1.6;
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
     }
     h1 {
-      color: #0066cc;
-      margin-bottom: 1rem;
+      color: #00c6ff;
+      font-size: 3rem;
+      text-shadow: 0 0 10px rgba(0, 198, 255, 0.5);
+      margin-bottom: 2rem;
     }
     .robot {
-      font-size: 3rem;
-      animation: bounce 1s infinite alternate;
+      font-size: 8rem;
+      margin: 2rem 0;
+      animation: dance 2s infinite alternate;
     }
-    @keyframes bounce {
-      from { transform: translateY(0); }
-      to { transform: translateY(-10px); }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .control-btn {
+      padding: 1rem 2rem;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 198, 255, 0.7);
+      transition: all 0.3s;
+    }
+    .control-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 198, 255, 0.9);
+    }
+    @keyframes dance {
+      0% { transform: rotate(-10deg); }
+      100% { transform: rotate(10deg); }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to Robotech Innovator!</h1>
-  <p>Edit this code to create your own webpage.</p>
-  <div class="robot">🤖</div>
+  <div class="container">
+    <h1>🤖 RoboKids Control Center</h1>
+    <div class="robot">🤖</div>
+    <p>Welcome to the robot control center! Press buttons to control your robot.</p>
+    
+    <div class="controls">
+      <button class="control-btn">Move Forward</button>
+      <button class="control-btn">Turn Left</button>
+      <button class="control-btn">Turn Right</button>
+      <button class="control-btn" style="background:linear-gradient(90deg, #ff2a6d, #ff0066)">Dance!</button>
+    </div>
+  </div>
 </body>
 </html>
-          </textarea>
-          <button class="button" onclick="runCode()">Run Code</button>
+            </textarea>
+          </div>
+          <button class="button" onclick="runCode()">
+            <i class="fas fa-play"></i> Run My Code
+          </button>
         </div>
         <div class="preview-container">
-          <iframe id="preview" title="Code preview output"></iframe>
+          <iframe id="preview" title="Robotic Interface Simulator"></iframe>
         </div>
       </div>
     </section>
@@ -352,7 +900,15 @@
 
   <footer>
     <div class="container">
-      <p>© 2023 Robotech Innovator | Designed for future coders and engineers</p>
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+      <p>© 2023 RoboKids Innovator | Created for future inventors and robot builders!</p>
     </div>
   </footer>
 
@@ -368,6 +924,21 @@
             e.preventDefault();
             const lessonId = this.getAttribute('aria-controls');
             toggleLesson(lessonId);
+          }
+        });
+      });
+      
+      // Add smooth scrolling for TOC links
+      document.querySelectorAll('.toc-item a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+            });
           }
         });
       });
