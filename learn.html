@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RoboKids Innovator | Coding & Robotics for Kids</title>
+  <title>RoboKids Innovator | Complete Learning Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* Base styles and variables */
     :root {
       --primary-color: #00c6ff;
       --primary-dark: #0072ff;
@@ -24,6 +25,14 @@
       --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       --transition: all 0.3s ease;
       --glow: 0 0 15px rgba(0, 198, 255, 0.7);
+      --html-color: #ff6b6b;
+      --css-color: #4ecdc4;
+      --robotics-color: #ffd166;
+      --scratch-color: #6a0572;
+      --python-color: #06d6a0;
+      --turtle-color: #118ab2;
+      --install-color: #ff9e6d;
+      --file-color: #9b5de5;
     }
 
     * {
@@ -205,10 +214,27 @@
       gap: 1.5rem;
       background: rgba(0, 0, 0, 0.2);
       transition: var(--transition);
+      position: relative;
     }
 
     .card-header:hover {
       background: rgba(0, 102, 204, 0.15);
+    }
+
+    /* Arrow indicator */
+    .card-header::after {
+      content: '▼';
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      transition: transform 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .card.expanded .card-header::after {
+      transform: translateY(-50%) rotate(180deg);
     }
 
     .card-icon {
@@ -219,7 +245,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
       box-shadow: var(--glow);
     }
 
@@ -237,7 +262,8 @@
 
     .lesson-content.active {
       padding: 0 1.5rem 1.5rem;
-      max-height: 2000px;
+      max-height: 500px;
+      overflow-y: auto;
     }
 
     .lesson-content p {
@@ -261,10 +287,11 @@
     }
 
     .lesson-content li::before {
-      content: '🤖';
+      content: '▹';
       position: absolute;
-      left: 0;
+      left: 1rem;
       color: var(--primary-color);
+      font-weight: bold;
     }
 
     .lesson-content h3 {
@@ -274,12 +301,55 @@
       text-shadow: 0 0 8px rgba(0, 198, 255, 0.5);
     }
 
-    .lesson-content .note {
+    .note {
       background: rgba(0, 0, 0, 0.3);
-      border-left: 4px solid var(--tertiary-color);
       padding: 1.2rem;
-      border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      border-radius: var(--border-radius);
       margin: 1.5rem 0;
+      border-left: 4px solid currentColor;
+    }
+
+    .note-title {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    pre {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      border-radius: var(--border-radius);
+      overflow: auto;
+      font-family: 'Courier New', monospace;
+      margin: 1rem 0;
+      line-height: 1.5;
+      font-size: 1.1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    th {
+      background: rgba(0, 198, 255, 0.2);
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background: rgba(0, 198, 255, 0.1);
     }
 
     .editor-section {
@@ -576,6 +646,10 @@
         height: 60px;
         font-size: 2rem;
       }
+      
+      .card-header::after {
+        right: 1rem;
+      }
     }
   </style>
 </head>
@@ -593,13 +667,25 @@
       <h2 class="toc-title"><i class="fas fa-list"></i> Learning Path</h2>
       <ul class="toc-list">
         <li class="toc-item">
-          <a href="#html"><i class="fas fa-code"></i> HTML Adventures</a>
+          <a href="#html-card"><i class="fas fa-code"></i> HTML Adventures</a>
         </li>
         <li class="toc-item">
-          <a href="#css"><i class="fas fa-paint-brush"></i> CSS Magic</a>
+          <a href="#css-card"><i class="fas fa-paint-brush"></i> CSS Magic</a>
         </li>
         <li class="toc-item">
-          <a href="#robotics"><i class="fas fa-microchip"></i> Robotics Fun</a>
+          <a href="#robotics-card"><i class="fas fa-microchip"></i> Robotics Fun</a>
+        </li>
+        <li class="toc-item">
+          <a href="#scratch-card"><i class="fas fa-puzzle-piece"></i> Scratch Coding</a>
+        </li>
+        <li class="toc-item">
+          <a href="#turtle-card"><i class="fas fa-draw-polygon"></i> Python Turtle</a>
+        </li>
+        <li class="toc-item">
+          <a href="#install-card"><i class="fas fa-download"></i> Install Python</a>
+        </li>
+        <li class="toc-item">
+          <a href="#files-card"><i class="fas fa-file"></i> File Extensions</a>
         </li>
         <li class="toc-item">
           <a href="#playground"><i class="fas fa-laptop-code"></i> Hacker Playground</a>
@@ -612,7 +698,7 @@
         <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Welcome to RoboKids!</h2>
         <p style="font-size: 1.4rem; line-height: 1.7; margin-bottom: 1.5rem;">
           Hello future inventors! This is your space to learn how to code, build robots, and create amazing things. 
-          Click on the robot cards below to learn about HTML, CSS, and robotics!
+          Click on the robot cards below to learn about HTML, CSS, robotics, Scratch, Python Turtle and more!
         </p>
         <p style="font-size: 1.4rem; line-height: 1.7; margin-bottom: 2rem;">
           <strong>Fun Things You'll Learn:</strong> Build your own websites, program robots, create games, and design animations!
@@ -629,171 +715,420 @@
     </section>
 
     <section class="cards">
-      <article class="card" id="html">
-        <div class="card-header" onclick="toggleLesson('html')" role="button" tabindex="0" aria-expanded="false" aria-controls="html">
-          <div class="card-icon">
+      <!-- HTML Card -->
+      <article class="card" id="html-card">
+        <div class="card-header" onclick="toggleLesson('html-content')" role="button" tabindex="0" aria-expanded="false" aria-controls="html-content">
+          <div class="card-icon" style="background: linear-gradient(135deg, var(--html-color), #ff8e8e);">
             <i class="fas fa-code"></i>
           </div>
           <h2>HTML Adventures</h2>
         </div>
-        <div class="lesson-content" id="html" aria-labelledby="html-heading">
-          <h3 id="html-heading">What is HTML?</h3>
-          <p>HTML stands for HyperText Markup Language. It's the code that makes up all websites on the internet! Think of HTML as the skeleton of a webpage - it gives it structure.</p>
+        <div class="lesson-content" id="html-content" aria-labelledby="html-heading">
+          <h3 id="html-heading">🌐 HTML (HyperText Markup Language) - Building Blocks of Web Pages</h3>
+          <p>HTML is the language used to create and structure websites. It's like the skeleton of a web page, telling the computer what each part of the page is.</p>
           
-          <div class="note">
-            <p><strong>Fun Fact:</strong> The first website ever created is still online! You can visit it at http://info.cern.ch</p>
-          </div>
-          
-          <h3>HTML Building Blocks</h3>
-          <p>HTML uses "tags" to create different parts of a webpage. Tags are like containers that hold your content:</p>
-          <ul>
-            <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> - Headings (h1 is the biggest)</li>
-            <li><code>&lt;p&gt;</code> - Paragraphs for text</li>
-            <li><code>&lt;img&gt;</code> - For showing pictures</li>
-            <li><code>&lt;a&gt;</code> - Links to other pages</li>
-            <li><code>&lt;div&gt;</code> - A box to put things in</li>
-            <li><code>&lt;button&gt;</code> - Clickable buttons</li>
-          </ul>
-          
-          <h3>Creating Your First Webpage</h3>
-          <p>Every HTML page starts with this basic structure:</p>
-          <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--border-radius); overflow: auto; font-family: 'Courier New', monospace; color: var(--primary-color);">
+          <div class="note" style="color: var(--html-color);">
+            <div class="note-title"><i class="fas fa-lightbulb"></i> Basic Structure of an HTML Document:</div>
+            <pre>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;My Awesome Page&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Welcome to My Website!&lt;/h1&gt;
-  &lt;p&gt;This is my first webpage. I made it myself!&lt;/p&gt;
-  &lt;img src="robot.jpg" alt="A friendly robot"&gt;
-&lt;/body&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Webpage&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
 &lt;/html&gt;</pre>
-          
-          <div class="note">
-            <p><strong>Pro Tip:</strong> Always close your tags! For every <code>&lt;tag&gt;</code> there should be a matching <code>&lt;/tag&gt;</code></p>
           </div>
           
-          <h3>HTML for Robotics</h3>
-          <p>HTML is used to create control panels for robots! You can make buttons to move a robot, displays to show sensor readings, and more.</p>
-          <p>As you learn more HTML, you'll be able to create interfaces to control real robots from your computer or tablet!</p>
+          <div class="note" style="color: #ffd166;">
+            <div class="note-title"><i class="fas fa-tags"></i> Common HTML Tags</div>
+            <table>
+              <tr>
+                <th>Tag</th>
+                <th>Purpose</th>
+              </tr>
+              <tr>
+                <td><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code></td>
+                <td>Headings (from largest to smallest)</td>
+              </tr>
+              <tr>
+                <td><code>&lt;p&gt;</code></td>
+                <td>Paragraph</td>
+              </tr>
+              <tr>
+                <td><code>&lt;a href=""&gt;</code></td>
+                <td>Link</td>
+              </tr>
+              <tr>
+                <td><code>&lt;img src=""&gt;</code></td>
+                <td>Image</td>
+              </tr>
+              <tr>
+                <td><code>&lt;ul&gt;</code> / <code>&lt;li&gt;</code></td>
+                <td>Unordered List and List Items</td>
+              </tr>
+              <tr>
+                <td><code>&lt;ol&gt;</code></td>
+                <td>Ordered List</td>
+              </tr>
+              <tr>
+                <td><code>&lt;div&gt;</code></td>
+                <td>Container for content</td>
+              </tr>
+              <tr>
+                <td><code>&lt;br&gt;</code></td>
+                <td>Line break</td>
+              </tr>
+            </table>
+          </div>
+          
+          <div class="note" style="color: #06d6a0;">
+            <div class="note-title"><i class="fas fa-key"></i> Important Concepts</div>
+            <p><strong>Attributes</strong> give extra info to tags:</p>
+            <pre>&lt;img src="cat.jpg" alt="A cute cat" width="200" /&gt;</pre>
+            <p><strong>Nesting</strong>: HTML tags can be placed inside others.</p>
+          </div>
         </div>
       </article>
 
-      <article class="card" id="css">
-        <div class="card-header" onclick="toggleLesson('css')" role="button" tabindex="0" aria-expanded="false" aria-controls="css">
-          <div class="card-icon">
+      <!-- CSS Card -->
+      <article class="card" id="css-card">
+        <div class="card-header" onclick="toggleLesson('css-content')" role="button" tabindex="0" aria-expanded="false" aria-controls="css-content">
+          <div class="card-icon" style="background: linear-gradient(135deg, var(--css-color), #88d8d0);">
             <i class="fas fa-paint-brush"></i>
           </div>
           <h2>CSS Magic</h2>
         </div>
-        <div class="lesson-content" id="css" aria-labelledby="css-heading">
-          <h3 id="css-heading">What is CSS?</h3>
-          <p>CSS stands for Cascading Style Sheets. If HTML is the skeleton of a webpage, CSS is the clothes, makeup, and hairstyle! CSS makes websites look beautiful.</p>
+        <div class="lesson-content" id="css-content" aria-labelledby="css-heading">
+          <h3 id="css-heading">🎨 CSS (Cascading Style Sheets) - Styling Web Pages</h3>
+          <p>CSS is used to make HTML content look beautiful by changing colors, sizes, fonts, and more.</p>
           
-          <div class="note">
-            <p><strong>Fun Fact:</strong> CSS was first proposed in 1994 by Håkon Wium Lie while working at CERN (the same place where the web was invented)!</p>
+          <div class="note" style="color: var(--css-color);">
+            <div class="note-title"><i class="fas fa-code"></i> CSS Syntax</div>
+            <pre>
+selector {
+  property: value;
+}</pre>
+            <p>Example:</p>
+            <pre>
+h1 {
+  color: red;
+  font-size: 40px;
+}</pre>
           </div>
           
-          <h3>CSS Superpowers</h3>
-          <p>With CSS you can change almost anything about how a webpage looks:</p>
-          <ul>
-            <li><strong>Colors:</strong> Make text any color you want</li>
-            <li><strong>Fonts:</strong> Choose fun and cool fonts</li>
-            <li><strong>Layout:</strong> Position things exactly where you want them</li>
-            <li><strong>Animations:</strong> Make things move and dance</li>
-            <li><strong>Responsive Design:</strong> Make websites work on phones, tablets, and computers</li>
-          </ul>
+          <div class="note" style="color: #ff9e6d;">
+            <div class="note-title"><i class="fas fa-wand-magic-sparkles"></i> Ways to Use CSS</div>
+            <ul>
+              <li><strong>Inline</strong> (inside an HTML tag)<br>
+                <pre>&lt;p style="color:blue;"&gt;This is blue text.&lt;/p&gt;</pre>
+              </li>
+              <li><strong>Internal</strong> (within <code>&lt;style&gt;</code> tag)<br>
+                <pre>&lt;style&gt;
+p { color: green; }
+&lt;/style&gt;</pre>
+              </li>
+              <li><strong>External</strong> (linked CSS file)<br>
+                <pre>&lt;link rel="stylesheet" href="styles.css"&gt;</pre>
+              </li>
+            </ul>
+          </div>
           
-          <h3>CSS in Action</h3>
-          <p>Here's how you would make all paragraphs have blue text and a fun font:</p>
-          <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--border-radius); overflow: auto; font-family: 'Courier New', monospace; color: var(--primary-color);">
-p {
-  color: #00c6ff;
-  font-family: 'Comic Sans MS', cursive;
-  font-size: 20px;
-  text-shadow: 0 0 5px rgba(0, 198, 255, 0.5);
-}</pre>
-          
-          <h3>Animating Robots with CSS</h3>
-          <p>CSS animations are perfect for making robot characters come to life! You can make robot eyes blink, arms wave, and bodies move around the screen.</p>
-          <p>Here's how to make a simple animation that moves a robot from left to right:</p>
-          <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--border-radius); overflow: auto; font-family: 'Courier New', monospace; color: var(--primary-color);">
-@keyframes robot-walk {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(300px); }
-}
-
-.robot {
-  animation: robot-walk 3s infinite alternate;
-}</pre>
-          
-          <div class="note">
-            <p><strong>Try it:</strong> You can create animations for robot parts, lights, and sensors to make your robot interfaces more exciting!</p>
+          <div class="note" style="color: #9b5de5;">
+            <div class="note-title"><i class="fas fa-list"></i> Common Properties</div>
+            <table>
+              <tr>
+                <th>Property</th>
+                <th>What It Does</th>
+              </tr>
+              <tr>
+                <td><code>color</code></td>
+                <td>Changes text color</td>
+              </tr>
+              <tr>
+                <td><code>background-color</code></td>
+                <td>Changes background color</td>
+              </tr>
+              <tr>
+                <td><code>font-size</code></td>
+                <td>Sets text size</td>
+              </tr>
+              <tr>
+                <td><code>margin</code></td>
+                <td>Adds space outside elements</td>
+              </tr>
+              <tr>
+                <td><code>padding</code></td>
+                <td>Adds space inside elements</td>
+              </tr>
+              <tr>
+                <td><code>border</code></td>
+                <td>Adds a border</td>
+              </tr>
+            </table>
           </div>
         </div>
       </article>
 
-      <article class="card" id="robotics">
-        <div class="card-header" onclick="toggleLesson('robotics')" role="button" tabindex="0" aria-expanded="false" aria-controls="robotics">
-          <div class="card-icon">
+      <!-- Robotics Card -->
+      <article class="card" id="robotics-card">
+        <div class="card-header" onclick="toggleLesson('robotics-content')" role="button" tabindex="0" aria-expanded="false" aria-controls="robotics-content">
+          <div class="card-icon" style="background: linear-gradient(135deg, var(--robotics-color), #ffdf8c);">
             <i class="fas fa-robot"></i>
           </div>
           <h2>Robotics Fun</h2>
         </div>
-        <div class="lesson-content" id="robotics" aria-labelledby="robotics-heading">
-          <h3 id="robotics-heading">What is Robotics?</h3>
-          <p>Robotics is the science of designing, building, and programming robots! Robots are machines that can do tasks automatically or with some guidance.</p>
+        <div class="lesson-content" id="robotics-content" aria-labelledby="robotics-heading">
+          <h3 id="robotics-heading">🧐 Robotics - Learning About Smart Machines</h3>
+          <p>A robot is a machine that can be programmed to do tasks on its own. Robots can sense, think, and act.</p>
           
-          <div class="note">
-            <p><strong>Fun Fact:</strong> The word "robot" comes from the Czech word "robota" which means "forced labor" or "work." It was first used in a 1920 play!</p>
+          <div class="note" style="color: var(--robotics-color);">
+            <div class="note-title"><i class="fas fa-cogs"></i> Main Parts of a Robot</div>
+            <ul>
+              <li><strong>Controller (Brain)</strong> – A microcontroller like Arduino or Raspberry Pi</li>
+              <li><strong>Sensors</strong> – Eyes and ears (e.g. camera, light sensor)</li>
+              <li><strong>Actuators</strong> – Arms and wheels (motors, servos)</li>
+              <li><strong>Power Supply</strong> – Batteries or plugs</li>
+            </ul>
           </div>
           
-          <h3>Parts of a Robot</h3>
-          <p>Robots are made up of several important parts:</p>
-          <ul>
-            <li><strong>Brain:</strong> Usually a small computer like Arduino or Raspberry Pi</li>
-            <li><strong>Sensors:</strong> Eyes and ears for the robot (cameras, microphones, touch sensors)</li>
-            <li><strong>Actuators:</strong> Muscles that make the robot move (motors, servos)</li>
-            <li><strong>Power Source:</strong> Batteries that give the robot energy</li>
-            <li><strong>Body:</strong> The frame that holds everything together</li>
-          </ul>
+          <div class="note" style="color: #118ab2;">
+            <div class="note-title"><i class="fas fa-tasks"></i> What Can Robots Do?</div>
+            <ul>
+              <li>Follow lines</li>
+              <li>Avoid obstacles</li>
+              <li>Clean houses (Roomba)</li>
+              <li>Build cars in factories</li>
+            </ul>
+          </div>
           
-          <h3>Programming Robots</h3>
-          <p>We program robots using special coding languages. Some popular ones for robotics are:</p>
-          <ul>
-            <li><strong>Scratch:</strong> Easy visual programming with blocks</li>
-            <li><strong>Python:</strong> A text-based language that's great for beginners</li>
-            <li><strong>Blockly:</strong> Drag-and-drop coding that creates real code</li>
-          </ul>
-          
-          <h3>Simple Robot Program</h3>
-          <p>Here's what a simple robot program in Python might look like to make a robot move forward until it sees an obstacle:</p>
-          <pre style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: var(--border-radius); overflow: auto; font-family: 'Courier New', monospace; color: var(--primary-color);">
-from robot_library import *
+          <div class="note" style="color: #ff6b6b;">
+            <div class="note-title"><i class="fas fa-lightbulb"></i> Fun Projects</div>
+            <ul>
+              <li>Line-following robot</li>
+              <li>Drawing robot</li>
+              <li>Light-sensitive robot</li>
+            </ul>
+          </div>
+        </div>
+      </article>
 
-# Start the robot's sensors
-ultrasonic_sensor = UltrasonicSensor()
+      <!-- Scratch Card -->
+      <article class="card" id="scratch-card">
+        <div class="card-header" onclick="toggleLesson('scratch-content')" role="button" tabindex="0" aria-expanded="false" aria-controls="scratch-content">
+          <div class="card-icon" style="background: linear-gradient(135deg, var(--scratch-color), #9d4edd);">
+            <i class="fas fa-puzzle-piece"></i>
+          </div>
+          <h2>Scratch Coding</h2>
+        </div>
+        <div class="lesson-content" id="scratch-content" aria-labelledby="scratch-heading">
+          <h3 id="scratch-heading">🐝 Scratch - Drag and Drop Coding</h3>
+          <p>Scratch is a visual programming language designed for kids. It uses blocks to build games, animations, and stories.</p>
+          
+          <div class="note" style="color: var(--scratch-color);">
+            <div class="note-title"><i class="fas fa-th-large"></i> Main Categories</div>
+            <table>
+              <tr>
+                <th>Category</th>
+                <th>What it Does</th>
+              </tr>
+              <tr>
+                <td>Motion</td>
+                <td>Move, turn, glide</td>
+              </tr>
+              <tr>
+                <td>Looks</td>
+                <td>Say, show, change color</td>
+              </tr>
+              <tr>
+                <td>Sound</td>
+                <td>Play sounds and music</td>
+              </tr>
+              <tr>
+                <td>Events</td>
+                <td>Start when flag clicked</td>
+              </tr>
+              <tr>
+                <td>Control</td>
+                <td>Repeat, wait, if...then</td>
+              </tr>
+              <tr>
+                <td>Sensing</td>
+                <td>Detect touching, loudness, etc.</td>
+              </tr>
+            </table>
+          </div>
+          
+          <div class="note" style="color: #ff9e6d;">
+            <div class="note-title"><i class="fas fa-code"></i> Sample Project</div>
+            <ul>
+              <li><strong>When green flag clicked</strong></li>
+              <li>Move 10 steps</li>
+              <li>Say "Hello!"</li>
+              <li>Play a meow sound</li>
+            </ul>
+          </div>
+          
+          <div class="note" style="color: #06d6a0;">
+            <div class="note-title"><i class="fas fa-globe"></i> Scratch Website</div>
+            <p>Go to <a href="https://scratch.mit.edu" style="color: #06d6a0; text-decoration: underline;">https://scratch.mit.edu</a> to create your own projects.</p>
+          </div>
+        </div>
+      </article>
 
-# Move forward until something is closer than 20cm
-while ultrasonic_sensor.distance() > 20:
-    move_forward()
-    
-# Stop when something is too close
-stop()</pre>
+      <!-- Python Turtle Card -->
+      <article class="card" id="turtle-card">
+        <div class="card-header" onclick="toggleLesson('turtle-content')" role="button" tabindex="0" aria-expanded="false" aria-controls="turtle-content">
+          <div class="card-icon" style="background: linear-gradient(135deg, var(--turtle-color), #1a759f);">
+            <i class="fas fa-draw-polygon"></i>
+          </div>
+          <h2>Python Turtle</h2>
+        </div>
+        <div class="lesson-content" id="turtle-content" aria-labelledby="turtle-heading">
+          <h3 id="turtle-heading">📚 Python Turtle - Drawing with Code</h3>
+          <p>Turtle is a built-in Python module that helps you draw shapes and pictures using code.</p>
           
-          <h3>Robots in Our World</h3>
-          <p>Robots are everywhere today! Here are some cool places you'll find robots:</p>
-          <ul>
-            <li><strong>Factories:</strong> Building cars and assembling electronics</li>
-            <li><strong>Hospitals:</strong> Helping doctors with surgery</li>
-            <li><strong>Space:</strong> Exploring Mars and other planets</li>
-            <li><strong>Homes:</strong> Vacuuming floors and mowing lawns</li>
-            <li><strong>Entertainment:</strong> Acting in movies and playing games</li>
-          </ul>
+          <div class="note" style="color: var(--turtle-color);">
+            <div class="note-title"><i class="fas fa-terminal"></i> Example</div>
+            <pre>
+import turtle
+
+t = turtle.Turtle()
+t.forward(100)
+t.right(90)
+t.forward(100)</pre>
+          </div>
           
-          <div class="note">
-            <p><strong>Future Inventor:</strong> Maybe you'll create the next generation of robots that will help people in amazing ways!</p>
+          <div class="note" style="color: #ffd166;">
+            <div class="note-title"><i class="fas fa-list"></i> Common Commands</div>
+            <table>
+              <tr>
+                <th>Command</th>
+                <th>Action</th>
+              </tr>
+              <tr>
+                <td><code>forward(100)</code></td>
+                <td>Move forward</td>
+              </tr>
+              <tr>
+                <td><code>backward(100)</code></td>
+                <td>Move backward</td>
+              </tr>
+              <tr>
+                <td><code>right(90)</code></td>
+                <td>Turn right</td>
+              </tr>
+              <tr>
+                <td><code>left(90)</code></td>
+                <td>Turn left</td>
+              </tr>
+              <tr>
+                <td><code>color("red")</code></td>
+                <td>Change pen color</td>
+              </tr>
+              <tr>
+                <td><code>begin_fill()</code> & <code>end_fill()</code></td>
+                <td>Fill shapes</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <!-- Install Python Card -->
+      <article class="card" id="install-card">
+        <div class="card-header" onclick="toggleLesson('install-content')" role="button" tabindex="0" aria-expanded="false" aria-controls="install-content">
+          <div class="card-icon" style="background: linear-gradient(135deg, var(--install-color), #ffb38a);">
+            <i class="fas fa-download"></i>
+          </div>
+          <h2>Install Python</h2>
+        </div>
+        <div class="lesson-content" id="install-content" aria-labelledby="install-heading">
+          <h3 id="install-heading">🤖 Installing Python (Windows)</h3>
+          
+          <div class="note" style="color: var(--install-color);">
+            <div class="note-title"><i class="fas fa-list-ol"></i> Steps to Install Python</div>
+            <ol>
+              <li>Go to the website: <a href="https://www.python.org" style="color: var(--install-color); text-decoration: underline;">https://www.python.org</a></li>
+              <li>Click on <strong>Downloads</strong> and select <strong>Python for Windows</strong></li>
+              <li>Run the downloaded file</li>
+              <li>Make sure you check the box that says <strong>Add Python to PATH</strong></li>
+              <li>Click <strong>Install Now</strong></li>
+              <li>After installing, open <strong>Command Prompt</strong> and type:
+                <pre>python --version</pre>
+              </li>
+              <li>You should see something like:
+                <pre>Python 3.12.1</pre>
+              </li>
+            </ol>
+          </div>
+          <p>Now Python is ready to use!</p>
+        </div>
+      </article>
+
+      <!-- File Extensions Card -->
+      <article class="card" id="files-card">
+        <div class="card-header" onclick="toggleLesson('files-content')" role="button" tabindex="0" aria-expanded="false" aria-controls="files-content">
+          <div class="card-icon" style="background: linear-gradient(135deg, var(--file-color), #b185db);">
+            <i class="fas fa-file"></i>
+          </div>
+          <h2>File Extensions</h2>
+        </div>
+        <div class="lesson-content" id="files-content" aria-labelledby="files-heading">
+          <h3 id="files-heading">🗋 File Extensions - What They Mean</h3>
+          <p>A file extension is the last part of a file name, like <code>.txt</code>, <code>.jpg</code>, <code>.html</code>. It tells your computer what kind of file it is.</p>
+          
+          <div class="note" style="color: var(--file-color);">
+            <div class="note-title"><i class="fas fa-table"></i> Common Extensions</div>
+            <table>
+              <tr>
+                <th>Extension</th>
+                <th>Type of File</th>
+              </tr>
+              <tr>
+                <td><code>.txt</code></td>
+                <td>Plain text file</td>
+              </tr>
+              <tr>
+                <td><code>.jpg</code> / <code>.png</code></td>
+                <td>Picture files</td>
+              </tr>
+              <tr>
+                <td><code>.html</code></td>
+                <td>Webpage file</td>
+              </tr>
+              <tr>
+                <td><code>.css</code></td>
+                <td>Styling file</td>
+              </tr>
+              <tr>
+                <td><code>.py</code></td>
+                <td>Python file</td>
+              </tr>
+              <tr>
+                <td><code>.sb3</code></td>
+                <td>Scratch project file</td>
+              </tr>
+              <tr>
+                <td><code>.docx</code></td>
+                <td>Word document</td>
+              </tr>
+              <tr>
+                <td><code>.mp3</code></td>
+                <td>Audio file</td>
+              </tr>
+              <tr>
+                <td><code>.mp4</code></td>
+                <td>Video file</td>
+              </tr>
+            </table>
+          </div>
+          
+          <div class="note" style="color: #ff6b6b;">
+            <div class="note-title"><i class="fas fa-exclamation-triangle"></i> Important Note</div>
+            <p>Always be careful not to change the extension unless you know what you're doing!</p>
           </div>
         </div>
       </article>
@@ -922,8 +1257,8 @@ stop()</pre>
         button.addEventListener('keypress', function(e) {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            const lessonId = this.getAttribute('aria-controls');
-            toggleLesson(lessonId);
+            const contentId = this.getAttribute('aria-controls');
+            toggleLesson(contentId);
           }
         });
       });
@@ -944,13 +1279,22 @@ stop()</pre>
       });
     });
 
-    function toggleLesson(id) {
-      const content = document.getElementById(id);
-      const button = document.querySelector(`[aria-controls="${id}"]`);
+    function toggleLesson(contentId) {
+      const content = document.getElementById(contentId);
+      const card = content.closest('.card');
+      const button = document.querySelector(`[aria-controls="${contentId}"]`);
       const isExpanded = content.classList.toggle('active');
+      
+      // Toggle card expanded class for styling
+      card.classList.toggle('expanded', isExpanded);
       
       // Update ARIA attributes for accessibility
       button.setAttribute('aria-expanded', isExpanded);
+      
+      // Scroll to the expanded card
+      if (isExpanded) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
     }
 
     function runCode() {
