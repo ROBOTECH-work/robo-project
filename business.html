@@ -1308,49 +1308,38 @@
         });
     </script>
 
-    <script>
-// Disable right-click
-document.addEventListener('contextmenu', event => event.preventDefault());
-
-// Disable F12, Ctrl+Shift+I, Ctrl+U, etc.
-document.onkeydown = function(e) {
-  if (
-    e.key === "F12" ||
-    (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) ||
-    (e.ctrlKey && e.key === "U")
-  ) {
-    alert("Access Denied");
-    return false;
-  }
-};
-
-// Detect opening dev tools by checking console timing
-(function() {
-  const threshold = 160;
-  let start = new Date();
-
-  function detect() {
-    let check = new Date();
-    if (check - start > threshold) {
-      document.body.innerHTML = "<h1>Access Blocked</h1>";
-    }
-    start = new Date();
-    setTimeout(detect, 100);
-  }
-  detect();
-})();
-
-// Try to detect if console is open by measuring object rendering time
-(function() {
-  const element = new Image();
-  Object.defineProperty(element, 'id', {
-    get: function () {
-      document.body.innerHTML = "<h1>Developer Tools Detected</h1>";
-    }
-  });
-  console.log('%cPreventing Inspection...', 'color: red; font-size: 30px;', element);
-})();
-</script>
+     <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // Disable keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+U (View source)
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+            }
+            // Disable Ctrl+Shift+I (Developer tools)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                e.preventDefault();
+            }
+            // Disable F12 (Developer tools)
+            if (e.keyCode === 123) {
+                e.preventDefault();
+            }
+            // Disable Ctrl+C, Ctrl+X, Ctrl+V
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88)) {
+                e.preventDefault();
+            }
+        });
+        
+        // Disable text selection
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+        
+           </script>
 
 </body>
 </html>
