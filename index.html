@@ -3,379 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robotech Digital Solution | Professional Training</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-blue: #2563eb;
-            --yellow: #facc15;
-            --orange: #f97316;
-            --white: #ffffff;
-            --black: #000000;
-            --light-grey: #f0f4f8;
-            --dark-blue: #0b1b2b;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0a1725 0%, #0b1b2b 100%);
-            color: #050505;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 15px;
-        }
-
-        .section-title .divider {
-            width: 80px;
-            height: 4px;
-            background: var(--yellow);
-            margin: 0 auto 20px;
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            font-size: 1.25rem;
-            color: var(--light-grey);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        /* Training Section */
-        .training-section {
-            background: linear-gradient(rgba(11, 27, 43, 0.9), rgba(11, 27, 43, 0.9));
-            position: relative;
-            overflow: hidden;
-        }
-
-        .training-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(250, 204, 21, 0.1) 0%, transparent 20%);
-            z-index: -1;
-        }
-
-        .training-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .training-info h3 {
-            font-size: 2rem;
-            color: var(--white);
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .training-info p {
-            font-size: 1.1rem;
-            color: var(--light-grey);
-            margin-bottom: 30px;
-        }
-
-        .training-features {
-            margin-bottom: 40px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(37, 99, 235, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-
-        .feature-icon i {
-            font-size: 1.5rem;
-            color: var(--primary-blue);
-        }
-
-        .feature-text h4 {
-            font-size: 1.3rem;
-            color: var(--white);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .feature-text p {
-            font-size: 1rem;
-            color: var(--light-grey);
-            margin: 0;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 14px 32px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--yellow) 0%, #eab308 100%);
-            color: var(--black);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.4);
-        }
-
-        .training-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .training-card {
-            background: rgba(15, 30, 45, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 30px;
-            border: 1px solid rgba(79, 255, 117, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .training-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(79, 255, 117, 0.4);
-        }
-
-        .training-card i {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .web-card i { color: var(--primary-blue); }
-        .marketing-card i { color: var(--orange); }
-        .it-card i { color: var(--primary-blue); }
-        .led-card i { color: var(--yellow); }
-
-        .training-card h4 {
-            font-size: 1.4rem;
-            color: var(--black);
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .training-card p {
-            font-size: 1rem;
-            color: var(--light-grey);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .training-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .training-cards {
-                margin-top: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section {
-                padding: 60px 0;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .training-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .training-info h3 {
-                font-size: 1.8rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
-            .section-title p {
-                font-size: 1.1rem;
-            }
-            
-            .feature-item {
-                flex-direction: column;
-            }
-            
-            .feature-icon {
-                margin-bottom: 15px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Training Section -->
-    <section class="section training-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Robotech Training Programs</h2>
-                <div class="divider"></div>
-                <p>Advance your skills with our professional training programs</p>
-            </div>
-            
-            <div class="training-content">
-                <div class="training-info">
-                    <h3>Professional Development</h3>
-                    <p>Our training programs are designed to equip you with the latest skills in web development, digital marketing, IT support, and LED technology. Whether you're a beginner or looking to advance your career, we have the right program for you.</p>
-                    
-                    <div class="training-features">
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-laptop-code"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Hands-on Learning</h4>
-                                <p>Practical, project-based training with real-world applications</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Expert Instructors</h4>
-                                <p>Learn from industry professionals with years of experience</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <div class="feature-text">
-                                <h4>Certification</h4>
-                                <p>Earn recognized certificates to boost your career</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="#" class="btn btn-primary">
-                        <i class="fas fa-graduation-cap mr-2"></i> Visit Robotech Training
-                    </a>
-                </div>
-                
-                <div class="training-cards">
-                    <div class="training-card web-card">
-                        <i class="fas fa-code"></i>
-                        <h4>Web Development</h4>
-                        <p>Master HTML, CSS, JavaScript and modern frameworks to build responsive websites and applications.</p>
-                    </div>
-                    
-                    <div class="training-card marketing-card">
-                        <i class="fas fa-bullhorn"></i>
-                        <h4>Digital Marketing</h4>
-                        <p>Learn SEO, social media strategies, and digital advertising to boost online presence and engagement.</p>
-                    </div>
-                    
-                    <div class="training-card it-card">
-                        <i class="fas fa-tools"></i>
-                        <h4>IT Support</h4>
-                        <p>Develop skills in networking, hardware troubleshooting, and cybersecurity for robust IT solutions.</p>
-                    </div>
-                    
-                    <div class="training-card led-card">
-                        <i class="fas fa-lightbulb"></i>
-                        <h4>LED Technology</h4>
-                        <p>Learn installation, maintenance, and content creation for cutting-edge LED display systems.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Animation for training cards
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.training-card');
-            
-            cards.forEach((card, index) => {
-                // Set initial state for animation
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                
-                // Animate with delay
-                setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 300 + (index * 150));
-            });
-        });
-    </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Robotech Digital Solution | Vision Leaders in AI and Bionics</title>
-    <meta name="description" content="Robotech Digital Solution - Web Design, LED Signs, ICT Support, Hosting & Domains">
+    <title>Robotech Digital Solution | Vision Leaders in Digital Innovation</title>
+    <meta name="description" content="Professional web design, LED advertising, ICT support, hosting & domain services">
     <meta name="keywords" content="web design, LED signs, ICT support, hosting, domains, graphic design">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -387,12 +20,12 @@
                         'professional-blue': '#2563eb',
                         'yellow': '#facc15',
                         'orange': '#f97316',
-                        'white': '#ffffff',
-                        'black': '#000000',
-                        'light-grey': '#f0f4f8'
+                        'light-grey': '#f0f4f8',
+                        'dark-blue': '#0a1725',
+                        'accent': '#4fff75'
                     },
                     fontFamily: {
-                        'sans': ['Poppins', 'Roboto', 'sans-serif']
+                        'sans': ['Poppins', 'sans-serif']
                     }
                 }
             }
@@ -410,17 +43,7 @@
             background: linear-gradient(135deg, #0a1725 0%, #0b1b2b 100%);
             color: #e0e7ff;
             overflow-x: hidden;
-        }
-
-        .neon-glow {
-            text-shadow: 0 0 10px rgba(79, 255, 117, 0.7);
-        }
-
-        .grid-background {
-            background-image:
-                linear-gradient(rgba(79, 255, 117, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 255, 117, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
+            scroll-behavior: smooth;
         }
 
         .hero-bg {
@@ -508,8 +131,8 @@
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
         
         .gallery-card {
@@ -528,7 +151,7 @@
         }
         
         .card-image {
-            height: 250px;
+            height: 220px;
             width: 100%;
             overflow: hidden;
             position: relative;
@@ -557,27 +180,89 @@
         .card-content {
             padding: 1.5rem;
         }
-        
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
+
+        .ceo-section {
+            background: linear-gradient(135deg, #1a365d 0%, #0b1b2b 100%);
+            position: relative;
+            overflow: hidden;
         }
-        
-        .tech-tag {
-            background: rgba(79, 255, 117, 0.1);
-            color: var(--accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+
+        .ceo-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(79, 255, 117, 0.05) 0%, transparent 70%);
+            z-index: 0;
         }
-        
-        .animate-fade-in {
+
+        .ceo-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
+            color: #0b1b2b;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 700;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .testimonial-card {
+            background: rgba(15, 30, 45, 0.7);
+            border-radius: 16px;
+            border: 1px solid rgba(79, 255, 117, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Enhanced contrast for better visibility */
+        .text-contrast {
+            color: #f0f4f8;
+        }
+
+        .bg-contrast {
+            background: rgba(15, 30, 45, 0.85);
+        }
+
+        .section-title h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #4fff75;
+            border-radius: 2px;
+        }
+
+        /* Animation classes */
+        .fade-in {
             animation: fadeIn 0.8s ease-out forwards;
             opacity: 0;
         }
-        
+
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -591,15 +276,10 @@
         .delay-400 { animation-delay: 0.4s; }
         .delay-500 { animation-delay: 0.5s; }
         .delay-600 { animation-delay: 0.6s; }
-
-        .whatsapp-btn {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
-            box-shadow: 0 4px 15px rgba(18, 140, 126, 0.4);
-        }
     </style>
 </head>
 
-<body class="grid-background">
+<body class="bg-deep-blue text-light-grey">
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/254769700015" target="_blank"
         class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-700 transition duration-300 ease-in-out animate-pulse">
@@ -607,7 +287,7 @@
     </a>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full z-40 bg-deep-blue bg-opacity-90 backdrop-blur-sm py-4 px-6 border-b border-neon-green border-opacity-20">
+    <nav class="fixed top-0 left-0 w-full z-40 bg-deep-blue bg-opacity-90 backdrop-blur-sm py-4 px-6 border-b border-accent border-opacity-20">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-3">
                 <div class="w-12 h-12 rounded-full bg-professional-blue flex items-center justify-center text-white font-bold text-xl">
@@ -617,12 +297,13 @@
             </div>
 
             <div class="hidden md:flex space-x-8 items-center">
-                <a href="#home" class="text-white hover:text-neon-green nav-link">Home</a>
-                <a href="#services" class="text-white hover:text-neon-green nav-link">Services</a>
-                <a href="#portfolio" class="text-white hover:text-neon-green nav-link">Portfolio</a>
-                <a href="#gallery" class="text-white hover:text-neon-green nav-link">Gallery</a>
-                <a href="#training" class="text-white hover:text-neon-green nav-link">Training</a>
-                <a href="#contact" class="text-white hover:text-neon-green nav-link">Contact</a>
+                <a href="#home" class="text-white hover:text-accent nav-link">Home</a>
+                <a href="#services" class="text-white hover:text-accent nav-link">Services</a>
+                <a href="#portfolio" class="text-white hover:text-accent nav-link">Portfolio</a>
+                <a href="#gallery" class="text-white hover:text-accent nav-link">Gallery</a>
+                <a href="#ceo" class="text-white hover:text-accent nav-link">CEO</a>
+                <a href="#training" class="text-white hover:text-accent nav-link">Training</a>
+                <a href="#contact" class="text-white hover:text-accent nav-link">Contact</a>
                 <a href="#contact" class="btn-primary px-6 py-2 rounded-full">Get Started</a>
             </div>
 
@@ -636,7 +317,7 @@
     <section id="home" class="min-h-screen hero-bg flex items-center pt-16 pb-20 px-6">
         <div class="max-w-7xl mx-auto text-center">
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
-                Digital Solutions for <span class="text-yellow neon-glow">Modern Business</span>
+                Digital Solutions for <span class="text-yellow">Modern Business</span>
             </h1>
             <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-light-grey">
                 Professional web design, LED advertising, ICT support, hosting & domain services
@@ -662,8 +343,7 @@
     <section id="services" class="py-20 px-6">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Our Professional Services</h2>
-                <div class="w-24 h-1 bg-yellow mx-auto mb-6"></div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white section-title">Our Professional Services</h2>
                 <p class="text-xl max-w-3xl mx-auto text-light-grey">
                     Comprehensive solutions designed to transform your digital presence
                 </p>
@@ -671,7 +351,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Web Design -->
-                <div class="service-card rounded-xl p-8">
+                <div class="service-card rounded-xl p-8 fade-in">
                     <div class="text-professional-blue text-4xl mb-6">
                         <i class="fas fa-laptop-code"></i>
                     </div>
@@ -696,7 +376,7 @@
                 </div>
 
                 <!-- LED Signs -->
-                <div class="service-card rounded-xl p-8">
+                <div class="service-card rounded-xl p-8 fade-in">
                     <div class="text-yellow text-4xl mb-6">
                         <i class="fas fa-ad"></i>
                     </div>
@@ -721,7 +401,7 @@
                 </div>
 
                 <!-- ICT Support -->
-                <div class="service-card rounded-xl p-8">
+                <div class="service-card rounded-xl p-8 fade-in">
                     <div class="text-orange text-4xl mb-6">
                         <i class="fas fa-headset"></i>
                     </div>
@@ -746,7 +426,7 @@
                 </div>
 
                 <!-- Hosting -->
-                <div class="service-card rounded-xl p-8">
+                <div class="service-card rounded-xl p-8 fade-in">
                     <div class="text-professional-blue text-4xl mb-6">
                         <i class="fas fa-server"></i>
                     </div>
@@ -771,7 +451,7 @@
                 </div>
 
                 <!-- Domains -->
-                <div class="service-card rounded-xl p-8">
+                <div class="service-card rounded-xl p-8 fade-in">
                     <div class="text-yellow text-4xl mb-6">
                         <i class="fas fa-globe"></i>
                     </div>
@@ -796,7 +476,7 @@
                 </div>
 
                 <!-- Graphic Design -->
-                <div class="service-card rounded-xl p-8">
+                <div class="service-card rounded-xl p-8 fade-in">
                     <div class="text-orange text-4xl mb-6">
                         <i class="fas fa-paint-brush"></i>
                     </div>
@@ -853,11 +533,10 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="py-20 px-6 bg-deep-blue bg-opacity-50">
+    <section id="gallery" class="py-20 px-6 bg-dark-blue">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Our Project Gallery</h2>
-                <div class="w-24 h-1 bg-orange mx-auto mb-6"></div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white section-title">Our Project Gallery</h2>
                 <p class="text-xl max-w-3xl mx-auto text-light-grey">
                     Showcasing our best work in web design, LED advertising, and ICT solutions
                 </p>
@@ -867,101 +546,127 @@
                 <!-- LED Gallery 1 -->
                 <div class="gallery-card animate-fade-in">
                     <div class="card-image">
-                        <img src="gallay led.jpg" alt="LED Advertising Display">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="LED Advertising Display">
                         <div class="card-overlay">
                             <h3 class="text-xl font-bold text-white">LED Advertising Display</h3>
                         </div>
                     </div>
                     <div class="card-content">
                         <p class="text-light-grey">High-impact LED display for retail advertising with dynamic content capabilities.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">LED Technology</span>
-                            <span class="tech-tag">Digital Advertising</span>
-                        </div>
                     </div>
                 </div>
                 
                 <!-- LED Gallery 2 -->
                 <div class="gallery-card animate-fade-in delay-100">
                     <div class="card-image">
-                        <img src="led2.jpg" alt="LED Sign Installation">
+                        <img src="https://images.unsplash.com/photo-1633113210152-41e2d92b5b29?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="LED Sign Installation">
                         <div class="card-overlay">
                             <h3 class="text-xl font-bold text-white">LED Sign Installation</h3>
                         </div>
                     </div>
                     <div class="card-content">
                         <p class="text-light-grey">Professional LED sign installation for business storefronts.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Custom Installation</span>
-                            <span class="tech-tag">24/7 Visibility</span>
-                        </div>
                     </div>
                 </div>
                 
                 <!-- Computer Setup -->
                 <div class="gallery-card animate-fade-in delay-200">
                     <div class="card-image">
-                        <img src="comp.jpg" alt="ICT Support Setup">
+                        <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ICT Support Setup">
                         <div class="card-overlay">
                             <h3 class="text-xl font-bold text-white">ICT Support Setup</h3>
                         </div>
                     </div>
                     <div class="card-content">
                         <p class="text-light-grey">Professional computer setup and network installation for businesses.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">IT Infrastructure</span>
-                            <span class="tech-tag">Network Solutions</span>
-                        </div>
                     </div>
                 </div>
                 
                 <!-- Web Design 1 -->
                 <div class="gallery-card animate-fade-in delay-300">
                     <div class="card-image">
-                        <img src="web.jpg" alt="Professional Web Design">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Professional Web Design">
                         <div class="card-overlay">
                             <h3 class="text-xl font-bold text-white">Professional Web Design</h3>
                         </div>
                     </div>
                     <div class="card-content">
                         <p class="text-light-grey">Custom website design with responsive layout and modern UI.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">UI/UX Design</span>
-                            <span class="tech-tag">Responsive Layout</span>
-                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best CEO Section -->
+    <section id="ceo" class="py-20 px-6 ceo-section">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white section-title">Our Visionary Leadership</h2>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    Meet the driving force behind Robotech Digital Solution
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <div class="ceo-badge">Best CEO Award 2024</div>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="CEO of Robotech Digital Solution" 
+                             class="w-full max-w-md rounded-2xl border-4 border-yellow shadow-2xl">
                     </div>
                 </div>
                 
-                <!-- Web Design 2 -->
-                <div class="gallery-card animate-fade-in delay-400">
-                    <div class="card-image">
-                        <img src="web1.jpg" alt="E-commerce Website">
-                        <div class="card-overlay">
-                            <h3 class="text-xl font-bold text-white">E-commerce Website</h3>
-                        </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-white">James Kariuki</h3>
+                    <p class="text-xl text-light-grey mb-6">
+                        Founder & CEO of Robotech Digital Solution
+                    </p>
+                    <div class="mb-8">
+                        <p class="text-lg text-light-grey mb-6">
+                            With over 15 years of experience in the tech industry, James has pioneered innovative solutions that have transformed businesses across Africa. His visionary leadership and commitment to excellence have earned him the prestigious "Best CEO" award in the technology sector.
+                        </p>
+                        <p class="text-lg text-light-grey">
+                            Under James's guidance, Robotech has grown from a small startup to a market leader in digital solutions, serving over 500 clients across multiple industries.
+                        </p>
                     </div>
-                    <div class="card-content">
-                        <p class="text-light-grey">Complete e-commerce solution with secure payment integration.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">E-commerce</span>
-                            <span class="tech-tag">Payment Gateway</span>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-yellow text-2xl">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1 text-white">Industry Recognition</h4>
+                                <p class="text-light-grey">
+                                    3-time winner of Technology Innovation Awards
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- System Setup -->
-                <div class="gallery-card animate-fade-in delay-500">
-                    <div class="card-image">
-                        <img src="sys.jpg" alt="Server Setup">
-                        <div class="card-overlay">
-                            <h3 class="text-xl font-bold text-white">Server & Hosting Setup</h3>
+                        
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-yellow text-2xl">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1 text-white">Visionary Approach</h4>
+                                <p class="text-light-grey">
+                                    Pioneered 12+ industry-changing technologies
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-content">
-                        <p class="text-light-grey">Professional server setup for hosting and domain management services.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Hosting</span>
-                            <span class="tech-tag">Domain Management</span>
+                        
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-yellow text-2xl">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1 text-white">Leadership</h4>
+                                <p class="text-light-grey">
+                                    Mentored 50+ tech professionals in their careers
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -970,11 +675,10 @@
     </section>
 
     <!-- Training Section -->
-    <section id="training" class="py-20 px-6">
+    <section id="training" class="py-20 px-6 bg-deep-blue">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Robotech Training Programs</h2>
-                <div class="w-24 h-1 bg-yellow mx-auto mb-6"></div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white section-title">Robotech Training Programs</h2>
                 <p class="text-xl max-w-3xl mx-auto text-light-grey">
                     Advance your skills with our professional training programs
                 </p>
@@ -1071,12 +775,73 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="py-20 px-6 bg-dark-blue">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white section-title">Client Testimonials</h2>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    What our satisfied clients say about our services
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card p-8">
+                    <div class="text-yellow-400 text-2xl mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-light-grey mb-6 italic">
+                        "Robotech's web design services transformed our online presence. Our conversion rates increased by 45% after they redesigned our e-commerce platform."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 mr-4 flex items-center justify-center text-white font-bold">SK</div>
+                        <div>
+                            <h4 class="font-bold text-white">Sarah K.</h4>
+                            <p class="text-light-grey">Retail Business Owner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card p-8">
+                    <div class="text-yellow-400 text-2xl mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-light-grey mb-6 italic">
+                        "The LED display they installed has become the centerpiece of our storefront. We've seen a 30% increase in foot traffic since it was installed."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 mr-4 flex items-center justify-center text-white font-bold">MJ</div>
+                        <div>
+                            <h4 class="font-bold text-white">Michael J.</h4>
+                            <p class="text-light-grey">Restaurant Manager</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card p-8">
+                    <div class="text-yellow-400 text-2xl mb-4">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-light-grey mb-6 italic">
+                        "Their IT support team resolved our network issues in record time. We've never experienced such professional and efficient service before."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 rounded-full bg-gray-700 mr-4 flex items-center justify-center text-white font-bold">DT</div>
+                        <div>
+                            <h4 class="font-bold text-white">David T.</h4>
+                            <p class="text-light-grey">IT Director</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="py-20 px-6 bg-deep-blue">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Contact Us</h2>
-                <div class="w-24 h-1 bg-professional-blue mx-auto mb-6"></div>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white section-title">Contact Us</h2>
                 <p class="text-xl max-w-3xl mx-auto text-light-grey">
                     Ready to transform your digital presence? Get in touch with us today.
                 </p>
@@ -1202,7 +967,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 px-6 bg-deep-blue border-t border-professional-blue border-opacity-20">
+    <footer class="py-12 px-6 bg-dark-blue border-t border-professional-blue border-opacity-20">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -1250,6 +1015,7 @@
                         <li><a href="#services" class="text-light-grey hover:text-professional-blue">Services</a></li>
                         <li><a href="#portfolio" class="text-light-grey hover:text-professional-blue">Portfolio</a></li>
                         <li><a href="#gallery" class="text-light-grey hover:text-professional-blue">Gallery</a></li>
+                        <li><a href="#ceo" class="text-light-grey hover:text-professional-blue">CEO</a></li>
                         <li><a href="#training" class="text-light-grey hover:text-professional-blue">Training</a></li>
                         <li><a href="#contact" class="text-light-grey hover:text-professional-blue">Contact</a></li>
                     </ul>
@@ -1280,22 +1046,25 @@
     </footer>
 
     <script>
-        // Gallery animation observer
+        // Animation for elements
         document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.animate-fade-in');
+            const fadeElements = document.querySelectorAll('.fade-in, .animate-fade-in');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
-                        observer.unobserve(entry.target);
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            }, { threshold: 0.1 });
-            
-            animatedElements.forEach(element => {
-                element.style.opacity = '0';
+            }, {
+                threshold: 0.1
+            });
+
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
                 element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(element);
             });
 
@@ -1312,6 +1081,35 @@
                     }
                 });
             });
+        });
+
+        // Source code protection
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+U (View source)
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+            }
+            // Disable Ctrl+Shift+I (Developer tools)
+            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+                e.preventDefault();
+            }
+            // Disable F12 (Developer tools)
+            if (e.keyCode === 123) {
+                e.preventDefault();
+            }
+            // Disable Ctrl+C, Ctrl+X, Ctrl+V
+            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88)) {
+                e.preventDefault();
+            }
+        });
+        
+        // Disable text selection
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
         });
     </script>
 </body>
