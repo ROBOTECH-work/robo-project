@@ -1,863 +1,951 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="aBzCoTE9cnUIaRW_apB4EKSiaTYHgp-WH5l6p1ZEvRA" />
-  <title>Robotech Digital Solution | Robotics, Bionics, ICT & Smart Innovation in Kenya</title>
-
-  <!-- Favicons -->
-  <link rel="icon" href="logo.png" type="image/png">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-  <!-- Preload critical resources -->
-  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Custom Tailwind Configuration -->
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            'robotech-blue': '#1a365d',
-            'robotech-blue-light': '#2c5282',
-            'robotech-orange': '#dd6b20',
-            'robotech-orange-light': '#ed8936',
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.5s ease-in-out',
-            'slide-down': 'slideDown 0.3s ease forwards',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' }
-            },
-            slideDown: {
-              '0%': { opacity: '0', transform: 'translateY(-20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotech Digital Solution | Vision Leaders in AI and Bionics</title>
+    <meta name="description" content="Robotech Digital Solution - Web Design, LED Signs, ICT Support, Hosting & Domains">
+    <meta name="keywords" content="web design, LED signs, ICT support, hosting, domains, graphic design">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-blue': '#0b1b2b',
+                        'professional-blue': '#2563eb',
+                        'yellow': '#facc15',
+                        'orange': '#f97316',
+                        'white': '#ffffff',
+                        'black': '#000000',
+                        'light-grey': '#f0f4f8'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'Roboto', 'sans-serif']
+                    }
+                }
             }
-          }
         }
-      }
-    }
-  </script>
+    </script>
+    <style>
+        :root {
+            --primary: #0b1b2b;
+            --accent: #4fff75;
+            --light: #f0f4f8;
+        }
 
-  <!-- SEO Meta Tags -->
-  <meta name="description"
-    content="Robotech Digital Solution is Kenya's leader in robotics, ICT services, CCTV installation, web design, and Starlink setup. We deliver modern solutions for smart businesses." />
-  <meta name="keywords"
-    content="Robotech, robotechdigi, robotics Kenya, ICT Kenya, CCTV installation, web design Kenya, Starlink installer, networking, computer repair Kenya ICT Nairobi" />
-  <meta name="author" content="Robotech Digital Solution" />
-  <meta name="robots" content="index, follow" />
-  <meta name="language" content="en" />
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a1725 0%, #0b1b2b 100%);
+            color: #e0e7ff;
+            overflow-x: hidden;
+        }
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://robotechdigi.com/" />
-  <meta property="og:title" content="Robotech Digital Solution | Robotics, ICT & Smart Innovation in Kenya" />
-  <meta property="og:description"
-    content="Expert ICT and robotics solutions in Kenya. Serving smart businesses with design, networking, and automation." />
-  <meta property="og:image" content="https://robotechdigi.com/images/og-image.jpg" />
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(79, 255, 117, 0.7);
+        }
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://robotechdigi.com/" />
-  <meta property="twitter:title" content="Robotech Digital Solution" />
-  <meta property="twitter:description" content="Robotics and ICT Services for Modern Kenya." />
-  <meta property="twitter:image" content="https://robotechdigi.com/images/twitter-card.jpg" />
+        .grid-background {
+            background-image:
+                linear-gradient(rgba(79, 255, 117, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(79, 255, 117, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://robotechdigi.com/" />
+        .hero-bg {
+            background: radial-gradient(circle at center, rgba(11, 27, 43, 0.9) 0%, rgba(11, 27, 43, 1) 70%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0,0 L100,100" stroke="rgba(79,255,117,0.1)" stroke-width="0.5"/></svg>');
+            background-size: cover;
+        }
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Robotech Digital Solution",
-      "url": "https://robotechdigi.com",
-      "logo": "https://robotechdigi.com/logo.png",
-      "sameAs": [
-        "https://www.facebook.com/robotech",
-        "https://www.instagram.com/robotech",
-        "https://www.linkedin.com/company/robotech"
-      ],
-      "description": "Robotech Digital Solution is a leading tech company in Kenya offering robotics, ICT, networking, and web services."
-    }
-  </script>
+        .service-card {
+            transition: all 0.3s ease;
+            background: rgba(15, 30, 45, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 255, 117, 0.1);
+        }
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(79, 255, 117, 0.4);
+        }
 
-  <!-- Custom Styles -->
-  <style>
-    :root {
-      --robotech-blue: #1a365d;
-      --robotech-orange: #dd6b20;
-    }
+        .nav-link {
+            position: relative;
+        }
 
-    html {
-      scroll-behavior: smooth;
-    }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #4fff75;
+            transition: width 0.3s ease;
+        }
 
-    /* Navbar styles */
-    .navbar {
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
-    .nav-link {
-      position: relative;
-      transition: color 0.3s ease;
-    }
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
 
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -2px;
-      left: 0;
-      background-color: var(--robotech-orange);
-      transition: width 0.3s ease;
-    }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
 
-    .nav-link:hover::after,
-    .nav-link.active::after {
-      width: 100%;
-    }
+        .btn-secondary {
+            background: linear-gradient(135deg, #facc15 0%, #eab308 100%);
+            color: #0b1b2b;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(250, 204, 21, 0.3);
+        }
 
-    /* Sticky navbar */
-    .sticky {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(250, 204, 21, 0.4);
+        }
 
-    /* Event banner */
-    .twinkle-banner {
-      position: fixed;
-      top: 40%;
-      right: 0;
-      background-color: #e53e3e;
-      color: white;
-      font-weight: bold;
-      font-size: 16px;
-      padding: 15px;
-      border-top-left-radius: 50% 50%;
-      border-bottom-left-radius: 50% 50%;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-      animation: twinkle 1.5s infinite;
-      z-index: 9999;
-      line-height: 1.5;
-      text-align: center;
-      writing-mode: vertical-rl;
-      transform: rotate(180deg);
-      transform-origin: right top;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+        .btn-tertiary {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+        }
 
-    .twinkle-banner:hover {
-      transform: rotate(180deg) translateX(-10px);
-    }
+        .btn-tertiary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+        }
 
-    @keyframes twinkle {
+        .portfolio-section {
+            background: linear-gradient(135deg, #0b1b2b 0%, #1a365d 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
 
-      0%,
-      100% {
-        opacity: 1;
-        box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
-      }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .gallery-card {
+            background: rgba(15, 30, 45, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(79, 255, 117, 0.1);
+        }
+        
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(79, 255, 117, 0.4);
+        }
+        
+        .card-image {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+        
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(11, 27, 43, 0.9), transparent);
+            padding: 1.5rem;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .tech-tag {
+            background: rgba(79, 255, 117, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
 
-      50% {
-        opacity: 0.7;
-        box-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
-      }
-    }
-
-    /* Card hover effects */
-    .card-hover {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card-hover:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Image zoom effect */
-    .zoom-effect {
-      transition: transform 0.5s ease;
-    }
-
-    .zoom-effect:hover {
-      transform: scale(1.03);
-    }
-
-    /* Section animations */
-    .fade-in-section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in-section.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-
-
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            box-shadow: 0 4px 15px rgba(18, 140, 126, 0.4);
+        }
+    </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans antialiased pt-16 md:pt-0">
-  <!-- Navigation -->
-  <nav id="navbar" class="navbar bg-white/90 shadow-md sticky top-0 z-50 backdrop-blur-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <!-- Logo/Brand -->
-        <div class="flex-shrink-0 flex items-center">
-          <a href="/" class="flex items-center gap-3" aria-label="Robotech Digital Home">
-            <img src="logo.png" alt="Robotech Logo" width="48" height="48"
-              class="h-10 w-10 md:h-12 md:w-12 rounded-full shadow-md border-2 border-robotech-blue p-1 bg-white">
-            <span class="text-xl md:text-2xl font-bold text-robotech-blue">Robotech Digital</span>
-          </a>
-        </div>
+<body class="grid-background">
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/254769700015" target="_blank"
+        class="fixed bottom-8 right-8 z-50 w-14 h-14 bg-green-600 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-green-700 transition duration-300 ease-in-out animate-pulse">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
 
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-1">
-          <a href="#home"
-            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange active">Home</a>
-          <a href="#about"
-            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">About</a>
-          <a href="#services"
-            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">Services</a>
-          <a href="#blogs"
-            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">Blogs</a>
-          <a href="#contact"
-            class="nav-link px-3 py-2 rounded-md text-sm font-medium text-robotech-blue hover:text-robotech-orange">Contact</a>
-          <a href="tel:0769700015"
-            class="ml-4 px-4 py-2 bg-robotech-orange text-white rounded-md hover:bg-robotech-orange-light transition flex items-center gap-2"
-            aria-label="Call Robotech Digital">
-            <i class="fas fa-phone-alt"></i>
-            <span>Call Us</span>
-          </a>
-        </div>
-
-        <!-- Mobile menu button -->
-        <div class="md:hidden flex items-center">
-          <button id="mobile-menu-button" aria-label="Toggle mobile menu"
-            class="inline-flex items-center justify-center p-2 rounded-md text-robotech-blue hover:text-robotech-orange focus:outline-none">
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu hidden md:hidden bg-white/95 border-t border-gray-200 backdrop-blur-sm">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue bg-gray-50">Home</a>
-        <a href="#about"
-          class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">About</a>
-        <a href="#services"
-          class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">Services</a>
-        <a href="#blogs"
-          class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">Blogs</a>
-        <a href="#contact"
-          class="block px-3 py-2 rounded-md text-base font-medium text-robotech-blue hover:bg-gray-50">Contact</a>
-        <a href="tel:0769700015"
-          class="block px-3 py-2 rounded-md text-base font-medium text-white bg-robotech-orange hover:bg-robotech-orange-light text-center">
-          <i class="fas fa-phone-alt mr-2"></i>Call Now
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header id="home" class="bg-robotech-blue text-white py-20 px-4 sm:px-6 lg:px-8 fade-in-section">
-    <div class="max-w-7xl mx-auto text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Equipping Young Minds to Innovate Through Code and Machines</h1>
-      <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8">We empower learners through hands-on exposure to robotics and coding, while advancing innovation in 
-        bionics and AI through dedicated research initiatives in Kenya.</p>
-      <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href="learn.html" target="_blank"
-          class="px-8 py-3 bg-robotech-orange text-white rounded-lg font-semibold hover:bg-robotech-orange-light transition transform hover:-translate-y-1">
-          Learn to Code  <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-       <a href="business.html" target="_blank"
-   class="px-8 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md transition transform hover:-translate-y-1 hover:bg-green-700 hover:shadow-lg duration-300 ease-in-out animate-pulse">
-   Visit Our Business Site
-</a>
-
-
-
-      </div>
-    </div>
-  </header>
-
-  <!-- Event Banner -->
-  <!-- <div class="twinkle-banner" aria-label="Upcoming Robotic Show">
-    ✨ Robotic Show<br>
-    📅 24th June 2025<br>
-    📍 St Ann's Primary School, Karen
-  </div> -->
-
-  <!-- About Section -->
-  <section id="about" class="py-16 bg-white fade-in-section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 relative inline-block">
-          About
-          <span class="absolute bottom-0 left-0 w-full h-1 "></span>
-        </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Pioneering technology solutions in Kenya through innovation and education
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-8">
-          <div class="bg-white p-6 rounded-xl shadow-md card-hover border-l-4 border-robotech-blue">
-            <div class="flex items-start">
-              <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                <span class="text-2xl text-blue-600">🌍</span>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">Kenya-Based Tech Pioneers</h3>
-                <p class="text-gray-600">Leading hands-on innovation in robotics, AI, and bionics research across Africa
-                  with locally relevant solutions.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl shadow-md card-hover border-l-4 border-robotech-orange">
-            <div class="flex items-start">
-              <div class="bg-orange-100 p-3 rounded-full mr-4 flex-shrink-0">
-                <span class="text-2xl text-orange-600">👨‍💼</span>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">Visionary Leadership</h3>
-                <p class="text-gray-600">Founded by <strong class="text-robotech-blue">Z. Chege</strong>, we're creating
-                  Africa's next generation of tech innovators and problem-solvers.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-white p-6 rounded-xl shadow-md card-hover border-l-4 border-green-500">
-            <div class="flex items-start">
-              <div class="bg-green-100 p-3 rounded-full mr-4 flex-shrink-0">
-                <span class="text-2xl text-green-600">🎓</span>
-              </div>
-              <div>
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">Future-Ready Education</h3>
-                <p class="text-gray-600">Practical training in robotics, coding & automation for schools, universities,
-                  and professionals across Kenya.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="text-center md:text-left">
-            <a href="#contact"
-              class="inline-flex items-center px-6 py-3 bg-robotech-blue text-white rounded-lg font-medium hover:bg-robotech-blue-light transition transform hover:-translate-y-1">
-              Connect With Us <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="relative group h-full min-h-[400px] rounded-2xl overflow-hidden shadow-xl zoom-effect">
-          <img src="mykid.jpg" alt="Robotech team working on robotics project"
-            class="w-full h-full object-cover absolute inset-0 transition-opacity duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
-            <div class="text-white">
-              <h3 class="text-xl font-bold mb-2">Innovation in Action</h3>
-              <p>Our team developing cutting-edge robotics solutions</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="py-16 bg-gray-50 fade-in-section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Comprehensive technology solutions for education and business
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Service 1 -->
-        <div
-          class="bg-white p-6 rounded-xl shadow-md card-hover hover:border-robotech-blue border-2 border-transparent transition-all">
-          <div class="text-robotech-blue text-4xl mb-4">
-            <i class="fas fa-robot"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Robotics Education</h3>
-          <p class="text-gray-600 mb-4">Hands-on robotics training for schools and institutions, preparing students for
-            the future of automation.</p>
-          <a href="#contact" class="text-robotech-orange font-medium inline-flex items-center">
-            Learn more <i class="fas fa-arrow-right ml-2"></i>
-          </a>
-        </div>
-
-        <!-- Service 2 -->
-        <div
-          class="bg-white p-6 rounded-xl shadow-md card-hover hover:border-robotech-blue border-2 border-transparent transition-all">
-          <div class="text-robotech-blue text-4xl mb-4">
-            <i class="fas fa-laptop-code"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Coding Programs</h3>
-          <p class="text-gray-600 mb-4">Comprehensive coding courses from beginner to advanced levels, focusing on
-            practical applications.</p>
-          <a href="#contact" class="text-robotech-orange font-medium inline-flex items-center">
-            Learn more <i class="fas fa-arrow-right ml-2"></i>
-          </a>
-        </div>
-
-        <!-- Service 3 -->
-        <div
-          class="bg-white p-6 rounded-xl shadow-md card-hover hover:border-robotech-blue border-2 border-transparent transition-all">
-          <div class="text-robotech-blue text-4xl mb-4">
-            <i class="fas fa-microchip"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-3 text-gray-800">Bionics Research</h3>
-          <p class="text-gray-600 mb-4">Cutting-edge research in prosthetic technology and human-machine interfaces for
-            healthcare solutions.</p>
-          <a href="#contact" class="text-robotech-orange font-medium inline-flex items-center">
-            Learn more <i class="fas fa-arrow-right ml-2"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Blog Section -->
-  <section id="blogs" class="py-16 bg-white fade-in-section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Latest Insights</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Stay updated with our latest projects and technology trends
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Blog 1 -->
-        <a href="https://robotechdigitals.blogspot.com/" target="_blank" rel="noopener noreferrer"
-          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all card-hover overflow-hidden group">
-          <div class="overflow-hidden">
-            <img src="banner.jpeg" alt="Teaching Robotics in Kenya" width="400" height="225"
-              class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Teaching
-              Robotics in Kenya</h3>
-            <p class="text-gray-600 mb-4">Discover how we bring practical robotics and coding lessons to schools and
-              tech hubs across Kenya.</p>
-            <div class="text-robotech-orange font-medium flex items-center">
-              Read more <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-            </div>
-          </div>
-        </a>
-
-        <!-- Blog 2 -->
-        <a href="https://robotechdigitals.blogspot.com/" target="_blank" rel="noopener noreferrer"
-          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all card-hover overflow-hidden group">
-          <div class="overflow-hidden">
-            <img src="mykid.jpg" alt="Our Research Facilities" width="400" height="225"
-              class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Our
-              Research Facilities</h3>
-            <p class="text-gray-600 mb-4">Explore our advanced robotics and bionics lab empowering groundbreaking
-              innovations in health and automation.</p>
-            <div class="text-robotech-orange font-medium flex items-center">
-              Read more <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-            </div>
-          </div>
-        </a>
-
-        <!-- Blog 3 -->
-        <a href="https://robotechdigitals.blogspot.com/" target="_blank" rel="noopener noreferrer"
-          class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all card-hover overflow-hidden group">
-          <div class="overflow-hidden">
-            <img src="led.jpg" alt="Coding for Young Innovators" width="400" height="225"
-              class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2 text-robotech-blue group-hover:text-robotech-orange transition">Coding for
-              Young Innovators</h3>
-            <p class="text-gray-600 mb-4">We help children and youth build strong foundations in coding, electronics,
-              and logical thinking.</p>
-            <div class="text-robotech-orange font-medium flex items-center">
-              Read more <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="text-center mt-12">
-        <a href="https://robotechdigitals.blogspot.com/" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center px-6 py-3 bg-robotech-blue text-white rounded-lg font-medium hover:bg-robotech-blue-light transition transform hover:-translate-y-1">
-          View All Articles <i class="fas fa-arrow-right ml-2"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 bg-robotech-blue text-white fade-in-section">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-        <p class="text-xl opacity-90 max-w-3xl mx-auto">
-          Ready to start your robotics or coding journey? Contact us today.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-12">
-        <div>
-          <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="bg-white/20 p-3 rounded-full mr-4 flex-shrink-0">
-                <i class="fas fa-phone-alt"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-1">Phone</h4>
-                <a href="tel:0769700015" class="hover:underline">0769 700 015</a>
-              </div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full z-40 bg-deep-blue bg-opacity-90 backdrop-blur-sm py-4 px-6 border-b border-neon-green border-opacity-20">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 rounded-full bg-professional-blue flex items-center justify-center text-white font-bold text-xl">
+                    RD
+                </div>
+                <span class="text-xl font-bold text-white">Robotech<span class="text-yellow">Digital</span></span>
             </div>
 
-            <div class="flex items-start">
-              <div class="bg-white/20 p-3 rounded-full mr-4 flex-shrink-0">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-1">Email</h4>
-                <a href="mailto:info@robotech.co.ke" class="hover:underline">info@robotech.co.ke</a>
-              </div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#home" class="text-white hover:text-neon-green nav-link">Home</a>
+                <a href="#services" class="text-white hover:text-neon-green nav-link">Services</a>
+                <a href="#portfolio" class="text-white hover:text-neon-green nav-link">Portfolio</a>
+                <a href="#gallery" class="text-white hover:text-neon-green nav-link">Gallery</a>
+                <a href="#training" class="text-white hover:text-neon-green nav-link">Training</a>
+                <a href="#contact" class="text-white hover:text-neon-green nav-link">Contact</a>
+                <a href="#contact" class="btn-primary px-6 py-2 rounded-full">Get Started</a>
             </div>
 
-            <div class="flex items-start">
-              <div class="bg-white/20 p-3 rounded-full mr-4 flex-shrink-0">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div>
-                <h4 class="font-semibold mb-1">Location</h4>
-                <p>Nairobi, Kenya</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-8">
-            <h4 class="font-semibold mb-4">Follow Us</h4>
-            <div class="flex space-x-4">
-              <a href="#" aria-label="Facebook" class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" aria-label="Twitter" class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" aria-label="LinkedIn" class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" aria-label="Instagram" class="bg-white/10 p-3 rounded-full hover:bg-white/20 transition">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-xl p-6 shadow-lg">
-          <h3 class="text-2xl font-bold mb-6 text-gray-800">Send Us a Message</h3>
-          <form class="space-y-4">
-            <div>
-              <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-              <input type="text" id="name"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-robotech-blue focus:border-transparent">
-            </div>
-            <div>
-              <label for="email" class="block text-gray-700 mb-2">Email Address</label>
-              <input type="email" id="email"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-robotech-blue focus:border-transparent">
-            </div>
-            <div>
-              <label for="message" class="block text-gray-700 mb-2">Your Message</label>
-              <textarea id="message" rows="4"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-robotech-blue focus:border-transparent"></textarea>
-            </div>
-            <button type="submit"
-              class="w-full px-6 py-3 bg-robotech-orange text-white rounded-lg font-semibold hover:bg-robotech-orange-light transition">
-              Send Message <i class="fas fa-paper-plane ml-2"></i>
+            <button class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
             </button>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Footer -->
-  <footer class="bg-robotech-blue text-gray-100 py-12"> <!-- Changed text color to gray-100 -->
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-4 md:mb-0">
-          <a href="/" class="flex items-center justify-center md:justify-start gap-3">
-            <img src="logo.png" alt="Robotech Logo"
-              class="h-10 w-10 rounded-full shadow-md border-2 border-white p-1 bg-white">
-            <span class="text-xl font-bold text-white">Robotech Digital Solutions</span> <!-- Made text white -->
-          </a>
-        </div>
-
-        <div class="flex space-x-6 mb-4 md:mb-0">
-          <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f text-xl"></i></a>
-          <!-- Hover to white -->
-          <span> Join Our Whatsapp Channel </span>
-           <a href="https://whatsapp.com/channel/0029VatbQ2WGzzKQMe6adO2X" class="hover:text-white transition"><i class="fab fa-whatsapp text-xl"></i></a>
-          <a href="https://x.com/RobotechDigi" class="hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
-          <a href="https://www.linkedin.com/in/zacharia-chege-730232302/" class="hover:text-white transition"><i class="fab fa-linkedin-in text-xl"></i></a>
-          <a href="#" class="hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen hero-bg flex items-center pt-16 pb-20 px-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
+                Digital Solutions for <span class="text-yellow neon-glow">Modern Business</span>
+            </h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-light-grey">
+                Professional web design, LED advertising, ICT support, hosting & domain services
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#services" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold">
+                    Explore Our Services
+                </a>
+                <a href="#contact" class="btn-tertiary px-8 py-4 rounded-full text-lg font-semibold">
+                    Contact Us
+                </a>
+            </div>
         </div>
 
-        <div class="text-sm text-white"> <!-- Made text white -->
-          <p>&copy; 2019 Robotech Digital Solutions. All rights reserved.</p>
-          <p class="mt-1">CEO: Zacharia Chege</p>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#services" class="text-yellow text-4xl">
+                <i class="fas fa-chevron-down"></i>
+            </a>
         </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Back to Top Button -->
-  <button id="back-to-top" aria-label="Back to top"
-    class="fixed bottom-6 right-6 bg-robotech-orange text-white p-3 rounded-full shadow-lg hidden hover:bg-robotech-orange-light transition transform hover:-translate-y-1">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Our Professional Services</h2>
+                <div class="w-24 h-1 bg-yellow mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    Comprehensive solutions designed to transform your digital presence
+                </p>
+            </div>
 
-  <!-- JavaScript -->
-  <script>
-    // Mobile Menu Toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Web Design -->
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-professional-blue text-4xl mb-6">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Web Design & Development</h3>
+                    <p class="text-light-grey mb-6">
+                        Professional websites that convert visitors into customers with modern design and functionality.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-professional-blue mr-2"></i>
+                            Responsive design
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-professional-blue mr-2"></i>
+                            E-commerce integration
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-professional-blue mr-2"></i>
+                            CMS implementation
+                        </li>
+                    </ul>
+                </div>
 
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      mobileMenuButton.innerHTML = mobileMenu.classList.contains('hidden') ?
-        '<i class="fas fa-bars text-xl"></i>' :
-        '<i class="fas fa-times text-xl"></i>';
-    });
+                <!-- LED Signs -->
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-yellow text-4xl mb-6">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">LED Signs & Advertising</h3>
+                    <p class="text-light-grey mb-6">
+                        Eye-catching LED displays that grab attention and promote your business 24/7.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow mr-2"></i>
+                            Indoor & outdoor displays
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow mr-2"></i>
+                            Custom content creation
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow mr-2"></i>
+                            Remote management
+                        </li>
+                    </ul>
+                </div>
 
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenuButton.innerHTML = '<i class="fas fa-bars text-xl"></i>';
-      });
-    });
+                <!-- ICT Support -->
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-orange text-4xl mb-6">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">ICT Support Services</h3>
+                    <p class="text-light-grey mb-6">
+                        Comprehensive IT support to keep your business running smoothly and securely.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-orange mr-2"></i>
+                            Network setup & maintenance
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-orange mr-2"></i>
+                            Hardware troubleshooting
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-orange mr-2"></i>
+                            Cybersecurity solutions
+                        </li>
+                    </ul>
+                </div>
 
-    // Sticky Navbar with Scroll Effect
-    const navbar = document.getElementById('navbar');
-    const backToTop = document.getElementById('back-to-top');
+                <!-- Hosting -->
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-professional-blue text-4xl mb-6">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Web Hosting Services</h3>
+                    <p class="text-light-grey mb-6">
+                        Reliable hosting solutions with 99.9% uptime and expert support.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-professional-blue mr-2"></i>
+                            SSD storage
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-professional-blue mr-2"></i>
+                            Daily backups
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-professional-blue mr-2"></i>
+                            Free SSL certificates
+                        </li>
+                    </ul>
+                </div>
 
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                <!-- Domains -->
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-yellow text-4xl mb-6">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Domain Registration</h3>
+                    <p class="text-light-grey mb-6">
+                        Secure your perfect domain name with competitive pricing and management tools.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow mr-2"></i>
+                            Domain transfers
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow mr-2"></i>
+                            DNS management
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-yellow mr-2"></i>
+                            WHOIS privacy
+                        </li>
+                    </ul>
+                </div>
 
-      // Back to top button
-      scrollTop > 300 ?
-        backToTop.classList.remove('hidden') :
-        backToTop.classList.add('hidden');
+                <!-- Graphic Design -->
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-orange text-4xl mb-6">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Graphic Design</h3>
+                    <p class="text-light-grey mb-6">
+                        Professional design services for all your marketing and branding needs.
+                    </p>
+                    <ul class="space-y-2 text-light-grey">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-orange mr-2"></i>
+                            Logo & branding
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-orange mr-2"></i>
+                            Marketing materials
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-orange mr-2"></i>
+                            Social media graphics
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      // Navbar shadow
-      if (scrollTop > 10) {
-        navbar.classList.add('shadow-lg', 'bg-white/95');
-        navbar.classList.remove('shadow-md', 'bg-white/90');
-      } else {
-        navbar.classList.remove('shadow-lg', 'bg-white/95');
-        navbar.classList.add('shadow-md', 'bg-white/90');
-      }
-    });
+    <!-- Portfolio Download Section -->
+    <section id="portfolio" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="portfolio-section p-8 md:p-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Download Our Portfolio</h2>
+                        <p class="text-xl mb-8 text-light-grey">
+                            Explore our extensive portfolio showcasing our expertise in web design, LED advertising, 
+                            ICT solutions, hosting services, and domain management.
+                        </p>
+                        <a href="robotechportfolio.pdf" download class="btn-primary inline-flex items-center px-8 py-4 rounded-full text-lg font-semibold">
+                            <i class="fas fa-download mr-3"></i> Download Portfolio (PDF)
+                        </a>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="bg-white/10 backdrop-blur-sm border-2 border-dashed border-white/20 rounded-xl w-64 h-80 flex items-center justify-center">
+                            <div class="text-center">
+                                <i class="fas fa-file-pdf text-5xl text-professional-blue mb-4"></i>
+                                <p class="text-white font-semibold">robotechportfolio.pdf</p>
+                                <p class="text-light-grey mt-2">2.4 MB</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-6 bg-deep-blue bg-opacity-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Our Project Gallery</h2>
+                <div class="w-24 h-1 bg-orange mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    Showcasing our best work in web design, LED advertising, and ICT solutions
+                </p>
+            </div>
 
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop - 80,
-            behavior: 'smooth'
-          });
+            <div class="gallery-grid">
+                <!-- LED Gallery 1 -->
+                <div class="gallery-card animate-fade-in">
+                    <div class="card-image">
+                        <img src="gallay led.jpg" alt="LED Advertising Display">
+                        <div class="card-overlay">
+                            <h3 class="text-xl font-bold text-white">LED Advertising Display</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-light-grey">High-impact LED display for retail advertising with dynamic content capabilities.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">LED Technology</span>
+                            <span class="tech-tag">Digital Advertising</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- LED Gallery 2 -->
+                <div class="gallery-card animate-fade-in delay-100">
+                    <div class="card-image">
+                        <img src="led2.jpg" alt="LED Sign Installation">
+                        <div class="card-overlay">
+                            <h3 class="text-xl font-bold text-white">LED Sign Installation</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-light-grey">Professional LED sign installation for business storefronts.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Custom Installation</span>
+                            <span class="tech-tag">24/7 Visibility</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Computer Setup -->
+                <div class="gallery-card animate-fade-in delay-200">
+                    <div class="card-image">
+                        <img src="comp.jpg" alt="ICT Support Setup">
+                        <div class="card-overlay">
+                            <h3 class="text-xl font-bold text-white">ICT Support Setup</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-light-grey">Professional computer setup and network installation for businesses.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">IT Infrastructure</span>
+                            <span class="tech-tag">Network Solutions</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Web Design 1 -->
+                <div class="gallery-card animate-fade-in delay-300">
+                    <div class="card-image">
+                        <img src="web.jpg" alt="Professional Web Design">
+                        <div class="card-overlay">
+                            <h3 class="text-xl font-bold text-white">Professional Web Design</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-light-grey">Custom website design with responsive layout and modern UI.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">UI/UX Design</span>
+                            <span class="tech-tag">Responsive Layout</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Web Design 2 -->
+                <div class="gallery-card animate-fade-in delay-400">
+                    <div class="card-image">
+                        <img src="web1.jpg" alt="E-commerce Website">
+                        <div class="card-overlay">
+                            <h3 class="text-xl font-bold text-white">E-commerce Website</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-light-grey">Complete e-commerce solution with secure payment integration.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">E-commerce</span>
+                            <span class="tech-tag">Payment Gateway</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- System Setup -->
+                <div class="gallery-card animate-fade-in delay-500">
+                    <div class="card-image">
+                        <img src="sys.jpg" alt="Server Setup">
+                        <div class="card-overlay">
+                            <h3 class="text-xl font-bold text-white">Server & Hosting Setup</h3>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <p class="text-light-grey">Professional server setup for hosting and domain management services.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Hosting</span>
+                            <span class="tech-tag">Domain Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-          // Update URL without page jump
-          if (history.pushState) {
-            history.pushState(null, null, targetId);
-          } else {
-            location.hash = targetId;
-          }
-        }
-      });
-    });
+    <!-- Training Section -->
+    <section id="training" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Robotech Training Programs</h2>
+                <div class="w-24 h-1 bg-yellow mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    Advance your skills with our professional training programs
+                </p>
+            </div>
 
-    // Back to top button
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-white">Professional Development</h3>
+                    <p class="text-lg mb-6 text-light-grey">
+                        Our training programs are designed to equip you with the latest skills in web development, 
+                        digital marketing, IT support, and LED technology. Whether you're a beginner or looking to 
+                        advance your career, we have the right program for you.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-yellow text-xl">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1 text-white">Hands-on Learning</h4>
+                                <p class="text-light-grey">Practical, project-based training with real-world applications</p>
+                            </div>
+                        </div>
 
-    // Set active nav link based on scroll position
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-link');
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-yellow text-xl">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1 text-white">Expert Instructors</h4>
+                                <p class="text-light-grey">Learn from industry professionals with years of experience</p>
+                            </div>
+                        </div>
 
-    function setActiveNavLink() {
-      let current = '';
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 text-yellow text-xl">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-1 text-white">Certification</h4>
+                                <p class="text-light-grey">Earn recognized certificates to boost your career</p>
+                            </div>
+                        </div>
+                    </div>
 
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+                    <a href="#" class="btn-secondary px-8 py-4 rounded-full text-lg font-semibold inline-block">
+                        <i class="fas fa-graduation-cap mr-2"></i> Visit Robotech Training
+                    </a>
+                </div>
 
-        if (window.scrollY >= (sectionTop - 150)) {
-          current = section.getAttribute('id');
-        }
-      });
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white/5 p-6 rounded-xl border border-yellow/20">
+                        <div class="text-yellow text-4xl mb-4">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">Web Development</h4>
+                        <p class="text-light-grey">
+                            Master HTML, CSS, JavaScript and modern frameworks
+                        </p>
+                    </div>
 
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    }
+                    <div class="bg-white/5 p-6 rounded-xl border border-orange/20">
+                        <div class="text-orange text-4xl mb-4">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">Digital Marketing</h4>
+                        <p class="text-light-grey">
+                            Learn SEO, social media, and digital advertising strategies
+                        </p>
+                    </div>
 
-    window.addEventListener('scroll', setActiveNavLink);
-    setActiveNavLink(); // Run once on load
+                    <div class="bg-white/5 p-6 rounded-xl border border-professional-blue/20">
+                        <div class="text-professional-blue text-4xl mb-4">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">IT Support</h4>
+                        <p class="text-light-grey">
+                            Develop skills in networking, hardware, and cybersecurity
+                        </p>
+                    </div>
 
-    // Intersection Observer for fade-in animations
-    const fadeElements = document.querySelectorAll('.fade-in-section');
+                    <div class="bg-white/5 p-6 rounded-xl border border-yellow/20">
+                        <div class="text-yellow text-4xl mb-4">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2 text-white">LED Technology</h4>
+                        <p class="text-light-grey">
+                            Learn installation, maintenance, and content creation for LED displays
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-deep-blue">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Contact Us</h2>
+                <div class="w-24 h-1 bg-professional-blue mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto text-light-grey">
+                    Ready to transform your digital presence? Get in touch with us today.
+                </p>
+            </div>
 
-    fadeElements.forEach(element => {
-      observer.observe(element);
-    });
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-deep-blue bg-opacity-50 rounded-xl p-8 border border-professional-blue border-opacity-20">
+                        <h3 class="text-2xl font-bold mb-6 text-white">Get In Touch</h3>
 
-    // Event banner click handler
-    const eventBanner = document.querySelector('.twinkle-banner');
-    if (eventBanner) {
-      eventBanner.addEventListener('click', () => {
-        // Add your event registration link or action here
-        window.location.href = '#contact';
-      });
-    }
-  </script>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-professional-blue text-xl">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-1 text-white">Our Location</h4>
+                                    <p class="text-light-grey">Nairobi, Kenya</p>
+                                </div>
+                            </div>
 
-  <!-- Third-party scripts -->
-  <!-- Tawk.to -->
-  <script>
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-      s1.async = true;
-      s1.src = 'https://embed.tawk.to/67adef74825083258e149cdc/1ijvmunvo';
-      s1.charset = 'UTF-8';
-      s1.setAttribute('crossorigin', '*');
-      s0.parentNode.insertBefore(s1, s0);
-    })();
-  </script>
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-professional-blue text-xl">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-1 text-white">Phone</h4>
+                                    <p class="text-light-grey">+254 769 700 015</p>
+                                </div>
+                            </div>
 
-  <!-- WhatsApp -->
-  <script>
-    (function () {
-      var options = {
-        whatsapp: "254769700015",
-        call_to_action: "Chat with us",
-        position: "left",
-      };
-      var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
-      var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
-      s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
-      var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
-    })();
-  </script>
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-professional-blue text-xl">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-1 text-white">Email</h4>
+                                    <p class="text-light-grey">info@robotech.co.ke</p>
+                                </div>
+                            </div>
 
-  <!-- Google Tag Manager -->
-  <script>
-    (function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start': new Date().getTime(),
-        event: 'gtm.js'
-      });
-      var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s),
-        dl = l != 'dataLayer' ? '&l=' + l : '';
-      j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-W4T7VMTL';
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-W4T7VMTL');
-  </script>
+                            <div class="flex items-start">
+                                <div class="mt-1 mr-4 text-professional-blue text-xl">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold mb-1 text-white">Business Hours</h4>
+                                    <p class="text-light-grey">Monday - Friday: 8AM - 6PM</p>
+                                    <p class="text-light-grey">Saturday: 9AM - 1PM</p>
+                                </div>
+                            </div>
+                        </div>
 
- <script>
-        // Disable right-click
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
+                        <div class="mt-10">
+                            <h4 class="text-lg font-semibold mb-4 text-white">Connect With Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-12 h-12 rounded-full bg-deep-blue border border-professional-blue border-opacity-30 flex items-center justify-center text-professional-blue hover:bg-professional-blue hover:text-white transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 rounded-full bg-deep-blue border border-professional-blue border-opacity-30 flex items-center justify-center text-professional-blue hover:bg-professional-blue hover:text-white transition">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 rounded-full bg-deep-blue border border-professional-blue border-opacity-30 flex items-center justify-center text-professional-blue hover:bg-professional-blue hover:text-white transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-12 h-12 rounded-full bg-deep-blue border border-professional-blue border-opacity-30 flex items-center justify-center text-professional-blue hover:bg-professional-blue hover:text-white transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="bg-deep-blue bg-opacity-50 rounded-xl p-8 border border-professional-blue border-opacity-20">
+                        <h3 class="text-2xl font-bold mb-6 text-white">Send Us a Message</h3>
+
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block mb-2 text-light-grey">Full Name</label>
+                                <input type="text" id="name"
+                                    class="w-full px-4 py-3 bg-deep-blue border border-professional-blue border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-professional-blue text-white">
+                            </div>
+
+                            <div>
+                                <label for="email" class="block mb-2 text-light-grey">Email Address</label>
+                                <input type="email" id="email"
+                                    class="w-full px-4 py-3 bg-deep-blue border border-professional-blue border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-professional-blue text-white">
+                            </div>
+
+                            <div>
+                                <label for="service" class="block mb-2 text-light-grey">Service Interested In</label>
+                                <select id="service"
+                                    class="w-full px-4 py-3 bg-deep-blue border border-professional-blue border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-professional-blue text-white">
+                                    <option>Web Design & Development</option>
+                                    <option>LED Signs & Advertising</option>
+                                    <option>ICT Support Services</option>
+                                    <option>Web Hosting</option>
+                                    <option>Domain Registration</option>
+                                    <option>Graphic Design</option>
+                                    <option>Training Programs</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="message" class="block mb-2 text-light-grey">Your Message</label>
+                                <textarea id="message" rows="5"
+                                    class="w-full px-4 py-3 bg-deep-blue border border-professional-blue border-opacity-20 rounded-lg focus:outline-none focus:ring-2 focus:ring-professional-blue text-white"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-primary w-full py-4 rounded-lg text-lg font-semibold">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-deep-blue border-t border-professional-blue border-opacity-20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-professional-blue flex items-center justify-center text-white font-bold">
+                            RD
+                        </div>
+                        <span class="text-xl font-bold text-white">Robotech<span class="text-yellow">Digital</span></span>
+                    </div>
+                    <p class="text-light-grey mb-6">
+                        Vision Leaders in Digital Solutions, transforming businesses through technological innovation.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-light-grey hover:text-professional-blue">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-light-grey hover:text-professional-blue">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-light-grey hover:text-professional-blue">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-light-grey hover:text-professional-blue">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-light-grey hover:text-professional-blue">Web Design</a></li>
+                        <li><a href="#services" class="text-light-grey hover:text-professional-blue">LED Advertising</a></li>
+                        <li><a href="#services" class="text-light-grey hover:text-professional-blue">ICT Support</a></li>
+                        <li><a href="#services" class="text-light-grey hover:text-professional-blue">Hosting</a></li>
+                        <li><a href="#services" class="text-light-grey hover:text-professional-blue">Domains</a></li>
+                        <li><a href="#services" class="text-light-grey hover:text-professional-blue">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-light-grey hover:text-professional-blue">Home</a></li>
+                        <li><a href="#services" class="text-light-grey hover:text-professional-blue">Services</a></li>
+                        <li><a href="#portfolio" class="text-light-grey hover:text-professional-blue">Portfolio</a></li>
+                        <li><a href="#gallery" class="text-light-grey hover:text-professional-blue">Gallery</a></li>
+                        <li><a href="#training" class="text-light-grey hover:text-professional-blue">Training</a></li>
+                        <li><a href="#contact" class="text-light-grey hover:text-professional-blue">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6 text-white">Newsletter</h3>
+                    <p class="text-light-grey mb-4">
+                        Subscribe for updates on our latest services and innovations.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email"
+                            class="px-4 py-3 bg-deep-blue border border-professional-blue border-opacity-20 rounded-l-lg focus:outline-none text-white w-full">
+                        <button class="bg-professional-blue text-white px-4 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-professional-blue border-opacity-20 mt-12 pt-8 text-center">
+                <p class="text-light-grey">
+                    &copy; 2025 Robotech Digital Solution. All rights reserved. | Designed with <i
+                        class="fas fa-heart text-red-500"></i> for digital excellence
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery animation observer
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                observer.observe(element);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
         });
-        
-        // Disable keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            // Disable Ctrl+U (View source)
-            if (e.ctrlKey && e.keyCode === 85) {
-                e.preventDefault();
-            }
-            // Disable Ctrl+Shift+I (Developer tools)
-            if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
-                e.preventDefault();
-            }
-            // Disable F12 (Developer tools)
-            if (e.keyCode === 123) {
-                e.preventDefault();
-            }
-            // Disable Ctrl+C, Ctrl+X, Ctrl+V
-            if (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88)) {
-                e.preventDefault();
-            }
-        });
-        
-        // Disable text selection
-        document.addEventListener('selectstart', function(e) {
-            e.preventDefault();
-        });
-        
-           </script>
+    </script>
 </body>
-
 </html>
