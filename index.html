@@ -3,86 +3,368 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Site Under Maintenance</title>
+  <title>System Maintenance | Robotech Digital Solution</title>
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    
+    * {
       margin: 0;
       padding: 0;
-      background: #f2f2f2;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+    
+    body {
+      background: #0a0a16;
+      font-family: 'Share Tech Mono', monospace;
+      color: #0f0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      text-align: center;
+      overflow: hidden;
+      position: relative;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(40, 255, 40, 0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(40, 255, 40, 0.05) 0%, transparent 20%);
     }
-
+    
+    .noise {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.15"/></svg>');
+      pointer-events: none;
+      z-index: 1;
+    }
+    
     .container {
-      background: white;
-      padding: 40px 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      max-width: 500px;
+      background: rgba(10, 15, 30, 0.85);
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 15px rgba(0, 150, 0, 0.2);
+      max-width: 650px;
       width: 90%;
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(0, 255, 0, 0.3);
+      text-align: center;
+      backdrop-filter: blur(2px);
     }
-
+    
+    .glitch-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      opacity: 0;
+      z-index: -1;
+    }
+    
+    .header {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    
     h1 {
-      font-size: 32px;
-      color: #2c3e50;
+      font-size: 2.8rem;
+      color: #0f0;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      position: relative;
+      animation: glitch 3s infinite;
     }
-
-    p {
-      font-size: 18px;
-      color: #555;
+    
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      2% { transform: translate(-3px, 3px); }
+      4% { transform: translate(3px, -3px); }
+      6% { transform: translate(0); }
+      100% { transform: translate(0); }
+    }
+    
+    .status-bar {
+      background: rgba(0, 30, 0, 0.6);
+      height: 8px;
+      border-radius: 4px;
       margin: 15px 0;
+      overflow: hidden;
+      position: relative;
     }
-
-    .loader {
-      margin: 20px auto;
-      border: 6px solid #eee;
-      border-top: 6px solid #3498db;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
+    
+    .progress {
+      height: 100%;
+      width: 65%;
+      background: linear-gradient(90deg, rgba(0, 100, 0, 0.8), rgba(0, 255, 0, 0.8));
+      border-radius: 4px;
+      position: relative;
+      animation: progress-pulse 2s infinite;
     }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    
+    @keyframes progress-pulse {
+      0% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
+      50% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.8); }
+      100% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
     }
-
-    .contact {
-      margin-top: 20px;
-      font-size: 16px;
-      color: #333;
+    
+    .console-output {
+      background: rgba(0, 15, 0, 0.4);
+      border: 1px solid rgba(0, 150, 0, 0.4);
+      border-radius: 4px;
+      padding: 15px;
+      margin: 25px 0;
+      text-align: left;
+      height: 150px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+      line-height: 1.6;
     }
-
+    
+    .console-output div {
+      margin-bottom: 8px;
+      animation: type 0.1s steps(20);
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+    }
+    
+    .console-output div:nth-child(1) { animation: type 3s forwards; }
+    .console-output div:nth-child(2) { animation: type 3s forwards 3.5s; }
+    .console-output div:nth-child(3) { animation: type 3s forwards 7s; }
+    .console-output div:nth-child(4) { animation: type 3s forwards 10.5s; }
+    .console-output div:nth-child(5) { animation: type 3s forwards 14s; }
+    
+    @keyframes type {
+      to { width: 100%; }
+    }
+    
+    .contact-info {
+      margin: 25px 0;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .contact-info div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
     a {
-      color: #2980b9;
+      color: #0f0;
       text-decoration: none;
-      font-weight: bold;
+      position: relative;
+      transition: all 0.3s;
     }
-
+    
+    a:hover {
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    }
+    
+    a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #0f0;
+      transition: width 0.3s;
+    }
+    
+    a:hover::after {
+      width: 100%;
+    }
+    
+    .terminal-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.2rem;
+      background: #0f0;
+      margin-left: 2px;
+      animation: blink 1s infinite;
+      vertical-align: middle;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    .protection-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+    }
+    
+    .protection-notice {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(0, 255, 0, 0.5);
+      z-index: 3;
+    }
+    
     footer {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #999;
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: rgba(0, 255, 0, 0.7);
+    }
+    
+    .hacker-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
 <body>
+  <div class="noise"></div>
+  <div class="protection-overlay"></div>
+  
   <div class="container">
-    <h1>🚧 Site Under Maintenance</h1>
-    <div class="loader"></div>
-    <p>We’re improving your experience. Please check back soon.</p>
-
-    <div class="contact">
-      📞 Contact us: <strong>0769 700 015</strong><br/>
-      📚 Visit our learning portal: <a href="https://robotechdigi/learn" target="_blank">robotechdigi/learn</a>
+    <div class="glitch-effect"></div>
+    
+    <div class="header">
+      <div class="hacker-icon">&#128126;</div>
+      <h1>SYSTEM MAINTENANCE</h1>
+      <p>Critical infrastructure upgrades in progress</p>
     </div>
-
-    <footer>&copy; 2025 Robotech Digital Solution</footer>
+    
+    <div class="status-bar">
+      <div class="progress"></div>
+    </div>
+    
+    <div class="console-output">
+      <div>> Initializing maintenance protocol... <span class="terminal-cursor"></span></div>
+      <div>> Securing network connections... <span class="terminal-cursor"></span></div>
+      <div>> Optimizing database performance (65%)... <span class="terminal-cursor"></span></div>
+      <div>> Deploying security patches... <span class="terminal-cursor"></span></div>
+      <div>> Estimated completion: 00:45:23 <span class="terminal-cursor"></span></div>
+    </div>
+    
+    <div class="contact-info">
+      <div>
+        <span>📞 EMERGENCY CONTACT:</span>
+        <strong>0769 700 015</strong>
+      </div>
+      <div>
+        <span>🌐 LEARNING PORTAL:</span>
+        <a href="https://robotechdigi/learn" target="_blank">robotechdigi/learn</a>
+      </div>
+    </div>
+    
+    <footer>&copy; 2025 ROBOTECH DIGITAL SOLUTION | ALL SYSTEMS MONITORED</footer>
   </div>
+  
+  <div class="protection-notice">COPY PROTECTION ACTIVE | SOURCE CODE SECURED</div>
+
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      showProtectionAlert();
+    });
+    
+    // Disable text selection
+    document.addEventListener('selectstart', function(e) {
+      e.preventDefault();
+      showProtectionAlert();
+    });
+    
+    // Block keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Block Ctrl+U (View source)
+      if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        showProtectionAlert();
+      }
+      
+      // Block Ctrl+Shift+I (Dev tools)
+      if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        showProtectionAlert();
+      }
+      
+      // Block F12 (Dev tools)
+      if (e.key === 'F12') {
+        e.preventDefault();
+        showProtectionAlert();
+      }
+      
+      // Block Ctrl+C (Copy)
+      if (e.ctrlKey && e.key === 'c') {
+        e.preventDefault();
+        showProtectionAlert();
+      }
+    });
+    
+    // Add glitch effect randomly
+    setInterval(() => {
+      const glitch = document.querySelector('.glitch-effect');
+      glitch.style.opacity = '0.3';
+      glitch.style.clipPath = `rect(${Math.random()*50}px, 9999px, ${Math.random()*50+50}px, 0)`;
+      
+      setTimeout(() => {
+        glitch.style.opacity = '0';
+      }, 100);
+    }, 3000);
+    
+    // Protection alert function
+    function showProtectionAlert() {
+      const notice = document.querySelector('.protection-notice');
+      notice.textContent = "SECURITY ALERT: COPY PROTECTION ACTIVE";
+      notice.style.color = "#ff5555";
+      notice.style.textShadow = "0 0 10px rgba(255, 0, 0, 0.7)";
+      
+      setTimeout(() => {
+        notice.textContent = "COPY PROTECTION ACTIVE | SOURCE CODE SECURED";
+        notice.style.color = "rgba(0, 255, 0, 0.5)";
+        notice.style.textShadow = "none";
+      }, 2000);
+    }
+    
+    // Dynamic content updates
+    const consoleOutput = document.querySelector('.console-output');
+    let lineCount = 5;
+    
+    setInterval(() => {
+      if (lineCount < 10) {
+        const newLine = document.createElement('div');
+        newLine.innerHTML = `> Running security check ${lineCount-4} of 5... <span class="terminal-cursor"></span>`;
+        consoleOutput.appendChild(newLine);
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        lineCount++;
+      }
+    }, 15000);
+  </script>
 </body>
 </html>
