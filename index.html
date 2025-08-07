@@ -132,6 +132,13 @@
     .logo {
       height: 50px;
       margin-right: 10px;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
     
     .logo-text {
@@ -215,6 +222,13 @@
       background-position: center;
       opacity: 0;
       transition: opacity 1.5s ease-in-out;
+      animation: zoomEffect 30s infinite;
+    }
+    
+    @keyframes zoomEffect {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
     
     .slide.active {
@@ -238,6 +252,18 @@
     
     .hero-content {
       max-width: 800px;
+      animation: fadeInUp 1s ease;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     
     .hero h1 {
@@ -338,6 +364,16 @@
       transition: var(--transition);
       position: relative;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeInUpCards 0.6s forwards;
+    }
+    
+    @keyframes fadeInUpCards {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
     
     .service-card:hover {
@@ -423,6 +459,12 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      transform: perspective(1000px) rotateY(5deg);
+      transition: transform 0.5s;
+    }
+    
+    .about-image:hover {
+      transform: perspective(1000px) rotateY(0deg);
     }
     
     .about-image img {
@@ -437,112 +479,175 @@
     }
     
     .podcast-container {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    .podcast-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .podcast-card {
       background: rgba(255, 255, 255, 0.05);
       border-radius: 10px;
-      padding: 2rem;
+      overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: var(--transition);
     }
     
-    .podcast-header {
+    .podcast-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,200,150,0.2);
+    }
+    
+    .podcast-thumbnail {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .podcast-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .podcast-card:hover .podcast-thumbnail img {
+      transform: scale(1.1);
+    }
+    
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      background: rgba(0, 200, 150, 0.8);
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      margin-bottom: 2rem;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      opacity: 0.9;
+      transition: var(--transition);
     }
     
-    .podcast-icon {
-      font-size: 2.5rem;
-      color: var(--accent-green);
-      margin-right: 1rem;
-    }
-    
-    .podcast-header h3 {
-      font-size: 2rem;
-      font-weight: 600;
-    }
-    
-    .podcast-player {
-      width: 100%;
-      height: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 25px;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
+    .podcast-card:hover .play-btn {
+      background: var(--accent-green);
+      transform: translate(-50%, -50%) scale(1.1);
     }
     
     .podcast-info {
-      text-align: center;
+      padding: 1.5rem;
     }
     
-    .podcast-info h4 {
-      font-size: 1.5rem;
+    .podcast-info h3 {
+      font-size: 1.4rem;
       margin-bottom: 0.5rem;
-    }
-    
-    .podcast-info p {
-      color: #aaa;
-    }
-    
-    /* Testimonials */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    
-    .testimonial-card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      padding: 2rem;
-      position: relative;
-    }
-    
-    .testimonial-card::before {
-      content: '"';
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      font-size: 5rem;
       color: var(--accent-green);
-      opacity: 0.2;
-      font-family: serif;
     }
     
-    .testimonial-text {
+    .podcast-meta {
+      display: flex;
+      justify-content: space-between;
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 1rem;
+    }
+    
+    .podcast-desc {
+      color: #ddd;
       margin-bottom: 1.5rem;
-      font-style: italic;
+    }
+    
+    .view-more {
+      display: block;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    
+    /* Mission Section */
+    .mission {
+      background: linear-gradient(135deg, rgba(10, 25, 47, 0.9), rgba(0, 102, 178, 0.2));
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .mission::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('bgvr.jpg') center/cover no-repeat;
+      opacity: 0.2;
+      z-index: -1;
+    }
+    
+    .mission-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
       position: relative;
       z-index: 1;
     }
     
-    .testimonial-author {
-      display: flex;
-      align-items: center;
+    .mission-text {
+      flex: 1;
+      min-width: 300px;
     }
     
-    .author-img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-right: 1rem;
-    }
-    
-    .author-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .author-info h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.2rem;
-    }
-    
-    .author-info p {
+    .mission-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
       color: var(--accent-green);
-      font-size: 0.9rem;
+    }
+    
+    .mission-text p {
+      margin-bottom: 1.5rem;
+      color: #ddd;
+    }
+    
+    .mission-image {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .mission-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .payment-info {
+      background: rgba(0, 200, 150, 0.1);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      border-left: 4px solid var(--accent-green);
+    }
+    
+    .payment-info p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .payment-info strong {
+      color: var(--accent-green);
     }
     
     /* Call to Action */
@@ -561,6 +666,114 @@
       max-width: 700px;
       margin: 0 auto 2rem;
       font-size: 1.1rem;
+    }
+    
+    /* Contact Section */
+    .contact {
+      background: rgba(10, 25, 47, 0.95);
+    }
+    
+    .contact-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .contact-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-green);
+    }
+    
+    .contact-info p {
+      margin-bottom: 1.5rem;
+      color: #ddd;
+    }
+    
+    .contact-details {
+      list-style: none;
+      margin-top: 2rem;
+    }
+    
+    .contact-details li {
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .contact-details i {
+      font-size: 1.2rem;
+      color: var(--accent-green);
+      margin-right: 15px;
+      min-width: 25px;
+    }
+    
+    .contact-details span {
+      color: #ddd;
+    }
+    
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #ddd;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 5px;
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-green);
+      background: rgba(0, 200, 150, 0.05);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .error-message {
+      color: #ff6b6b;
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    
+    .form-success {
+      background: rgba(0, 200, 150, 0.1);
+      border: 1px solid var(--accent-green);
+      border-radius: 5px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      display: none;
     }
     
     /* Footer */
@@ -651,13 +864,6 @@
       font-size: 0.9rem;
     }
     
-    .payment-info {
-      background: rgba(0, 200, 150, 0.1);
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
-    }
-    
     .copyright {
       text-align: center;
       padding-top: 2rem;
@@ -725,6 +931,39 @@
     
     .phone {
       background: var(--primary-blue);
+    }
+    
+    /* Scroll to Top Button */
+    .scroll-top {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    .scroll-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .scroll-top:hover {
+      transform: translateY(-5px);
+      background: var(--primary-blue);
+      color: white;
     }
     
     /* Modal for expanded content */
@@ -867,6 +1106,11 @@
         height: 45px;
         font-size: 1.3rem;
       }
+      
+      .scroll-top {
+        bottom: 90px;
+        right: 15px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -922,7 +1166,6 @@
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#podcast">Podcast</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="https://robotechdigitals.blogspot.com/" target="_blank" class="btn">Blog</a></li>
       </ul>
@@ -1032,40 +1275,67 @@
     </div>
     
     <div class="podcast-container">
-      <div class="podcast-header">
-        <div class="podcast-icon">
-          <i class="fas fa-podcast"></i>
+      <div class="podcast-grid">
+        <div class="podcast-card">
+          <div class="podcast-thumbnail">
+            <img src="podcast.jpg" alt="AI in Business">
+            <div class="play-btn">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="podcast-info">
+            <h3>Understanding AI in Modern Business</h3>
+            <div class="podcast-meta">
+              <span><i class="fas fa-clock"></i> 45 min</span>
+              <span><i class="fas fa-calendar"></i> June 15, 2023</span>
+            </div>
+            <p class="podcast-desc">Explore how artificial intelligence is transforming business operations and creating new opportunities in the Kenyan market.</p>
+            <audio controls style="width: 100%;">
+              <source src="ai.m4a" type="audio/mp4">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
         </div>
-        <h3>Robotech Community Podcast</h3>
+        
+        <div class="podcast-card">
+          <div class="podcast-thumbnail">
+            <img src="ictTraining.jpg" alt="Robotics Education">
+            <div class="play-btn">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <div class="podcast-info">
+            <h3>Robotics Education in Kenyan Schools</h3>
+            <div class="podcast-meta">
+              <span><i class="fas fa-clock"></i> 38 min</span>
+              <span><i class="fas fa-calendar"></i> July 3, 2023</span>
+            </div>
+            <p class="podcast-desc">Learn about our initiatives to bring robotics education to Kenyan schools and the impact on students' futures.</p>
+            <audio controls style="width: 100%;">
+              <source src="ai.m4a" type="audio/mp4">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
       </div>
       
-      <div class="podcast-player">
-        <audio controls style="width: 100%;">
-          <source src="ai.m4a" type="audio/mp4">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      
-      <div class="podcast-info">
-        <h4>Understanding AI in Modern Business</h4>
-        <p>Episode 1 | 45 min</p>
+      <div class="view-more">
+        <a href="https://www.robotechdigi.com/podcast" target="_blank" class="btn">
+          <i class="fas fa-podcast"></i> View All Podcasts
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Mission Section -->
-  <section class="section" id="mission">
+  <section class="section mission" id="mission">
     <div class="section-title">
       <h2>Our Mission</h2>
       <p>Driving innovation for a better tomorrow</p>
     </div>
     
-    <div class="about-content">
-      <div class="about-image">
-        <img src="ledimg.jpg" alt="Robotics Mission">
-      </div>
-      
-      <div class="about-text">
+    <div class="mission-content">
+      <div class="mission-text">
         <h2>Leading AI & Bionics Innovation</h2>
         <p>We're on a mission to pioneer advancements in artificial intelligence and bionics that will transform industries and improve lives. Our commitment to research and development places us at the forefront of technological innovation in Africa.</p>
         <p>Your support enables us to continue groundbreaking research, provide training to underserved communities, and maintain our educational initiatives. Together, we can build a technologically advanced future for Kenya and the world.</p>
@@ -1076,58 +1346,13 @@
           <p>Account: <strong>175452</strong></p>
         </div>
         
-        <a href="www.robotechdigi.com/learn" target="_blank" class="btn">
+        <a href="robotechdigi.com/learn" target="_blank" class="btn">
           <i class="fas fa-laptop-code"></i> Free Coding for Kids
         </a>
       </div>
-    </div>
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="section" id="testimonials">
-    <div class="section-title">
-      <h2>Client Testimonials</h2>
-      <p>Hear what our clients say about working with us</p>
-    </div>
-    
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p class="testimonial-text">"Robotech transformed our company's IT infrastructure with their expert solutions. Their team is knowledgeable, professional, and always available when we need support."</p>
-        <div class="testimonial-author">
-          <div class="author-img">
-            <img src="ceo.jpg" alt="Client">
-          </div>
-          <div class="author-info">
-            <h4>Sarah Johnson</h4>
-            <p>CEO, Tech Solutions Ltd</p>
-          </div>
-        </div>
-      </div>
       
-      <div class="testimonial-card">
-        <p class="testimonial-text">"The LED display we got from Robotech has significantly increased our store visibility. The installation was smooth and the results exceeded our expectations."</p>
-        <div class="testimonial-author">
-          <div class="author-img">
-            <img src="ceo.jpg" alt="Client">
-          </div>
-          <div class="author-info">
-            <h4>David Kimani</h4>
-            <p>Owner, Nairobi Fashions</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-card">
-        <p class="testimonial-text">"Our students are thrilled with the robotics program from Robotech. The trainers are passionate and make complex concepts accessible to all age groups."</p>
-        <div class="testimonial-author">
-          <div class="author-img">
-            <img src="ceo.jpg" alt="Client">
-          </div>
-          <div class="author-info">
-            <h4>Mary Wambui</h4>
-            <p>Principal, Athena School</p>
-          </div>
-        </div>
+      <div class="mission-image">
+        <img src="ledimg.jpg" alt="Robotics Research">
       </div>
     </div>
   </section>
@@ -1140,29 +1365,37 @@
   </section>
 
   <!-- Contact Section -->
-  <section class="section" id="contact">
+  <section class="section contact" id="contact">
     <div class="section-title">
       <h2>Contact Us</h2>
       <p>Reach out to us for inquiries, support, or collaboration</p>
     </div>
     
-    <div class="about-content">
-      <div class="about-text">
+    <div class="contact-content">
+      <div class="contact-info">
         <h3>Get In Touch</h3>
         <p>We're here to answer any questions you may have about our services. Reach out to us and we'll respond as soon as we can.</p>
         
-        <ul style="list-style: none; padding-left: 0; margin-top: 2rem;">
-          <li style="margin-bottom: 1rem;">
-            <i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Nairobi, Kenya
+        <ul class="contact-details">
+          <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <span><strong>Location:</strong> Nairobi, Kenya</span>
           </li>
-          <li style="margin-bottom: 1rem;">
-            <i class="fas fa-phone"></i> <strong>Phone:</strong> +254 769 700 015
+          <li>
+            <i class="fas fa-phone"></i>
+            <span><strong>Phone:</strong> +254 769 700 015</span>
           </li>
-          <li style="margin-bottom: 1rem;">
-            <i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> +254 769 700 015
+          <li>
+            <i class="fab fa-whatsapp"></i>
+            <span><strong>WhatsApp:</strong> +254 769 700 015</span>
           </li>
-          <li style="margin-bottom: 1rem;">
-            <i class="fas fa-envelope"></i> <strong>Email:</strong> info@robotechdigi.com
+          <li>
+            <i class="fas fa-envelope"></i>
+            <span><strong>Email:</strong> info@robotechdigi.com</span>
+          </li>
+          <li>
+            <i class="fas fa-clock"></i>
+            <span><strong>Working Hours:</strong> Mon-Fri: 8AM - 6PM</span>
           </li>
         </ul>
         
@@ -1175,25 +1408,38 @@
         </div>
       </div>
       
-      <div class="about-image">
-        <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 10px;">
-          <h3 style="margin-bottom: 1.5rem;">Send us a message</h3>
-          <form>
-            <div style="margin-bottom: 1rem;">
-              <input type="text" placeholder="Your Name" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background: rgba(255,255,255,0.1); color: white;">
-            </div>
-            <div style="margin-bottom: 1rem;">
-              <input type="email" placeholder="Your Email" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background: rgba(255,255,255,0.1); color: white;">
-            </div>
-            <div style="margin-bottom: 1rem;">
-              <input type="text" placeholder="Subject" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background: rgba(255,255,255,0.1); color: white;">
-            </div>
-            <div style="margin-bottom: 1rem;">
-              <textarea placeholder="Your Message" rows="5" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background: rgba(255,255,255,0.1); color: white;"></textarea>
-            </div>
-            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
-          </form>
+      <div class="contact-form">
+        <h3>Send us a message</h3>
+        <div class="form-success">
+          <i class="fas fa-check-circle"></i> Your message has been sent successfully!
         </div>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter your name">
+            <div class="error-message" id="nameError">Please enter your name</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+            <div class="error-message" id="emailError">Please enter a valid email</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" class="form-control" placeholder="Enter subject">
+            <div class="error-message" id="subjectError">Please enter a subject</div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" class="form-control" placeholder="Enter your message"></textarea>
+            <div class="error-message" id="messageError">Please enter your message</div>
+          </div>
+          
+          <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+        </form>
       </div>
     </div>
   </section>
@@ -1262,6 +1508,11 @@
     <a href="https://wa.me/254769700015" class="floating-icon whatsapp">
       <i class="fab fa-whatsapp"></i>
     </a>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <div class="scroll-top">
+    <i class="fas fa-arrow-up"></i>
   </div>
 
   <!-- Service Modal -->
@@ -1431,6 +1682,106 @@
       e.preventDefault();
       alert('Content protection is enabled. Please contact us for more information.');
     });
+    
+    // Scroll to top button
+    const scrollTopBtn = document.querySelector('.scroll-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('active');
+      } else {
+        scrollTopBtn.classList.remove('active');
+      }
+    });
+    
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Form validation
+    const contactForm = document.getElementById('contactForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const subjectInput = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const subjectError = document.getElementById('subjectError');
+    const messageError = document.getElementById('messageError');
+    const formSuccess = document.querySelector('.form-success');
+    
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      
+      // Reset errors
+      nameError.style.display = 'none';
+      emailError.style.display = 'none';
+      subjectError.style.display = 'none';
+      messageError.style.display = 'none';
+      
+      // Validate name
+      if (nameInput.value.trim() === '') {
+        nameError.style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(emailInput.value)) {
+        emailError.style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate subject
+      if (subjectInput.value.trim() === '') {
+        subjectError.style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate message
+      if (messageInput.value.trim() === '') {
+        messageError.style.display = 'block';
+        isValid = false;
+      }
+      
+      // If form is valid
+      if (isValid) {
+        // Here you would normally send the form data to a server
+        // For this demo, we'll just show a success message
+        formSuccess.style.display = 'block';
+        
+        // Reset form
+        contactForm.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          formSuccess.style.display = 'none';
+        }, 5000);
+      }
+    });
+    
+    // Animate service cards on scroll
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    const animateCards = () => {
+      serviceCards.forEach((card, index) => {
+        const cardPosition = card.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if (cardPosition < screenPosition) {
+          card.style.animationDelay = `${index * 0.1}s`;
+          card.style.animation = 'fadeInUpCards 0.6s forwards';
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', animateCards);
+    // Initialize on page load
+    animateCards();
     
     // Start slideshow
     showSlides();
