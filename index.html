@@ -1,370 +1,1450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>System Maintenance | Robotech Digital Solution</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robotech Digital Solutions | ICT & Robotics Experts in Kenya</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Robotech Digital Solution is Kenya's leader in robotics, ICT services, CCTV installation, web design, and Starlink setup. We deliver modern solutions for smart businesses." />
+  <meta name="keywords" content="Robotech, robotechdigi, robotics Kenya, ICT Kenya, CCTV installation, web design Kenya, Starlink installer, networking, computer repair Kenya ICT Nairobi" />
+  <meta name="author" content="Robotech Digital Solution" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="en" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://robotechdigi.com/" />
+  <meta property="og:title" content="Robotech Digital Solution | Robotics, ICT & Smart Innovation in Kenya" />
+  <meta property="og:description" content="Expert ICT and robotics solutions in Kenya. Serving smart businesses with design, networking, and automation." />
+  <meta property="og:image" content="https://robotechdigi.com/images/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://robotechdigi.com/" />
+  <meta property="twitter:title" content="Robotech Digital Solution" />
+  <meta property="twitter:description" content="Robotics and ICT Services for Modern Kenya." />
+  <meta property="twitter:image" content="https://robotechdigi.com/images/twitter-card.jpg" />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://robotechdigi.com/" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    :root {
+      --primary-dark: #0a192f;
+      --primary-blue: #0066b2;
+      --accent-green: #00c896;
+      --light-bg: #f8f9fa;
+      --text-light: #ffffff;
+      --text-dark: #333333;
+      --transition: all 0.3s ease;
+    }
     
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
       user-select: none;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
     }
     
+    /* Disable text selection */
+    body, h1, h2, h3, h4, h5, h6, p, a, span {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    
+    /* Disable image dragging */
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+    }
+    
+    /* Disable right-click */
     body {
-      background: #0a0a16;
-      font-family: 'Share Tech Mono', monospace;
-      color: #0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-      background-image: 
-        radial-gradient(circle at 10% 20%, rgba(40, 255, 40, 0.05) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(40, 255, 40, 0.05) 0%, transparent 20%);
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
     
-    .noise {
-      position: absolute;
-      top: 0;
+    body::after {
+      content: "Copyright © Robotech Digital Solutions. All rights reserved.";
+      position: fixed;
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: 100%;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.15"/></svg>');
-      pointer-events: none;
-      z-index: 1;
-    }
-    
-    .container {
-      background: rgba(10, 15, 30, 0.85);
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 15px rgba(0, 150, 0, 0.2);
-      max-width: 650px;
-      width: 90%;
-      position: relative;
-      z-index: 2;
-      border: 1px solid rgba(0, 255, 0, 0.3);
+      background: rgba(0,0,0,0.8);
+      color: #aaa;
       text-align: center;
-      backdrop-filter: blur(2px);
+      padding: 5px;
+      font-size: 0.8rem;
+      z-index: 9999;
     }
     
-    .glitch-effect {
+    /* Header & Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 25, 47, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+      transition: var(--transition);
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo {
+      height: 50px;
+      margin-right: 10px;
+    }
+    
+    .logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: linear-gradient(to right, var(--accent-green), var(--primary-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-left: 1.5rem;
+    }
+    
+    nav ul li a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    nav ul li a:hover {
+      color: var(--accent-green);
+    }
+    
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-green);
+      transition: var(--transition);
+    }
+    
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-light);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Hero Section with Slideshow */
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .slideshow {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: inherit;
-      opacity: 0;
       z-index: -1;
     }
     
-    .header {
-      margin-bottom: 30px;
-      position: relative;
-    }
-    
-    h1 {
-      font-size: 2.8rem;
-      color: #0f0;
-      text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      position: relative;
-      animation: glitch 3s infinite;
-    }
-    
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      2% { transform: translate(-3px, 3px); }
-      4% { transform: translate(3px, -3px); }
-      6% { transform: translate(0); }
-      100% { transform: translate(0); }
-    }
-    
-    .status-bar {
-      background: rgba(0, 30, 0, 0.6);
-      height: 8px;
-      border-radius: 4px;
-      margin: 15px 0;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .progress {
-      height: 100%;
-      width: 65%;
-      background: linear-gradient(90deg, rgba(0, 100, 0, 0.8), rgba(0, 255, 0, 0.8));
-      border-radius: 4px;
-      position: relative;
-      animation: progress-pulse 2s infinite;
-    }
-    
-    @keyframes progress-pulse {
-      0% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
-      50% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.8); }
-      100% { box-shadow: 0 0 5px rgba(0, 255, 0, 0.5); }
-    }
-    
-    .console-output {
-      background: rgba(0, 15, 0, 0.4);
-      border: 1px solid rgba(0, 150, 0, 0.4);
-      border-radius: 4px;
-      padding: 15px;
-      margin: 25px 0;
-      text-align: left;
-      height: 150px;
-      overflow-y: auto;
-      font-size: 0.9rem;
-      line-height: 1.6;
-    }
-    
-    .console-output div {
-      margin-bottom: 8px;
-      animation: type 0.1s steps(20);
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-    }
-    
-    .console-output div:nth-child(1) { animation: type 3s forwards; }
-    .console-output div:nth-child(2) { animation: type 3s forwards 3.5s; }
-    .console-output div:nth-child(3) { animation: type 3s forwards 7s; }
-    .console-output div:nth-child(4) { animation: type 3s forwards 10.5s; }
-    .console-output div:nth-child(5) { animation: type 3s forwards 14s; }
-    
-    @keyframes type {
-      to { width: 100%; }
-    }
-    
-    .contact-info {
-      margin: 25px 0;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    
-    .contact-info div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    
-    a {
-      color: #0f0;
-      text-decoration: none;
-      position: relative;
-      transition: all 0.3s;
-    }
-    
-    a:hover {
-      text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-    }
-    
-    a::after {
-      content: '';
+    .slide {
       position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: #0f0;
-      transition: width 0.3s;
-    }
-    
-    a:hover::after {
       width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
     }
     
-    .terminal-cursor {
-      display: inline-block;
-      width: 8px;
-      height: 1.2rem;
-      background: #0f0;
-      margin-left: 2px;
-      animation: blink 1s infinite;
-      vertical-align: middle;
+    .slide.active {
+      opacity: 1;
     }
     
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    
-    .protection-overlay {
+    .hero-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 100;
-      pointer-events: none;
-      background: repeating-linear-gradient(
-        rgba(0, 0, 0, 0.1) 0px,
-        rgba(0, 0, 0, 0.1) 1px,
-        transparent 1px,
-        transparent 2px
-      );
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
     }
     
-    .protection-notice {
+    .hero-content {
+      max-width: 800px;
+    }
+    
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--accent-green);
+      color: var(--primary-dark);
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      border: 2px solid var(--accent-green);
+    }
+    
+    .btn:hover {
+      background: transparent;
+      color: var(--accent-green);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent-green);
+      margin-left: 15px;
+    }
+    
+    .btn-secondary:hover {
+      background: var(--accent-green);
+      color: var(--primary-dark);
+    }
+    
+    /* Services Section */
+    .section {
+      padding: 6rem 5%;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--accent-green);
+      border-radius: 2px;
+    }
+    
+    .section-title p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #aaa;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: var(--transition);
+      position: relative;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .service-img {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .service-card:hover .service-img img {
+      transform: scale(1.1);
+    }
+    
+    .service-content {
+      padding: 1.5rem;
+    }
+    
+    .service-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent-green);
+    }
+    
+    .service-content p {
+      margin-bottom: 1.5rem;
+      color: #ddd;
+    }
+    
+    .service-link {
+      display: inline-block;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    
+    .service-link:hover {
+      color: var(--accent-green);
+    }
+    
+    /* About Section */
+    .about {
+      background: rgba(0, 102, 178, 0.05);
+    }
+    
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+    }
+    
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    
+    .about-text h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--accent-green);
+    }
+    
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: #ddd;
+    }
+    
+    .about-image {
+      flex: 1;
+      min-width: 300px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Podcast Section */
+    .podcast {
+      background: rgba(0, 200, 150, 0.05);
+    }
+    
+    .podcast-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .podcast-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    
+    .podcast-icon {
+      font-size: 2.5rem;
+      color: var(--accent-green);
+      margin-right: 1rem;
+    }
+    
+    .podcast-header h3 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    
+    .podcast-player {
+      width: 100%;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 25px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    
+    .podcast-info {
+      text-align: center;
+    }
+    
+    .podcast-info h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .podcast-info p {
+      color: #aaa;
+    }
+    
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 2rem;
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 5rem;
+      color: var(--accent-green);
+      opacity: 0.2;
+      font-family: serif;
+    }
+    
+    .testimonial-text {
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+    
+    .author-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .author-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .author-info p {
+      color: var(--accent-green);
+      font-size: 0.9rem;
+    }
+    
+    /* Call to Action */
+    .cta {
+      background: linear-gradient(135deg, var(--primary-blue), var(--primary-dark));
+      text-align: center;
+      padding: 4rem 5%;
+    }
+    
+    .cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 4rem 5% 2rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-col h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-col h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--accent-green);
+    }
+    
+    .footer-col ul {
+      list-style: none;
+    }
+    
+    .footer-col ul li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-col ul li a {
+      color: #aaa;
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-col ul li a:hover {
+      color: var(--accent-green);
+      padding-left: 5px;
+    }
+    
+    .footer-col ul li a i {
+      margin-right: 10px;
+      color: var(--accent-green);
+    }
+    
+    .ceo-card {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    
+    .ceo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+    }
+    
+    .ceo-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .ceo-info h4 {
+      margin-bottom: 0.3rem;
+    }
+    
+    .ceo-info p {
+      color: var(--accent-green);
+      font-size: 0.9rem;
+    }
+    
+    .payment-info {
+      background: rgba(0, 200, 150, 0.1);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    
+    /* Social Icons */
+    .social-icons {
+      display: flex;
+      margin-top: 1rem;
+    }
+    
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-light);
+      border-radius: 50%;
+      margin-right: 10px;
+      transition: var(--transition);
+    }
+    
+    .social-icons a:hover {
+      background: var(--accent-green);
+      transform: translateY(-5px);
+    }
+    
+    /* Floating Icons */
+    .floating-icons {
       position: fixed;
-      bottom: 20px;
+      right: 30px;
+      bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+    }
+    
+    .floating-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      color: white;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    
+    .floating-icon:hover {
+      transform: translateY(-5px);
+    }
+    
+    .whatsapp {
+      background: #25D366;
+    }
+    
+    .phone {
+      background: var(--primary-blue);
+    }
+    
+    /* Modal for expanded content */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
       left: 0;
       width: 100%;
-      text-align: center;
-      font-size: 0.8rem;
-      color: rgba(0, 255, 0, 0.5);
-      z-index: 3;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 2000;
+      overflow: auto;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     
-    footer {
-      margin-top: 25px;
-      font-size: 0.9rem;
-      color: rgba(0, 255, 0, 0.7);
+    .modal.active {
+      display: block;
+      opacity: 1;
     }
     
-    .hacker-icon {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
-      animation: float 3s ease-in-out infinite;
+    .modal-content {
+      background: var(--primary-dark);
+      max-width: 900px;
+      margin: 40px auto;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
     }
     
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .modal.active .modal-content {
+      transform: scale(1);
+    }
+    
+    .modal-header {
+      padding: 1.5rem;
+      background: var(--primary-blue);
+      position: relative;
+    }
+    
+    .modal-header h3 {
+      color: white;
+      font-size: 1.8rem;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .close-modal:hover {
+      color: var(--accent-green);
+    }
+    
+    .modal-body {
+      padding: 2rem;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    
+    .modal-body img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+      border-radius: 5px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--primary-dark);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3rem;
+        transition: var(--transition);
+      }
+      
+      nav ul.active {
+        left: 0;
+      }
+      
+      nav ul li {
+        margin: 1.5rem 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      
+      .btn-container {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .btn {
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+      
+      .btn-secondary {
+        margin-left: 0;
+      }
+      
+      .floating-icons {
+        right: 15px;
+        bottom: 15px;
+      }
+      
+      .floating-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section {
+        padding: 4rem 5%;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="protection-overlay"></div>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-W4T7VMTL';
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-W4T7VMTL');
+  </script>
   
-  <div class="container">
-    <div class="glitch-effect"></div>
-    
-    <div class="header">
-      <div class="hacker-icon">&#128126;</div>
-      <h1>SYSTEM MAINTENANCE</h1>
-      <p>Critical infrastructure upgrades in progress</p>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="logo-container">
+      <img src="logo.jpg" alt="Robotech Digital Solutions Logo" class="logo">
+      <div class="logo-text">Robotech Digital</div>
     </div>
     
-    <div class="status-bar">
-      <div class="progress"></div>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#podcast">Podcast</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://robotechdigitals.blogspot.com/" target="_blank" class="btn">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="slideshow">
+      <div class="slide active" style="background-image: url('bgbackroundslide.jpg');"></div>
+      <div class="slide" style="background-image: url('bggrowth.jpg');"></div>
+      <div class="slide" style="background-image: url('bgvr.jpg');"></div>
     </div>
     
-    <div class="console-output">
-      <div>> Initializing maintenance protocol... <span class="terminal-cursor"></span></div>
-      <div>> Securing network connections... <span class="terminal-cursor"></span></div>
-      <div>> Optimizing database performance (65%)... <span class="terminal-cursor"></span></div>
-      <div>> Deploying security patches... <span class="terminal-cursor"></span></div>
-      <div>> Estimated completion: 00:45:23 <span class="terminal-cursor"></span></div>
-    </div>
-    
-    <div class="contact-info">
-      <div>
-        <span>📞 EMERGENCY CONTACT:</span>
-        <strong>0769 700 015</strong>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Transforming Kenya Through Technology & Innovation</h1>
+        <p>We provide cutting-edge ICT solutions, robotics training, and digital services to empower businesses and communities across Kenya.</p>
+        <div class="btn-container">
+          <a href="#services" class="btn">Explore Our Services</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
       </div>
-      <div>
-        <span>🌐 LEARNING PORTAL:</span>
-        <a href="https://robotechdigi/learn" target="_blank">robotechdigi/learn</a>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Comprehensive technology solutions tailored to meet your business needs</p>
+    </div>
+    
+    <div class="services-grid">
+      <!-- ICT Support Service -->
+      <div class="service-card">
+        <div class="service-img">
+          <img src="ictTraining.jpg" alt="ICT Support">
+        </div>
+        <div class="service-content">
+          <h3>ICT Support</h3>
+          <p>Expert networking solutions, computer repair, employee training, and seamless ICT integration for your business operations.</p>
+          <a href="#" class="service-link expand-service" data-service="ict">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Web Design Service -->
+      <div class="service-card">
+        <div class="service-img">
+          <img src="web.jpg" alt="Web Design">
+        </div>
+        <div class="service-content">
+          <h3>Web Design & Development</h3>
+          <p>Custom websites, e-commerce solutions, and domain registration services to establish your powerful online presence.</p>
+          <a href="#" class="service-link expand-service" data-service="web">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Training Service -->
+      <div class="service-card">
+        <div class="service-img">
+          <img src="podcast.jpg" alt="Training">
+        </div>
+        <div class="service-content">
+          <h3>Professional Training</h3>
+          <p>Robotics programs for schools, employee performance training, and technology coaching for successful companies.</p>
+          <a href="#" class="service-link expand-service" data-service="training">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- LED Solutions Service -->
+      <div class="service-card">
+        <div class="service-img">
+          <img src="led2.jpg" alt="LED Solutions">
+        </div>
+        <div class="service-content">
+          <h3>LED Display Solutions</h3>
+          <p>State-of-the-art LED displays and scrolling signs for impactful outdoor advertising and business promotion.</p>
+          <a href="#" class="service-link expand-service" data-service="led">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>Why Choose Robotech?</h2>
+        <p>At Robotech Digital Solutions, we're more than just a tech company. We're visionaries committed to advancing technology in Kenya and beyond.</p>
+        <p>With expertise spanning clean energy, ICT infrastructure, system analysis, and robotics, we bring a diverse skill set to every project. Our team combines market experience with innovative thinking to deliver solutions that drive real business results.</p>
+        <p>We're proud to partner with leading educational institutions like St. Anne's Karen, Anthena School, and Hogum to bring robotics education to the next generation.</p>
+        <a href="#mission" class="btn">Our Mission</a>
+      </div>
+      
+      <div class="about-image">
+        <img src="web1.jpg" alt="Robotech Team">
+      </div>
+    </div>
+  </section>
+
+  <!-- Podcast Section -->
+  <section class="section podcast" id="podcast">
+    <div class="section-title">
+      <h2>Tech Insights Podcast</h2>
+      <p>Join our community and stay updated with the latest in technology</p>
+    </div>
+    
+    <div class="podcast-container">
+      <div class="podcast-header">
+        <div class="podcast-icon">
+          <i class="fas fa-podcast"></i>
+        </div>
+        <h3>Robotech Community Podcast</h3>
+      </div>
+      
+      <div class="podcast-player">
+        <audio controls style="width: 100%;">
+          <source src="ai.m4a" type="audio/mp4">
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+      
+      <div class="podcast-info">
+        <h4>Understanding AI in Modern Business</h4>
+        <p>Episode 1 | 45 min</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="section" id="mission">
+    <div class="section-title">
+      <h2>Our Mission</h2>
+      <p>Driving innovation for a better tomorrow</p>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-image">
+        <img src="ledimg.jpg" alt="Robotics Mission">
+      </div>
+      
+      <div class="about-text">
+        <h2>Leading AI & Bionics Innovation</h2>
+        <p>We're on a mission to pioneer advancements in artificial intelligence and bionics that will transform industries and improve lives. Our commitment to research and development places us at the forefront of technological innovation in Africa.</p>
+        <p>Your support enables us to continue groundbreaking research, provide training to underserved communities, and maintain our educational initiatives. Together, we can build a technologically advanced future for Kenya and the world.</p>
+        
+        <div class="payment-info">
+          <p><strong>Support Our Mission:</strong></p>
+          <p>Paybill: <strong>247247</strong></p>
+          <p>Account: <strong>175452</strong></p>
+        </div>
+        
+        <a href="www.robotechdigi.com/learn" target="_blank" class="btn">
+          <i class="fas fa-laptop-code"></i> Free Coding for Kids
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonials">
+    <div class="section-title">
+      <h2>Client Testimonials</h2>
+      <p>Hear what our clients say about working with us</p>
+    </div>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Robotech transformed our company's IT infrastructure with their expert solutions. Their team is knowledgeable, professional, and always available when we need support."</p>
+        <div class="testimonial-author">
+          <div class="author-img">
+            <img src="ceo.jpg" alt="Client">
+          </div>
+          <div class="author-info">
+            <h4>Sarah Johnson</h4>
+            <p>CEO, Tech Solutions Ltd</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">"The LED display we got from Robotech has significantly increased our store visibility. The installation was smooth and the results exceeded our expectations."</p>
+        <div class="testimonial-author">
+          <div class="author-img">
+            <img src="ceo.jpg" alt="Client">
+          </div>
+          <div class="author-info">
+            <h4>David Kimani</h4>
+            <p>Owner, Nairobi Fashions</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <p class="testimonial-text">"Our students are thrilled with the robotics program from Robotech. The trainers are passionate and make complex concepts accessible to all age groups."</p>
+        <div class="testimonial-author">
+          <div class="author-img">
+            <img src="ceo.jpg" alt="Client">
+          </div>
+          <div class="author-info">
+            <h4>Mary Wambui</h4>
+            <p>Principal, Athena School</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Ready to Transform Your Business?</h2>
+    <p>Let's discuss how our technology solutions can help you achieve your goals and stay ahead of the competition.</p>
+    <a href="#contact" class="btn">Get Started Today</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Reach out to us for inquiries, support, or collaboration</p>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-text">
+        <h3>Get In Touch</h3>
+        <p>We're here to answer any questions you may have about our services. Reach out to us and we'll respond as soon as we can.</p>
+        
+        <ul style="list-style: none; padding-left: 0; margin-top: 2rem;">
+          <li style="margin-bottom: 1rem;">
+            <i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> Nairobi, Kenya
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <i class="fas fa-phone"></i> <strong>Phone:</strong> +254 769 700 015
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> +254 769 700 015
+          </li>
+          <li style="margin-bottom: 1rem;">
+            <i class="fas fa-envelope"></i> <strong>Email:</strong> info@robotechdigi.com
+          </li>
+        </ul>
+        
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="about-image">
+        <div style="background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 10px;">
+          <h3 style="margin-bottom: 1.5rem;">Send us a message</h3>
+          <form>
+            <div style="margin-bottom: 1rem;">
+              <input type="text" placeholder="Your Name" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background: rgba(255,255,255,0.1); color: white;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <input type="email" placeholder="Your Email" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background: rgba(255,255,255,0.1); color: white;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <input type="text" placeholder="Subject" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background: rgba(255,255,255,0.1); color: white;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+              <textarea placeholder="Your Message" rows="5" style="width: 100%; padding: 0.8rem; border: none; border-radius: 5px; background: rgba(255,255,255,0.1); color: white;"></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>Robotech Digital</h3>
+        <p>Leading technology solutions provider in Kenya specializing in ICT services, robotics, web design, and innovative LED solutions.</p>
+        
+        <div class="ceo-card">
+          <div class="ceo-img">
+            <img src="ceo.jpg" alt="Zacharia Chege">
+          </div>
+          <div class="ceo-info">
+            <h4>Zacharia Chege</h4>
+            <p>CEO & Founder</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+          <li><a href="#podcast"><i class="fas fa-chevron-right"></i> Podcast</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Our Services</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> ICT Support</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Web Design</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> LED Solutions</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Robotics Training</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Business Integration</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-col">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</a></li>
+          <li><a href="tel:+254769700015"><i class="fas fa-phone"></i> +254 769 700 015</a></li>
+          <li><a href="mailto:info@robotechdigi.com"><i class="fas fa-envelope"></i> info@robotechdigi.com</a></li>
+          <li><a href="https://wa.me/254769700015"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
+        </ul>
       </div>
     </div>
     
-    <footer>&copy; 2025 ROBOTECH DIGITAL SOLUTION | ALL SYSTEMS MONITORED</footer>
+    <div class="copyright">
+      <p>&copy; 2023 Robotech Digital Solutions. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating Icons -->
+  <div class="floating-icons">
+    <a href="tel:+254769700015" class="floating-icon phone">
+      <i class="fas fa-phone"></i>
+    </a>
+    <a href="https://wa.me/254769700015" class="floating-icon whatsapp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
   </div>
-  
-  <div class="protection-notice">COPY PROTECTION ACTIVE | SOURCE CODE SECURED</div>
+
+  <!-- Service Modal -->
+  <div class="modal" id="serviceModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Service Details</h3>
+        <button class="close-modal">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Content will be loaded here dynamically -->
+      </div>
+    </div>
+  </div>
 
   <script>
-    // Disable right-click context menu
-    document.addEventListener('contextmenu', function(e) {
-      e.preventDefault();
-      showProtectionAlert();
-    });
+    // Slideshow functionality
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
     
-    // Disable text selection
-    document.addEventListener('selectstart', function(e) {
-      e.preventDefault();
-      showProtectionAlert();
-    });
-    
-    // Block keyboard shortcuts
-    document.addEventListener('keydown', function(e) {
-      // Block Ctrl+U (View source)
-      if (e.ctrlKey && e.key === 'u') {
-        e.preventDefault();
-        showProtectionAlert();
-      }
+    function showSlides() {
+      slides.forEach(slide => slide.classList.remove('active'));
       
-      // Block Ctrl+Shift+I (Dev tools)
-      if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-        e.preventDefault();
-        showProtectionAlert();
-      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
       
-      // Block F12 (Dev tools)
-      if (e.key === 'F12') {
-        e.preventDefault();
-        showProtectionAlert();
-      }
-      
-      // Block Ctrl+C (Copy)
-      if (e.ctrlKey && e.key === 'c') {
-        e.preventDefault();
-        showProtectionAlert();
-      }
-    });
-    
-    // Add glitch effect randomly
-    setInterval(() => {
-      const glitch = document.querySelector('.glitch-effect');
-      glitch.style.opacity = '0.3';
-      glitch.style.clipPath = `rect(${Math.random()*50}px, 9999px, ${Math.random()*50+50}px, 0)`;
-      
-      setTimeout(() => {
-        glitch.style.opacity = '0';
-      }, 100);
-    }, 3000);
-    
-    // Protection alert function
-    function showProtectionAlert() {
-      const notice = document.querySelector('.protection-notice');
-      notice.textContent = "SECURITY ALERT: COPY PROTECTION ACTIVE";
-      notice.style.color = "#ff5555";
-      notice.style.textShadow = "0 0 10px rgba(255, 0, 0, 0.7)";
-      
-      setTimeout(() => {
-        notice.textContent = "COPY PROTECTION ACTIVE | SOURCE CODE SECURED";
-        notice.style.color = "rgba(0, 255, 0, 0.5)";
-        notice.style.textShadow = "none";
-      }, 2000);
+      slides[slideIndex - 1].classList.add('active');
+      setTimeout(showSlides, 5000); // Change image every 5 seconds
     }
     
-    // Dynamic content updates
-    const consoleOutput = document.querySelector('.console-output');
-    let lineCount = 5;
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('nav ul');
     
-    setInterval(() => {
-      if (lineCount < 10) {
-        const newLine = document.createElement('div');
-        newLine.innerHTML = `> Running security check ${lineCount-4} of 5... <span class="terminal-cursor"></span>`;
-        consoleOutput.appendChild(newLine);
-        consoleOutput.scrollTop = consoleOutput.scrollHeight;
-        lineCount++;
+    mobileMenuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    
+    // Service card expansion
+    const expandButtons = document.querySelectorAll('.expand-service');
+    const modal = document.getElementById('serviceModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const closeModal = document.querySelector('.close-modal');
+    
+    expandButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const serviceType = button.getAttribute('data-service');
+        
+        // Set modal content based on service type
+        switch(serviceType) {
+          case 'ict':
+            modalTitle.textContent = 'ICT Support Services';
+            modalBody.innerHTML = `
+              <h4>Comprehensive ICT Solutions for Businesses</h4>
+              <p>We provide end-to-end ICT services designed to keep your business running smoothly and efficiently:</p>
+              <ul>
+                <li>Network design, implementation, and maintenance</li>
+                <li>Computer repair and maintenance services</li>
+                <li>Employee training on productivity tools and best practices</li>
+                <li>Tech coaching for management and staff</li>
+                <li>Seamless ICT integration for new and existing businesses</li>
+                <li>Power backup solutions to ensure business continuity</li>
+              </ul>
+              <img src="ictTraining.jpg" alt="ICT Support">
+              <p>Our certified technicians are available for on-site and remote support to resolve any issues quickly and minimize downtime.</p>
+            `;
+            break;
+          case 'web':
+            modalTitle.textContent = 'Web Design & Development';
+            modalBody.innerHTML = `
+              <h4>Creating Powerful Digital Experiences</h4>
+              <p>Our web solutions are tailored to meet your specific business needs:</p>
+              <ul>
+                <li>Responsive website design that works on all devices</li>
+                <li>E-commerce platforms for online sales</li>
+                <li>Custom web applications and portals</li>
+                <li>Domain registration and web hosting services</li>
+                <li>SEO optimization for better search visibility</li>
+                <li>Ongoing maintenance and support</li>
+              </ul>
+              <img src="web1.jpg" alt="Web Design">
+              <p>We create websites that not only look great but also convert visitors into customers.</p>
+            `;
+            break;
+          case 'training':
+            modalTitle.textContent = 'Professional Training Programs';
+            modalBody.innerHTML = `
+              <h4>Empowering Through Education</h4>
+              <p>Our training programs are designed to build skills and confidence:</p>
+              <ul>
+                <li>Robotics and coding programs for schools</li>
+                <li>Employee performance enhancement workshops</li>
+                <li>Technology adoption coaching for businesses</li>
+                <li>Leadership training on tech integration</li>
+                <li>Customized training programs for your specific needs</li>
+              </ul>
+              <img src="podcast.jpg" alt="Training">
+              <p>We've partnered with leading educational institutions across Kenya to bring technology education to students of all ages.</p>
+            `;
+            break;
+          case 'led':
+            modalTitle.textContent = 'LED Display Solutions';
+            modalBody.innerHTML = `
+              <h4>Revolutionary Advertising Technology</h4>
+              <p>Our LED solutions help your business stand out:</p>
+              <ul>
+                <li>Custom LED display design and installation</li>
+                <li>Scrolling LED signs for storefronts</li>
+                <li>Large format outdoor LED screens</li>
+                <li>Content creation and management services</li>
+                <li>Maintenance and support packages</li>
+              </ul>
+              <img src="led2.jpg" alt="LED Solutions">
+              <p>Leveraging our robotics expertise, we create dynamic displays that capture attention and drive engagement.</p>
+            `;
+            break;
+        }
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    
+    // Close modal
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+    
+    // Close modal when clicking outside content
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
       }
-    }, 15000);
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      alert('Content protection is enabled. Please contact us for more information.');
+    });
+    
+    // Start slideshow
+    showSlides();
+    
+    // Tawk.to chat widget
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+      var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+      s1.async = true;
+      s1.src = 'https://embed.tawk.to/67adef74825083258e149cdc/1ijvmunvo';
+      s1.charset = 'UTF-8';
+      s1.setAttribute('crossorigin', '*');
+      s0.parentNode.insertBefore(s1, s0);
+    })();
   </script>
 </body>
 </html>
