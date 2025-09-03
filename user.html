@@ -96,6 +96,7 @@
       <h2>Prank — You're safe ❤️</h2>
       <p>Hey! This was a friendly prank by <span class="who">RobotechDigi</span>. We do <strong>not</strong> perform real attacks. Please <strong>do not</strong> click suspicious links and keep personal information private — especially in the AI age.</p>
       <p>We love you. Stay secure: update passwords, enable two-factor auth, and be cautious with unknown emails or links.</p>
+      <p>👉 Click this safe link to learn more: <a href="https://www.robotechdigi.com/user" target="_blank">robotechdigi.com/user</a></p>
       <div class="actions">
         <button class="btn" id="closeBtn">Okay, I get it</button>
         <button class="btn ghost" id="tipsBtn">Security tips</button>
@@ -149,11 +150,7 @@
 
     // Buttons
     document.getElementById('closeBtn').addEventListener('click', ()=>{
-      document.getElementById('reveal').style.display='none';
-      document.getElementById('banner').textContent='PRANK — ROBOTECHDIGI ❤';
-      document.getElementById('banner').style.color='var(--neon)';
-      const note = document.createElement('div'); note.className='line ok'; note.style.marginTop='8px'; note.innerHTML='[PRANK] This was a harmless message from <strong>RobotechDigi</strong>. Do not click unknown links.';
-      log.appendChild(note); log.scrollTop = log.scrollHeight;
+      window.location.href = "https://www.robotechdigi.com";
     });
 
     document.getElementById('tipsBtn').addEventListener('click', ()=>{
