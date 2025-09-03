@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 • Access Denied</title>
+  <meta name="theme-color" content="#00ff88" />
+  <style>
+    :root {
+      --bg: #040608;
+      --fg: #e6fff2;
+      --neon: #00ff88;
+      --muted: #6de6b0;
+      --danger: #ff3b3b;
+    }
+
+    /* Reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+    /* Subtle vignette */
+    .vignette { position: fixed; inset: 0; pointer-events: none; background: radial-gradient(80% 60% at 50% 40%, rgba(0,255,136,0.08), rgba(0,0,0,0.8)); }
+
+    /* Scanlines */
+    .scanlines::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, rgba(0,0,0,0.0) 0 2px, rgba(0,0,0,0.07) 2px 4px);
+      mix-blend-mode: overlay; opacity: .75; 
+      animation: flicker 6s linear infinite;
+    }
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 80%, 100% { opacity: .75; }
+      20%, 22% { opacity: .5; }
+    }
+
+    /* Layout */
+    .wrap { position: relative; min-height: 100%; display: grid; place-items: center; padding: 24px; }
+
+    /* Matrix canvas as background */
+    #matrix {
+      position: fixed; inset: 0; z-index: -1; display: block; filter: drop-shadow(0 0 12px rgba(0,255,136,.35));
+    }
+
+    /* Terminal card */
+    .terminal {
+      width: min(960px, 92vw); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 80px rgba(0, 255, 136, 0.15), 0 0 0 1px rgba(109, 230, 176, 0.2) inset;
+      background: rgba(1, 10, 6, 0.75);
+      backdrop-filter: blur(6px) saturate(130%);
+      border: 1px solid rgba(0, 255, 136, 0.25);
+    }
+    .term-top {
+      display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: linear-gradient(180deg, rgba(0,255,136,0.12), rgba(0,0,0,0.2)); border-bottom: 1px solid rgba(0,255,136,0.25);
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.red { background: #ff5f56; box-shadow: 0 0 8px rgba(255,95,86,.7); }
+    .dot.yellow { background: #ffbd2e; box-shadow: 0 0 8px rgba(255,189,46,.7); }
+    .dot.green { background: #27c93f; box-shadow: 0 0 8px rgba(39,201,63,.7); }
+    .term-title { margin-left: 6px; opacity: .8; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+    .term-body { padding: 22px; }
+
+    /* Glitch 404 */
+    .glitch { position: relative; font-size: clamp(42px, 11vw, 120px); line-height: 1; font-weight: 800; letter-spacing: .02em; color: var(--neon); text-shadow: 0 0 16px rgba(0,255,136,.55), 0 0 2px rgba(0,0,0,.8); display: inline-block; }
+    .glitch::before, .glitch::after {
+      content: attr(data-text); position: absolute; inset: 0; mix-blend-mode: screen; clip-path: polygon(0 2%, 100% 0, 100% 45%, 0 50%);
+    }
+    .glitch::before { transform: translate(-2px, 0); color: #19ff9e; filter: blur(.5px); animation: glitch-top 2.3s infinite cubic-bezier(.25,.46,.45,.94); }
+    .glitch::after { transform: translate(2px, 0); color: #12e06f; filter: blur(.5px); clip-path: polygon(0 55%, 100% 50%, 100% 100%, 0 98%);
+      animation: glitch-bottom 2s infinite cubic-bezier(.25,.46,.45,.94);
+    }
+    @keyframes glitch-top { 0% { transform: translate(0,0);} 20% { transform: translate(-3px,-1px);} 40% { transform: translate(2px,1px);} 60% { transform: translate(-1px,0);} 80% { transform: translate(1px,-1px);} 100% { transform: translate(0,0);} }
+    @keyframes glitch-bottom { 0% { transform: translate(0,0);} 20% { transform: translate(3px,1px);} 40% { transform: translate(-2px,-1px);} 60% { transform: translate(1px,0);} 80% { transform: translate(-1px,1px);} 100% { transform: translate(0,0);} }
+
+    /* Typing */
+    .typing { font-size: clamp(12px, 2.6vw, 16px); line-height: 1.6; color: var(--fg); }
+    .line { display: block; white-space: pre-wrap; }
+    .cursor { display: inline-block; width: 10px; background: var(--neon); margin-left: 4px; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* Buttons */
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    .btn { border: 1px solid rgba(0,255,136,.55); color: var(--bg); background: var(--neon); padding: 10px 14px; border-radius: 12px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: transform .1s ease, box-shadow .2s ease; box-shadow: 0 8px 30px rgba(0,255,136,.25), 0 0 0 1px rgba(0,0,0,.3) inset; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(0,255,136,.35); }
+    .btn.ghost { background: transparent; color: var(--muted); border-color: rgba(109,230,176,.45); }
+    .btn.ghost:hover { color: var(--fg); border-color: var(--neon); }
+
+    /* Footer tips */
+    .tips { margin-top: 16px; opacity: .7; font-size: 12px; color: var(--muted); }
+
+    /* Accessibility: prefers-reduced-motion */
+    @media (prefers-reduced-motion: reduce) {
+      #matrix { display:none; }
+      .glitch::before, .glitch::after, .scanlines::before { animation: none !important; }
+    }
+  </style>
+</head>
+<body class="scanlines">
+  <canvas id="matrix" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <div class="terminal" role="region" aria-label="Hacker terminal error window">
+      <div class="term-top">
+        <span class="dot red" aria-hidden="true"></span>
+        <span class="dot yellow" aria-hidden="true"></span>
+        <span class="dot green" aria-hidden="true"></span>
+        <span class="term-title">/usr/local/www ▶ 404.log</span>
+      </div>
+      <div class="term-body">
+        <div class="glitch" data-text="404">404</div>
+        <div class="typing" id="typing" aria-live="polite" aria-atomic="true"></div>
+        <div class="actions">
+          <a class="btn" href="/" id="homeBtn" aria-label="Go to homepage">⟵ Back to Home</a>
+          <a class="btn ghost" href="javascript:location.reload()" aria-label="Reload the page">↻ Reload</a>
+          <a class="btn ghost" href="mailto:admin@yourdomain.tld?subject=404%20Report&body=I%20found%20a%20broken%20link%20here:%20" aria-label="Report this broken link">⚠ Report</a>
+        </div>
+        <div class="tips">Tip: press <kbd>H</kbd> to go Home • <kbd>/</kbd> to search • <kbd>R</kbd> to retry</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // MATRIX RAIN BACKGROUND
+    const c = document.getElementById('matrix');
+    const ctx = c.getContext('2d');
+    let columns, drops, w, h;
+
+    function resize() {
+      w = c.width = window.innerWidth;
+      h = c.height = window.innerHeight;
+      const fontSize = 16; // px
+      columns = Math.floor(w / fontSize);
+      drops = Array(columns).fill(1);
+      ctx.font = fontSize + 'px monospace';
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const chars = '01Λ¥$#%@&+-=<>\u2588\u2592\u2593';
+
+    function draw() {
+      // trail
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+      ctx.fillRect(0, 0, w, h);
+
+      // symbol layer
+      for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillStyle = 'rgba(0, 255, 136, ' + (0.35 + Math.random() * 0.65) + ')';
+        ctx.fillText(text, i * 16, drops[i] * 16);
+
+        if (drops[i] * 16 > h && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    // TERMINAL TYPING EFFECT
+    const typingEl = document.getElementById('typing');
+    const lines = [
+      '>> TRACE: route \'/page/not-found\' returned status <span style="color: var(--danger)">404</span>',
+      '>> MESSAGE: The page you\'re looking for does not exist (or moved).',
+      '>> SUGGEST: Check the URL, then try the actions below.',
+      '>> STATUS: Awaiting user input _'
+    ];
+
+    let li = 0, ci = 0, printing = true;
+    const cursor = '<span class="cursor" aria-hidden="true">&nbsp;</span>';
+
+    function typeLine() {
+      if (li >= lines.length) return; // done
+      const line = lines[li];
+      typingEl.innerHTML = typingEl.innerHTML.replace(/<span class=\"cursor\".*?<\/span>$/,'');
+      typingEl.innerHTML += '<span class="line">' + line.slice(0, ci) + cursor + '</span>';
+      ci++;
+      const base = 18, jitter = Math.random() * 50; // vary speed
+      if (ci <= line.length) {
+        setTimeout(typeLine, base + jitter);
+      } else {
+        typingEl.innerHTML = typingEl.innerHTML.replace(/<span class=\"cursor\".*?<\/span>$/,'');
+        typingEl.innerHTML += '<br />';
+        li++; ci = 0;
+        setTimeout(typeLine, 300);
+      }
+    }
+    typeLine();
+
+    // KEYBOARD SHORTCUTS
+    const homeBtn = document.getElementById('homeBtn');
+    window.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 'h') homeBtn.click();
+      if (e.key === '/') {
+        e.preventDefault();
+        try { window.find && window.find(''); } catch(_) {}
+      }
+      if (e.key.toLowerCase() === 'r') location.reload();
+    });
+
+    // POLISH: focus ring for keyboard users
+    document.querySelectorAll('a.btn').forEach(b => {
+      b.addEventListener('focus', () => { b.style.boxShadow = '0 0 0 3px rgba(0,255,136,.35), 0 8px 30px rgba(0,255,136,.25)'; });
+      b.addEventListener('blur', () => { b.style.boxShadow = '0 8px 30px rgba(0,255,136,.25), 0 0 0 1px rgba(0,0,0,.3) inset'; });
+    });
+  </script>
+</body>
+</html>
