@@ -29,12 +29,17 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://robotechdigi.com/" />
   
-  <!-- Google Fonts -->
+  <!-- Preconnect for faster external resource loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+  <!-- Google Fonts with display=swap for faster rendering -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
+  <!-- Font Awesome (async load for non-blocking) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all" onload="this.media='all'">
+
   <style>
     :root {
       --primary-dark: #0a192f;
@@ -1152,7 +1157,7 @@
   <!-- Header & Navigation -->
   <header>
     <div class="logo-container">
-      <img src="logo.jpg" alt="Robotech Digital Solutions Logo" class="logo">
+      <img src="logo.jpg" alt="Robotech Digital Solutions Logo" class="logo" loading="lazy">
       <div class="logo-text">Robotech Digital</div>
     </div>
     
@@ -1203,7 +1208,7 @@
       <!-- ICT Support Service -->
       <div class="service-card">
         <div class="service-img">
-          <img src="ictTraining.jpg" alt="ICT Support">
+          <img src="ictTraining.jpg" alt="ICT Support" loading="lazy">
         </div>
         <div class="service-content">
           <h3>ICT Support</h3>
@@ -1215,7 +1220,7 @@
       <!-- Web Design Service -->
       <div class="service-card">
         <div class="service-img">
-          <img src="web.jpg" alt="Web Design">
+          <img src="web.jpg" alt="Web Design" loading="lazy">
         </div>
         <div class="service-content">
           <h3>Web Design & Development</h3>
@@ -1227,7 +1232,7 @@
       <!-- Training Service -->
       <div class="service-card">
         <div class="service-img">
-          <img src="podcast.jpg" alt="Training">
+          <img src="podcast.jpg" alt="Training" loading="lazy">
         </div>
         <div class="service-content">
           <h3>Professional Training</h3>
@@ -1239,7 +1244,7 @@
       <!-- LED Solutions Service -->
       <div class="service-card">
         <div class="service-img">
-          <img src="led2.jpg" alt="LED Solutions">
+          <img src="led2.jpg" alt="LED Solutions" loading="lazy">
         </div>
         <div class="service-content">
           <h3>LED Display Solutions</h3>
@@ -1262,7 +1267,10 @@
       </div>
       
       <div class="about-image">
-        <img src="web1.jpg" alt="Robotech Team">
+        <picture>
+          <source srcset="web1.webp" type="image/webp">
+          <img src="web1.jpg" alt="Robotech Team" loading="lazy">
+        </picture>
       </div>
     </div>
   </section>
@@ -1278,7 +1286,7 @@
       <div class="podcast-grid">
         <div class="podcast-card">
           <div class="podcast-thumbnail">
-            <img src="podcast.jpg" alt="AI in Business">
+            <img src="podcast.jpg" alt="AI in Business" loading="lazy">
             <div class="play-btn">
               <i class="fas fa-play"></i>
             </div>
@@ -1299,7 +1307,7 @@
         
         <div class="podcast-card">
           <div class="podcast-thumbnail">
-            <img src="ictTraining.jpg" alt="Robotics Education">
+            <img src="ictTraining.jpg" alt="Robotics Education" loading="lazy">
             <div class="play-btn">
               <i class="fas fa-play"></i>
             </div>
@@ -1352,7 +1360,7 @@
       </div>
       
       <div class="mission-image">
-        <img src="ledimg.jpg" alt="Robotics Research">
+        <img src="ledimg.jpg" alt="Robotics Research" loading="lazy">
       </div>
     </div>
   </section>
@@ -1453,7 +1461,7 @@
         
         <div class="ceo-card">
           <div class="ceo-img">
-            <img src="ceo.jpg" alt="Zacharia Chege">
+            <img src="ceo.jpg" alt="Zacharia Chege" loading="lazy">
           </div>
           <div class="ceo-info">
             <h4>Zacharia Chege</h4>
@@ -1528,7 +1536,7 @@
     </div>
   </div>
 
-  <script>
+  <script defer>
     // Slideshow functionality
     let slideIndex = 0;
     const slides = document.querySelectorAll('.slide');
