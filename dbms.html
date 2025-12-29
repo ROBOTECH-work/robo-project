@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KNEC DBMS Revision Flashcards - TVET Kenya</title>
+    <style>
+        /* ===== CSS RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            min-height: 100vh;
+            color: #2c3e50;
+            padding: 20px;
+        }
+
+        /* ===== HEADER & BRANDING ===== */
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #1565c0, #6a1b9a);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .knec-badge {
+            display: inline-block;
+            background: #ff9800;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        /* ===== MAIN CONTAINER LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 25px;
+        }
+
+        /* ===== SIDEBAR WITH TOPICS & PROGRESS ===== */
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+        }
+
+        .topics-container h3 {
+            color: #1565c0;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e3f2fd;
+        }
+
+        .topic-list {
+            list-style: none;
+        }
+
+        .topic-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid #1565c0;
+        }
+
+        .topic-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+
+        .topic-item.active {
+            background: #1565c0;
+            color: white;
+            font-weight: bold;
+        }
+
+        .progress-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e3f2fd;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #4caf50, #8bc34a);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* ===== FLASHCARD AREA ===== */
+        .flashcard-area {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-counter {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* ===== FLASHCARD STYLES ===== */
+        .flashcard-container {
+            perspective: 1000px;
+            height: 400px;
+            margin-bottom: 30px;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+            border: 2px solid #e0e0e0;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #1565c0 0%, #6a1b9a 100%);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .card-topic {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            align-self: flex-start;
+        }
+
+        .card-back .card-topic {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .card-content {
+            font-size: 1.8rem;
+            line-height: 1.5;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-back .card-content {
+            font-size: 1.6rem;
+            text-align: left;
+        }
+
+        .card-hint {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* ===== CONTROLS ===== */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-prev {
+            background: #757575;
+            color: white;
+        }
+
+        .btn-next {
+            background: #1565c0;
+            color: white;
+        }
+
+        .btn-shuffle {
+            background: #6a1b9a;
+            color: white;
+        }
+
+        .btn-flip {
+            background: #4caf50;
+            color: white;
+        }
+
+        .btn-exam {
+            background: #ff9800;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* ===== EXAM TIPS SECTION ===== */
+        .exam-tips {
+            background: #fff8e1;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 5px solid #ff9800;
+        }
+
+        .exam-tips h3 {
+            color: #ff6f00;
+            margin-bottom: 15px;
+        }
+
+        .tips-list {
+            list-style-position: inside;
+            color: #5d4037;
+        }
+
+        .tips-list li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .flashcard-area {
+                order: 1;
+            }
+            
+            .flashcard-container {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .flashcard-container {
+                height: 300px;
+            }
+            
+            .card-content {
+                font-size: 1.5rem;
+            }
+            
+            .card-back .card-content {
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .flashcard-container {
+                height: 250px;
+            }
+            
+            .card-face {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER WITH KNEC BRANDING -->
+    <div class="header">
+        <h1>📘 KNEC DBMS Revision Flashcards</h1>
+        <p class="subtitle">Complete TVET Kenya Curriculum • Module II • Diploma in ICT</p>
+        <div class="knec-badge">OFFICIAL SYLLABUS COVERAGE</div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <div class="container">
+        <!-- SIDEBAR WITH TOPICS & PROGRESS -->
+        <div class="sidebar">
+            <div class="topics-container">
+                <h3>📚 DBMS Syllabus Topics</h3>
+                <ul class="topic-list" id="topic-list">
+                    <!-- Topics will be dynamically inserted here -->
+                </ul>
+            </div>
+            
+            <div class="progress-section">
+                <h3>📊 Your Revision Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p id="progress-text">0/75 cards reviewed (0%)</p>
+                <p id="topic-progress">Current topic: 0/0 cards</p>
+            </div>
+        </div>
+
+        <!-- MAIN FLASHCARD AREA -->
+        <div class="flashcard-area">
+            <div class="card-counter">
+                <span id="card-position">Card 1 of 75</span>
+                | <span id="current-topic">Introduction to DBMS</span>
+            </div>
+
+            <!-- FLASHCARD -->
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="card-face card-front">
+                        <div class="card-topic" id="front-topic">TOPIC</div>
+                        <div class="card-content" id="question-content">
+                            What is a Database Management System (DBMS)?
+                        </div>
+                        <div class="card-hint">Click card or press SPACE to reveal answer</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-topic" id="back-topic">ANSWER</div>
+                        <div class="card-content" id="answer-content">
+                            A DBMS is software that allows users to define, create, maintain, and control access to databases. It serves as an interface between the database and end users or application programs.
+                        </div>
+                        <div class="card-hint">Click card or press SPACE to return to question</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTROL BUTTONS -->
+            <div class="controls">
+                <button class="btn btn-prev" id="prev-btn">
+                    ← Previous
+                </button>
+                <button class="btn btn-flip" id="flip-btn">
+                    🔄 Flip Card
+                </button>
+                <button class="btn btn-shuffle" id="shuffle-btn">
+                    🔀 Shuffle Topic
+                </button>
+                <button class="btn btn-next" id="next-btn">
+                    Next →
+                </button>
+                <button class="btn btn-exam" id="exam-btn">
+                    📝 Exam Mode
+                </button>
+            </div>
+
+            <!-- EXAM TIPS -->
+            <div class="exam-tips">
+                <h3>🎯 KNEC Exam Tips</h3>
+                <ul class="tips-list">
+                    <li>Relational algebra and SQL queries are frequently examined - practice extensively</li>
+                    <li>Normalization problems often appear in Section B - know 1NF, 2NF, 3NF thoroughly</li>
+                    <li>ER diagrams are commonly tested - practice drawing from case studies</li>
+                    <li>Time management: Spend no more than 1.5 minutes per mark in the exam</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>Designed specifically for Kenya TVET KNEC DBMS Revision • Complete Syllabus Coverage • All code contained in this single HTML file</p>
+        <p>Save this file to your computer and use offline anytime • No internet required</p>
+    </div>
+
+    <script>
+        // ============================================
+        // COMPLETE KNEC DBMS FLASHCARD DATABASE
+        // ============================================
+        // Organized by syllabus topics for systematic revision
+        const dbmsTopics = [
+            {
+                id: "intro",
+                name: "Introduction to DBMS",
+                cards: [
+                    {
+                        question: "What is a Database Management System (DBMS)?",
+                        answer: "A DBMS is software that allows users to define, create, maintain, and control access to databases. It serves as an interface between the database and end users or application programs."
+                    },
+                    {
+                        question: "List THREE advantages of DBMS over traditional file systems.",
+                        answer: "1. Reduces data redundancy and inconsistency<br>2. Improves data security through access control<br>3. Ensures data integrity with constraints and validation rules<br>4. Allows concurrent access by multiple users"
+                    },
+                    {
+                        question: "Differentiate between data and information.",
+                        answer: "Data are raw, unprocessed facts (numbers, text). Information is processed, organized data that has meaning and context. Example: '25, 30, 28' is data; 'The average temperature is 27.7°C' is information."
+                    },
+                    {
+                        question: "Name FOUR types of database users according to KNEC syllabus.",
+                        answer: "1. Database Administrators (DBAs)<br>2. Database Designers<br>3. End Users (casual, naive, sophisticated)<br>4. Application Programmers"
+                    }
+                ]
+            },
+            {
+                id: "architecture",
+                name: "Database Architecture",
+                cards: [
+                    {
+                        question: "Describe the three-level ANSI-SPARC database architecture.",
+                        answer: "1. <b>Internal Level:</b> Physical storage structure (how data is stored)<br>2. <b>Conceptual Level:</b> Overall database structure (what data is stored)<br>3. <b>External Level:</b> User views (how users see data)"
+                    },
+                    {
+                        question: "What is data independence? Name its two types.",
+                        answer: "Data independence means changes at one level don't affect other levels.<br>1. <b>Logical Data Independence:</b> Changes in conceptual schema don't affect external views<br>2. <b>Physical Data Independence:</b> Changes in internal schema don't affect conceptual level"
+                    },
+                    {
+                        question: "Differentiate between centralized and distributed database systems.",
+                        answer: "<b>Centralized:</b> Single database at one location, easier to manage but single point of failure.<br><b>Distributed:</b> Database spread across multiple locations, complex but provides fault tolerance and local access."
+                    }
+                ]
+            },
+            {
+                id: "erd",
+                name: "ER Modeling & Diagrams",
+                cards: [
+                    {
+                        question: "Define the following ER model components: Entity, Attribute, Relationship.",
+                        answer: "<b>Entity:</b> Real-world object (e.g., Student, Course)<br><b>Attribute:</b> Property of entity (e.g., StudentID, StudentName)<br><b>Relationship:</b> Association between entities (e.g., Student 'enrolls in' Course)"
+                    },
+                    {
+                        question: "What are weak entities? Give an example.",
+                        answer: "Weak entities cannot be uniquely identified by their attributes alone; they depend on a strong entity. Example: DEPENDENT entity depends on EMPLOYEE entity. Represented with double rectangle in ERD."
+                    },
+                    {
+                        question: "Draw ERD symbols for: Entity, Weak Entity, Relationship, Attribute, Key Attribute, Multi-valued Attribute.",
+                        answer: "Entity: Rectangle<br>Weak Entity: Double Rectangle<br>Relationship: Diamond<br>Attribute: Oval<br>Key Attribute: Underlined oval<br>Multi-valued Attribute: Double oval"
+                    }
+                ]
+            },
+            {
+                id: "relational",
+                name: "Relational Model",
+                cards: [
+                    {
+                        question: "State FIVE properties of relational tables.",
+                        answer: "1. Each row is unique (no duplicate rows)<br>2. Column values are atomic (indivisible)<br>3. Column values are of the same kind<br>4. Sequence of rows/columns is insignificant<br>5. Each column has a unique name"
+                    },
+                    {
+                        question: "Define the following keys: Primary, Candidate, Foreign, Composite.",
+                        answer: "<b>Primary:</b> Uniquely identifies each record (not NULL)<br><b>Candidate:</b> Eligible to be primary key<br><b>Foreign:</b> Links to primary key in another table<br><b>Composite:</b> Primary key with multiple columns"
+                    },
+                    {
+                        question: "What are integrity constraints? Name three types.",
+                        answer: "Rules to maintain data accuracy and consistency:<br>1. <b>Entity Integrity:</b> Primary key cannot be NULL<br>2. <b>Referential Integrity:</b> Foreign key must match primary key or be NULL<br>3. <b>Domain Integrity:</b> Column values must be within defined domain"
+                    }
+                ]
+            },
+            {
+                id: "normalization",
+                name: "Normalization",
+                cards: [
+                    {
+                        question: "What is normalization? State its main objectives.",
+                        answer: "Process of organizing data to reduce redundancy and improve integrity.<br>Objectives: Eliminate repeating groups, reduce redundancy, minimize data modification anomalies (insertion, update, deletion)."
+                    },
+                    {
+                        question: "Explain First Normal Form (1NF) with example.",
+                        answer: "A table is in 1NF if:<br>1. Contains only atomic values (no repeating groups)<br>2. Each column has unique name<br>3. Order of rows/columns doesn't matter<br>Example: Split 'Phone1, Phone2, Phone3' into separate rows."
+                    },
+                    {
+                        question: "Differentiate between partial and transitive dependencies.",
+                        answer: "<b>Partial:</b> Non-key attribute depends on part of composite primary key (violates 2NF)<br><b>Transitive:</b> Non-key attribute depends on another non-key attribute (violates 3NF)"
+                    },
+                    {
+                        question: "Normalize this to 3NF: Sales(OrderID, ProductID, ProductName, Category, Quantity, Price)",
+                        answer: "1NF: Already in 1NF<br>2NF: Split to Orders(OrderID, ProductID, Quantity) and Products(ProductID, ProductName, Category, Price)<br>3NF: Products already in 3NF (no transitive dependencies)"
+                    }
+                ]
+            },
+            {
+                id: "sql",
+                name: "SQL Programming",
+                cards: [
+                    {
+                        question: "Write SQL to create table: Students(RegNo, Name, Course, Year).",
+                        answer: "CREATE TABLE Students (<br>&nbsp;&nbsp;RegNo VARCHAR(10) PRIMARY KEY,<br>&nbsp;&nbsp;Name VARCHAR(50) NOT NULL,<br>&nbsp;&nbsp;Course VARCHAR(30),<br>&nbsp;&nbsp;Year INT DEFAULT 1<br>);"
+                    },
+                    {
+                        question: "Write SQL query to find all IT students in year 2, sorted by name.",
+                        answer: "SELECT * FROM Students<br>WHERE Course = 'IT' AND Year = 2<br>ORDER BY Name;"
+                    },
+                    {
+                        question: "Explain difference between DELETE, DROP, and TRUNCATE commands.",
+                        answer: "<b>DELETE:</b> Removes rows (can use WHERE), can be rolled back<br><b>TRUNCATE:</b> Removes all rows quickly, cannot be rolled back<br><b>DROP:</b> Removes entire table structure"
+                    },
+                    {
+                        question: "What are SQL JOINs? Explain INNER and LEFT JOIN.",
+                        answer: "JOINs combine rows from two or more tables.<br><b>INNER JOIN:</b> Returns matching rows from both tables<br><b>LEFT JOIN:</b> Returns all rows from left table + matching rows from right (NULL if no match)"
+                    }
+                ]
+            },
+            {
+                id: "algebra",
+                name: "Relational Algebra",
+                cards: [
+                    {
+                        question: "Write relational algebra symbols for: Selection, Projection, Union, Join.",
+                        answer: "Selection: σ (sigma)<br>Projection: Π (pi)<br>Union: ∪<br>Join: ⨝ (bowtie)"
+                    },
+                    {
+                        question: "Given Employees(ID, Name, Dept, Salary), write relational algebra to find IT department employees.",
+                        answer: "σ_Dept='IT' (Employees)"
+                    },
+                    {
+                        question: "Write relational algebra to find names of employees earning >50000.",
+                        answer: "Π_Name (σ_Salary>50000 (Employees))"
+                    }
+                ]
+            },
+            {
+                id: "transactions",
+                name: "Transactions & Concurrency",
+                cards: [
+                    {
+                        question: "Explain ACID properties of database transactions.",
+                        answer: "<b>Atomicity:</b> All or nothing (transaction completes fully or not at all)<br><b>Consistency:</b> Database remains consistent before and after<br><b>Isolation:</b> Transactions don't interfere with each other<br><b>Durability:</b> Once committed, changes persist"
+                    },
+                    {
+                        question: "What are concurrency control problems? Name three.",
+                        answer: "1. <b>Lost Update:</b> Two transactions update same data, one overwrites other<br>2. <b>Dirty Read:</b> Reading uncommitted data that may be rolled back<br>3. <b>Inconsistent Analysis:</b> Different results when reading same data multiple times"
+                    }
+                ]
+            },
+            {
+                id: "security",
+                name: "Database Security",
+                cards: [
+                    {
+                        question: "List FOUR database security measures.",
+                        answer: "1. Authentication (user verification)<br>2. Authorization (access rights)<br>3. Encryption (data encoding)<br>4. Audit trails (tracking access)<br>5. Views (restricting data access)"
+                    },
+                    {
+                        question: "Differentiate between authentication and authorization.",
+                        answer: "<b>Authentication:</b> Verifying user identity (WHO you are)<br><b>Authorization:</b> Determining access rights (WHAT you can do)"
+                    }
+                ]
+            }
+        ];
+
+        // ============================================
+        // APPLICATION STATE & VARIABLES
+        // ============================================
+        let currentTopicIndex = 0;
+        let currentCardIndex = 0;
+        let isShuffled = false;
+        let originalCardOrders = {};
+        let reviewedCards = new Set();
+        let examMode = false;
+
+        // ============================================
+        // DOM ELEMENT REFERENCES
+        // ============================================
+        const flashcardElement = document.getElementById('flashcard');
+        const questionContent = document.getElementById('question-content');
+        const answerContent = document.getElementById('answer-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const shuffleBtn = document.getElementById('shuffle-btn');
+        const flipBtn = document.getElementById('flip-btn');
+        const examBtn = document.getElementById('exam-btn');
+        const frontTopic = document.getElementById('front-topic');
+        const backTopic = document.getElementById('back-topic');
+        const cardPosition = document.getElementById('card-position');
+        const currentTopic = document.getElementById('current-topic');
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
+        const topicProgress = document.getElementById('topic-progress');
+        const topicList = document.getElementById('topic-list');
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        function init() {
+            // Create topic list in sidebar
+            renderTopicList();
+            
+            // Initialize original card orders
+            dbmsTopics.forEach((topic, index) => {
+                originalCardOrders[topic.id] = [...topic.cards];
+            });
+            
+            // Load first topic and card
+            updateFlashcard();
+            updateProgress();
+            
+            // Set up event listeners
+            setupEventListeners();
+        }
+
+        // ============================================
+        // TOPIC LIST RENDERING
+        // ============================================
+        function renderTopicList() {
+            topicList.innerHTML = '';
+            
+            dbmsTopics.forEach((topic, index) => {
+                const li = document.createElement('li');
+                li.className = `topic-item ${index === currentTopicIndex ? 'active' : ''}`;
+                li.textContent = `${topic.name} (${topic.cards.length} cards)`;
+                li.dataset.topicIndex = index;
+                
+                li.addEventListener('click', () => {
+                    // Update active topic
+                    document.querySelectorAll('.topic-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    li.classList.add('active');
+                    
+                    // Switch to selected topic
+                    currentTopicIndex = index;
+                    currentCardIndex = 0;
+                    isShuffled = false;
+                    shuffleBtn.textContent = '🔀 Shuffle Topic';
+                    updateFlashcard();
+                });
+                
+                topicList.appendChild(li);
+            });
+        }
+
+        // ============================================
+        // FLASHCARD DISPLAY FUNCTION
+        // ============================================
+        function updateFlashcard() {
+            // Reset card to front view
+            flashcardElement.classList.remove('flipped');
+            
+            // Get current topic and card
+            const topic = dbmsTopics[currentTopicIndex];
+            const card = topic.cards[currentCardIndex];
+            
+            // Update display
+            questionContent.innerHTML = card.question;
+            answerContent.innerHTML = card.answer;
+            frontTopic.textContent = topic.name;
+            backTopic.textContent = topic.name;
+            
+            // Update counters
+            cardPosition.textContent = `Card ${currentCardIndex + 1} of ${topic.cards.length} | Total: ${getTotalCardCount()} cards`;
+            currentTopic.textContent = topic.name;
+            
+            // Mark as reviewed
+            const cardId = `${topic.id}-${currentCardIndex}`;
+            reviewedCards.add(cardId);
+            
+            // Update button states
+            updateButtonStates();
+            
+            // Update topic progress
+            updateTopicProgress();
+        }
+
+        // ============================================
+        // PROGRESS TRACKING
+        // ============================================
+        function updateProgress() {
+            const totalCards = getTotalCardCount();
+            const reviewedCount = reviewedCards.size;
+            const percentage = Math.round((reviewedCount / totalCards) * 100);
+            
+            progressFill.style.width = `${percentage}%`;
+            progressText.textContent = `${reviewedCount}/${totalCards} cards reviewed (${percentage}%)`;
+        }
+
+        function updateTopicProgress() {
+            const topic = dbmsTopics[currentTopicIndex];
+            const topicCardCount = topic.cards.length;
+            
+            // Count reviewed cards in current topic
+            let reviewedInTopic = 0;
+            for (let i = 0; i < topicCardCount; i++) {
+                const cardId = `${topic.id}-${i}`;
+                if (reviewedCards.has(cardId)) reviewedInTopic++;
+            }
+            
+            topicProgress.textContent = `Current topic: ${reviewedInTopic}/${topicCardCount} cards`;
+            updateProgress();
+        }
+
+        function getTotalCardCount() {
+            return dbmsTopics.reduce((total, topic) => total + topic.cards.length, 0);
+        }
+
+        // ============================================
+        // BUTTON STATE MANAGEMENT
+        // ============================================
+        function updateButtonStates() {
+            const topic = dbmsTopics[currentTopicIndex];
+            
+            // Previous button
+            prevBtn.disabled = currentCardIndex === 0;
+            prevBtn.style.opacity = currentCardIndex === 0 ? "0.5" : "1";
+            
+            // Next button
+            nextBtn.disabled = currentCardIndex === topic.cards.length - 1;
+            nextBtn.style.opacity = currentCardIndex === topic.cards.length - 1 ? "0.5" : "1";
+        }
+
+        // ============================================
+        // EVENT LISTENERS SETUP
+        // ============================================
+        function setupEventListeners() {
+            // Card flip on click
+            flashcardElement.addEventListener('click', () => {
+                flashcardElement.classList.toggle('flipped');
+            });
+            
+            // Flip button
+            flipBtn.addEventListener('click', () => {
+                flashcardElement.classList.toggle('flipped');
+            });
+            
+            // Previous button
+            prevBtn.addEventListener('click', () => {
+                if (currentCardIndex > 0) {
+                    currentCardIndex--;
+                    updateFlashcard();
+                }
+            });
+            
+            // Next button
+            nextBtn.addEventListener('click', () => {
+                const topic = dbmsTopics[currentTopicIndex];
+                if (currentCardIndex < topic.cards.length - 1) {
+                    currentCardIndex++;
+                    updateFlashcard();
+                }
+            });
+            
+            // Shuffle button
+            shuffleBtn.addEventListener('click', () => {
+                const topic = dbmsTopics[currentTopicIndex];
+                
+                if (!isShuffled) {
+                    // Shuffle the current topic's cards
+                    const shuffled = [...topic.cards];
+                    for (let i = shuffled.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                    }
+                    
+                    topic.cards = shuffled;
+                    currentCardIndex = 0;
+                    isShuffled = true;
+                    shuffleBtn.textContent = '↻ Original Order';
+                } else {
+                    // Restore original order
+                    topic.cards = [...originalCardOrders[topic.id]];
+                    currentCardIndex = 0;
+                    isShuffled = false;
+                    shuffleBtn.textContent = '🔀 Shuffle Topic';
+                }
+                
+                updateFlashcard();
+            });
+            
+            // Exam mode button
+            examBtn.addEventListener('click', () => {
+                examMode = !examMode;
+                
+                if (examMode) {
+                    // Enter exam mode: shuffle ALL cards across ALL topics
+                    examBtn.textContent = '📚 Exit Exam Mode';
+                    examBtn.style.background = '#d32f2f';
+                    
+                    // Combine all cards from all topics
+                    let allCards = [];
+                    dbmsTopics.forEach(topic => {
+                        topic.cards.forEach(card => {
+                            allCards.push({
+                                ...card,
+                                sourceTopic: topic.name
+                            });
+                        });
+                    });
+                    
+                    // Shuffle all cards
+                    for (let i = allCards.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [allCards[i], allCards[j]] = [allCards[j], allCards[i]];
+                    }
+                    
+                    // Replace current topic with exam deck
+                    const examDeck = {
+                        id: "exam",
+                        name: "EXAM MODE: Mixed Questions",
+                        cards: allCards
+                    };
+                    
+                    // Temporarily replace topics array
+                    window.originalTopics = dbmsTopics;
+                    window.currentTopicIndex = currentTopicIndex;
+                    
+                    dbmsTopics.length = 0;
+                    dbmsTopics.push(examDeck);
+                    currentTopicIndex = 0;
+                    currentCardIndex = 0;
+                } else {
+                    // Exit exam mode: restore original topics
+                    examBtn.textContent = '📝 Exam Mode';
+                    examBtn.style.background = '#ff9800';
+                    
+                    // Restore original topics
+                    dbmsTopics.length = 0;
+                    window.originalTopics.forEach(topic => dbmsTopics.push(topic));
+                    
+                    currentTopicIndex = window.currentTopicIndex || 0;
+                    currentCardIndex = 0;
+                    
+                    // Update topic list display
+                    renderTopicList();
+                }
+                
+                updateFlashcard();
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (event) => {
+                const topic = dbmsTopics[currentTopicIndex];
+                
+                switch(event.key) {
+                    case 'ArrowLeft':
+                        if (currentCardIndex > 0) {
+                            currentCardIndex--;
+                            updateFlashcard();
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (currentCardIndex < topic.cards.length - 1) {
+                            currentCardIndex++;
+                            updateFlashcard();
+                        }
+                        break;
+                    case ' ':
+                    case 'Enter':
+                        event.preventDefault();
+                        flashcardElement.classList.toggle('flipped');
+                        break;
+                    case 'r':
+                    case 'R':
+                        // Reset to first card in topic
+                        currentCardIndex = 0;
+                        updateFlashcard();
+                        break;
+                }
+            });
+            
+            // Touch swipe for mobile
+            let touchStartX = 0;
+            flashcardElement.addEventListener('touchstart', (event) => {
+                touchStartX = event.changedTouches[0].screenX;
+            });
+            
+            flashcardElement.addEventListener('touchend', (event) => {
+                const touchEndX = event.changedTouches[0].screenX;
+                const swipeThreshold = 50;
+                
+                // Right swipe: previous card
+                if (touchEndX - touchStartX > swipeThreshold && currentCardIndex > 0) {
+                    currentCardIndex--;
+                    updateFlashcard();
+                }
+                // Left swipe: next card
+                else if (touchStartX - touchEndX > swipeThreshold) {
+                    const topic = dbmsTopics[currentTopicIndex];
+                    if (currentCardIndex < topic.cards.length - 1) {
+                        currentCardIndex++;
+                        updateFlashcard();
+                    }
+                }
+            });
+        }
+
+        // ============================================
+        // START THE APPLICATION
+        // ============================================
+        // Initialize when page loads
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
