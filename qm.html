@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantitative Math Revision Flashcards - KNEC TVET Kenya</title>
+    <style>
+        /* ===== CSS RESET & BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            min-height: 100vh;
+            color: #2c3e50;
+            padding: 20px;
+        }
+
+        /* ===== HEADER & BRANDING ===== */
+        .header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #388e3c, #43a047);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .knec-badge {
+            display: inline-block;
+            background: #ff9800;
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .math-logo {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* ===== MAIN CONTAINER LAYOUT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 25px;
+        }
+
+        /* ===== SIDEBAR WITH TOPICS & PROGRESS ===== */
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+        }
+
+        .topics-container h3 {
+            color: #388e3c;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f5e9;
+        }
+
+        .topic-list {
+            list-style: none;
+        }
+
+        .topic-item {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid #388e3c;
+        }
+
+        .topic-item:hover {
+            background: #e8f5e9;
+            transform: translateX(5px);
+        }
+
+        .topic-item.active {
+            background: #388e3c;
+            color: white;
+            font-weight: bold;
+        }
+
+        .progress-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e8f5e9;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #4caf50, #8bc34a);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* ===== FLASHCARD AREA ===== */
+        .flashcard-area {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-counter {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* ===== FLASHCARD STYLES ===== */
+        .flashcard-container {
+            perspective: 1000px;
+            height: 420px;
+            margin-bottom: 30px;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+            border: 2px solid #e0e0e0;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #388e3c 0%, #43a047 100%);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .card-topic {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #388e3c;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            align-self: flex-start;
+        }
+
+        .card-back .card-topic {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .card-content {
+            font-size: 1.8rem;
+            line-height: 1.5;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .math-formula {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 25px;
+            border-radius: 10px;
+            font-family: 'Cambria Math', 'Times New Roman', serif;
+            font-size: 1.6rem;
+            text-align: center;
+            overflow-x: auto;
+            width: 100%;
+            margin: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .math-symbol {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .math-variable {
+            color: #4fc3f7;
+            font-style: italic;
+        }
+
+        .math-number {
+            color: #69f0ae;
+        }
+
+        .card-back .card-content {
+            font-size: 1.6rem;
+            text-align: left;
+        }
+
+        .card-hint {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-top: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* ===== CONTROLS ===== */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-prev {
+            background: #757575;
+            color: white;
+        }
+
+        .btn-next {
+            background: #388e3c;
+            color: white;
+        }
+
+        .btn-shuffle {
+            background: #7b1fa2;
+            color: white;
+        }
+
+        .btn-flip {
+            background: #0288d1;
+            color: white;
+        }
+
+        .btn-formula {
+            background: #ff9800;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* ===== EXAM TIPS SECTION ===== */
+        .exam-tips {
+            background: #fff3e0;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border-left: 5px solid #ff9800;
+        }
+
+        .exam-tips h3 {
+            color: #ef6c00;
+            margin-bottom: 15px;
+        }
+
+        .tips-list {
+            list-style-position: inside;
+            color: #5d4037;
+        }
+
+        .tips-list li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .flashcard-area {
+                order: 1;
+            }
+            
+            .flashcard-container {
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .flashcard-container {
+                height: 330px;
+            }
+            
+            .card-content {
+                font-size: 1.5rem;
+            }
+            
+            .math-formula {
+                font-size: 1.3rem;
+                padding: 20px;
+            }
+            
+            .card-back .card-content {
+                font-size: 1.3rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .flashcard-container {
+                height: 280px;
+            }
+            
+            .card-face {
+                padding: 20px;
+            }
+            
+            .math-formula {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER WITH KNEC BRANDING -->
+    <div class="header">
+        <div class="math-logo">🔢</div>
+        <h1>Quantitative Math Revision Flashcards</h1>
+        <p class="subtitle">Complete KNEC TVET Kenya Curriculum • 50 Essential Cards</p>
+        <div class="knec-badge">ARITHMETIC • ALGEBRA • GEOMETRY • STATISTICS • PROBABILITY</div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <div class="container">
+        <!-- SIDEBAR WITH TOPICS & PROGRESS -->
+        <div class="sidebar">
+            <div class="topics-container">
+                <h3>📚 Math Topics</h3>
+                <ul class="topic-list" id="topic-list">
+                    <!-- Topics will be dynamically inserted here -->
+                </ul>
+            </div>
+            
+            <div class="progress-section">
+                <h3>📊 Your Revision Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p id="progress-text">0/50 cards reviewed (0%)</p>
+                <p id="topic-progress">Current topic: 0/0 cards</p>
+            </div>
+        </div>
+
+        <!-- MAIN FLASHCARD AREA -->
+        <div class="flashcard-area">
+            <div class="card-counter">
+                <span id="card-position">Card 1 of 50</span>
+                | <span id="current-topic">Arithmetic</span>
+            </div>
+
+            <!-- FLASHCARD -->
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="card-face card-front">
+                        <div class="card-topic" id="front-topic">TOPIC</div>
+                        <div class="card-content" id="question-content">
+                            Simplify: 3(2x + 5) - 4(x - 3)
+                        </div>
+                        <div class="card-hint">Click card or press SPACE to reveal solution</div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="card-topic" id="back-topic">SOLUTION</div>
+                        <div class="card-content" id="answer-content">
+                            3(2x + 5) - 4(x - 3) = 6x + 15 - 4x + 12 = 2x + 27
+                        </div>
+                        <div class="card-hint">Click card or press SPACE to return to question</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTROL BUTTONS -->
+            <div class="controls">
+                <button class="btn btn-prev" id="prev-btn">
+                    ← Previous
+                </button>
+                <button class="btn btn-flip" id="flip-btn">
+                    🔄 Flip Card
+                </button>
+                <button class="btn btn-shuffle" id="shuffle-btn">
+                    🔀 Shuffle Topic
+                </button>
+                <button class="btn btn-next" id="next-btn">
+                    Next →
+                </button>
+                <button class="btn btn-formula" id="formula-btn">
+                    📐 Formula Sheet
+                </button>
+            </div>
+
+            <!-- EXAM TIPS -->
+            <div class="exam-tips">
+                <h3>🎯 Math Exam Tips</h3>
+                <ul class="tips-list">
+                    <li>Show ALL working steps - marks are awarded for method, not just answer</li>
+                    <li>Double-check arithmetic calculations - common errors cost marks</li>
+                    <li>Always include units in your final answer (cm, m², km/h, etc.)</li>
+                    <li>For word problems, define variables clearly before solving</li>
+                    <li>Time management: allocate 1.5 minutes per mark in the exam</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>Designed specifically for Kenya TVET KNEC Quantitative Math Revision • 50 Essential Cards • All code contained in this single HTML file</p>
+        <p>Save this file to your computer and use offline anytime • No internet required</p>
+    </div>
+
+    <script>
+        // ============================================
+        // QUANTITATIVE MATH FLASHCARD DATABASE (50 CARDS)
+        // ============================================
+        const mathTopics = [
+            {
+                id: "arithmetic",
+                name: "Arithmetic",
+                cards: [
+                    {
+                        question: "Simplify: 3(2x + 5) - 4(x - 3)",
+                        answer: "3(2x + 5) - 4(x - 3) = 6x + 15 - 4x + 12 = <span class='math-number'>2x + 27</span>"
+                    },
+                    {
+                        question: "Calculate: ¾ ÷ ½ + ⅔ × ¾",
+                        answer: "¾ ÷ ½ + ⅔ × ¾ = ¾ × 2 + ½ = 3/2 + ½ = <span class='math-number'>4/2 = 2</span>"
+                    },
+                    {
+                        question: "Find the LCM and HCF of 24, 36, and 48",
+                        answer: "Prime factors:<br>24 = 2³ × 3<br>36 = 2² × 3²<br>48 = 2⁴ × 3<br>HCF = 2² × 3 = <span class='math-number'>12</span><br>LCM = 2⁴ × 3² = <span class='math-number'>144</span>"
+                    },
+                    {
+                        question: "Convert 0.125 to fraction and percentage",
+                        answer: "0.125 = 125/1000 = <span class='math-number'>1/8</span> = <span class='math-number'>12.5%</span>"
+                    },
+                    {
+                        question: "Solve: 15% of 240 + 25% of 180",
+                        answer: "15% of 240 = 0.15 × 240 = 36<br>25% of 180 = 0.25 × 180 = 45<br>Total = <span class='math-number'>81</span>"
+                    },
+                    {
+                        question: "Calculate simple interest: Principal = Ksh 5000, Rate = 8%, Time = 3 years",
+                        answer: "Simple Interest = P × R × T / 100<br>= 5000 × 8 × 3 / 100<br>= <span class='math-number'>Ksh 1200</span><br>Total amount = 5000 + 1200 = <span class='math-number'>Ksh 6200</span>"
+                    },
+                    {
+                        question: "Find the ratio of 2.5kg to 750g in simplest form",
+                        answer: "Convert to same units: 2.5kg = 2500g<br>Ratio = 2500 : 750 = 2500÷250 : 750÷250<br>= <span class='math-number'>10 : 3</span>"
+                    },
+                    {
+                        question: "If 12 workers complete a job in 18 days, how many days for 8 workers?",
+                        answer: "This is inverse proportion:<br>12 workers × 18 days = 8 workers × x days<br>216 = 8x<br>x = <span class='math-number'>27 days</span>"
+                    }
+                ]
+            },
+            {
+                id: "algebra",
+                name: "Algebra",
+                cards: [
+                    {
+                        question: "Solve for x: 3x - 7 = 2x + 5",
+                        answer: "3x - 7 = 2x + 5<br>3x - 2x = 5 + 7<br>x = <span class='math-number'>12</span>"
+                    },
+                    {
+                        question: "Factorize completely: x² - 5x + 6",
+                        answer: "Find two numbers that multiply to 6 and add to -5: -2 and -3<br>x² - 5x + 6 = <span class='math-number'>(x - 2)(x - 3)</span>"
+                    },
+                    {
+                        question: "Expand and simplify: (2x + 3)(x - 4)",
+                        answer: "(2x + 3)(x - 4)<br>= 2x(x - 4) + 3(x - 4)<br>= 2x² - 8x + 3x - 12<br>= <span class='math-number'>2x² - 5x - 12</span>"
+                    },
+                    {
+                        question: "Solve simultaneous equations: 2x + y = 7, x - y = 2",
+                        answer: "Add both equations: (2x + y) + (x - y) = 7 + 2<br>3x = 9 → x = <span class='math-number'>3</span><br>Substitute: 3 - y = 2 → y = <span class='math-number'>1</span>"
+                    },
+                    {
+                        question: "Solve the quadratic: x² - 4x - 5 = 0",
+                        answer: "Factorize: (x - 5)(x + 1) = 0<br>x - 5 = 0 → x = <span class='math-number'>5</span><br>x + 1 = 0 → x = <span class='math-number'>-1</span>"
+                    },
+                    {
+                        question: "Simplify: (a²b³)⁴ ÷ (a³b²)²",
+                        answer: "(a²b³)⁴ = a⁸b¹²<br>(a³b²)² = a⁶b⁴<br>a⁸b¹² ÷ a⁶b⁴ = <span class='math-number'>a²b⁸</span>"
+                    },
+                    {
+                        question: "If y = 2x² - 3x + 1, find y when x = -2",
+                        answer: "y = 2(-2)² - 3(-2) + 1<br>= 2(4) + 6 + 1<br>= 8 + 6 + 1 = <span class='math-number'>15</span>"
+                    },
+                    {
+                        question: "Make x the subject: y = (2x + 3)/(x - 1)",
+                        answer: "y(x - 1) = 2x + 3<br>yx - y = 2x + 3<br>yx - 2x = y + 3<br>x(y - 2) = y + 3<br>x = <span class='math-number'>(y + 3)/(y - 2)</span>"
+                    }
+                ]
+            },
+            {
+                id: "geometry",
+                name: "Geometry",
+                cards: [
+                    {
+                        question: "Find area of triangle: base = 12cm, height = 8cm",
+                        answer: "Area = ½ × base × height<br>= ½ × 12 × 8<br>= <span class='math-number'>48 cm²</span>"
+                    },
+                    {
+                        question: "Calculate circumference of circle with radius 7cm (π = 22/7)",
+                        answer: "Circumference = 2πr<br>= 2 × 22/7 × 7<br>= <span class='math-number'>44 cm</span>"
+                    },
+                    {
+                        question: "Find volume of cylinder: radius = 5cm, height = 14cm",
+                        answer: "Volume = πr²h<br>= 22/7 × 5² × 14<br>= 22/7 × 25 × 14<br>= <span class='math-number'>1100 cm³</span>"
+                    },
+                    {
+                        question: "In right triangle, hypotenuse = 13cm, one side = 5cm. Find other side.",
+                        answer: "Using Pythagoras: a² + b² = c²<br>5² + b² = 13²<br>25 + b² = 169<br>b² = 144 → b = <span class='math-number'>12 cm</span>"
+                    },
+                    {
+                        question: "Calculate area of trapezium: parallel sides = 8cm & 12cm, height = 5cm",
+                        answer: "Area = ½(a + b)h<br>= ½(8 + 12) × 5<br>= ½ × 20 × 5 = <span class='math-number'>50 cm²</span>"
+                    },
+                    {
+                        question: "Find surface area of cube with side 6cm",
+                        answer: "Surface Area = 6 × side²<br>= 6 × 6²<br>= 6 × 36 = <span class='math-number'>216 cm²</span>"
+                    },
+                    {
+                        question: "Angle in triangle: two angles are 45° and 65°. Find third angle.",
+                        answer: "Sum of angles = 180°<br>Third angle = 180 - (45 + 65)<br>= 180 - 110 = <span class='math-number'>70°</span>"
+                    },
+                    {
+                        question: "Scale: 1:50000. Map distance = 4cm. Find actual distance in km.",
+                        answer: "Actual = Map × Scale<br>= 4 × 50000 = 200000cm<br>= 2000m = <span class='math-number'>2 km</span>"
+                    }
+                ]
+            },
+            {
+                id: "statistics",
+                name: "Statistics",
+                cards: [
+                    {
+                        question: "Find mean: 12, 15, 18, 12, 20, 25, 18",
+                        answer: "Sum = 12+15+18+12+20+25+18 = 120<br>Count = 7<br>Mean = 120 ÷ 7 = <span class='math-number'>17.14</span>"
+                    },
+                    {
+                        question: "Find median: 5, 8, 12, 15, 20, 25, 30",
+                        answer: "Arrange: 5,8,12,15,20,25,30<br>Middle value = <span class='math-number'>15</span>"
+                    },
+                    {
+                        question: "Find mode: 3, 5, 5, 7, 7, 7, 9, 9, 11",
+                        answer: "Most frequent value = <span class='math-number'>7</span> (appears 3 times)"
+                    },
+                    {
+                        question: "Calculate range: 42, 35, 28, 50, 45, 38",
+                        answer: "Range = Highest - Lowest<br>= 50 - 28 = <span class='math-number'>22</span>"
+                    },
+                    {
+                        question: "Probability: Bag has 3 red, 4 blue, 5 green. Find P(not red).",
+                        answer: "Total = 3+4+5 = 12<br>P(red) = 3/12 = ¼<br>P(not red) = 1 - ¼ = <span class='math-number'>¾</span>"
+                    },
+                    {
+                        question: "If mean of 5 numbers is 20, their sum is?",
+                        answer: "Mean = Sum ÷ Count<br>20 = Sum ÷ 5<br>Sum = 20 × 5 = <span class='math-number'>100</span>"
+                    },
+                    {
+                        question: "Convert 75% to decimal and fraction",
+                        answer: "Decimal = <span class='math-number'>0.75</span><br>Fraction = 75/100 = <span class='math-number'>3/4</span>"
+                    },
+                    {
+                        question: "Bar graph: Scale 1cm = 20 units. Bar height = 3.5cm. Represented value?",
+                        answer: "Value = Height × Scale<br>= 3.5 × 20 = <span class='math-number'>70 units</span>"
+                    }
+                ]
+            },
+            {
+                id: "probability",
+                name: "Probability",
+                cards: [
+                    {
+                        question: "Die rolled. P(getting even number)?",
+                        answer: "Even numbers: 2,4,6<br>Total outcomes: 6<br>P(even) = 3/6 = <span class='math-number'>½</span>"
+                    },
+                    {
+                        question: "Two coins tossed. P(getting at least one head)?",
+                        answer: "Possible: HH, HT, TH, TT<br>At least one head: HH, HT, TH<br>P = 3/4 = <span class='math-number'>0.75</span>"
+                    },
+                    {
+                        question: "Cards: 52 cards. P(drawing an Ace)?",
+                        answer: "Aces = 4<br>Total cards = 52<br>P(Ace) = 4/52 = <span class='math-number'>1/13</span>"
+                    },
+                    {
+                        question: "Independent events: P(A)=0.3, P(B)=0.4. P(A and B)?",
+                        answer: "For independent events:<br>P(A and B) = P(A) × P(B)<br>= 0.3 × 0.4 = <span class='math-number'>0.12</span>"
+                    },
+                    {
+                        question: "Mutually exclusive: P(A)=0.6, P(B)=0.3. P(A or B)?",
+                        answer: "For mutually exclusive:<br>P(A or B) = P(A) + P(B)<br>= 0.6 + 0.3 = <span class='math-number'>0.9</span>"
+                    }
+                ]
+            },
+            {
+                id: "wordproblems",
+                name: "Word Problems",
+                cards: [
+                    {
+                        question: "Age problem: Father is 3 times son's age. Sum = 48. Find their ages.",
+                        answer: "Let son's age = x, father's = 3x<br>x + 3x = 48<br>4x = 48 → x = 12<br>Son = <span class='math-number'>12 years</span>, Father = <span class='math-number'>36 years</span>"
+                    },
+                    {
+                        question: "Speed: Car travels 240km in 3 hours. Find average speed.",
+                        answer: "Speed = Distance ÷ Time<br>= 240 ÷ 3 = <span class='math-number'>80 km/h</span>"
+                    },
+                    {
+                        question: "Profit: Buy at Ksh 800, sell at Ksh 1000. Find profit percentage.",
+                        answer: "Profit = 1000 - 800 = 200<br>Profit % = (200/800) × 100<br>= 0.25 × 100 = <span class='math-number'>25%</span>"
+                    },
+                    {
+                        question: "Mixture: 2kg at Ksh 150/kg + 3kg at Ksh 180/kg. Find mixture price/kg.",
+                        answer: "Total cost = (2×150) + (3×180)<br>= 300 + 540 = 840<br>Total weight = 5kg<br>Price/kg = 840 ÷ 5 = <span class='math-number'>Ksh 168</span>"
+                    },
+                    {
+                        question: "Time: 2:15 pm to 5:45 pm. How many hours and minutes?",
+                        answer: "From 2:15 to 5:15 = 3 hours<br>From 5:15 to 5:45 = 30 minutes<br>Total = <span class='math-number'>3 hours 30 minutes</span>"
+                    }
+                ]
+            },
+            {
+                id: "formulas",
+                name: "Key Formulas",
+                cards: [
+                    {
+                        question: "Quadratic formula",
+                        answer: "<div class='math-formula'>x = [-b ± √(b² - 4ac)] / 2a</div>"
+                    },
+                    {
+                        question: "Pythagoras theorem",
+                        answer: "<div class='math-formula'>a² + b² = c²</div>"
+                    },
+                    {
+                        question: "Area of circle",
+                        answer: "<div class='math-formula'>A = πr²</div>"
+                    },
+                    {
+                        question: "Volume of sphere",
+                        answer: "<div class='math-formula'>V = ⁴⁄₃πr³</div>"
+                    },
+                    {
+                        question: "Simple interest",
+                        answer: "<div class='math-formula'>I = P × R × T / 100</div>"
+                    },
+                    {
+                        question: "Mean formula",
+                        answer: "<div class='math-formula'>Mean = Σx / n</div>"
+                    },
+                    {
+                        question: "Probability formula",
+                        answer: "<div class='math-formula'>P(A) = n(A) / n(S)</div>"
+                    },
+                    {
+                        question: "Distance formula",
+                        answer: "<div class='math-formula'>Distance = Speed × Time</div>"
+                    }
+                ]
+            }
+        ];
+
+        // ============================================
+        // APPLICATION STATE & VARIABLES
+        // ============================================
+        let currentTopicIndex = 0;
+        let currentCardIndex = 0;
+        let isShuffled = false;
+        let originalCardOrders = {};
+        let reviewedCards = new Set();
+        let formulaMode = false;
+
+        // ============================================
+        // DOM ELEMENT REFERENCES
+        // ============================================
+        const flashcardElement = document.getElementById('flashcard');
+        const questionContent = document.getElementById('question-content');
+        const answerContent = document.getElementById('answer-content');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const shuffleBtn = document.getElementById('shuffle-btn');
+        const flipBtn = document.getElementById('flip-btn');
+        const formulaBtn = document.getElementById('formula-btn');
+        const frontTopic = document.getElementById('front-topic');
+        const backTopic = document.getElementById('back-topic');
+        const cardPosition = document.getElementById('card-position');
+        const currentTopic = document.getElementById('current-topic');
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
+        const topicProgress = document.getElementById('topic-progress');
+        const topicList = document.getElementById('topic-list');
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        function init() {
+            // Create topic list in sidebar
+            renderTopicList();
+            
+            // Initialize original card orders
+            mathTopics.forEach((topic, index) => {
+                originalCardOrders[topic.id] = [...topic.cards];
+            });
+            
+            // Load first topic and card
+            updateFlashcard();
+            updateProgress();
+            
+            // Set up event listeners
+            setupEventListeners();
+        }
+
+        // ============================================
+        // TOPIC LIST RENDERING
+        // ============================================
+        function renderTopicList() {
+            topicList.innerHTML = '';
+            
+            mathTopics.forEach((topic, index) => {
+                const li = document.createElement('li');
+                li.className = `topic-item ${index === currentTopicIndex ? 'active' : ''}`;
+                li.textContent = `${topic.name} (${topic.cards.length} cards)`;
+                li.dataset.topicIndex = index;
+                
+                li.addEventListener('click', () => {
+                    // Update active topic
+                    document.querySelectorAll('.topic-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    li.classList.add('active');
+                    
+                    // Switch to selected topic
+                    currentTopicIndex = index;
+                    currentCardIndex = 0;
+                    isShuffled = false;
+                    shuffleBtn.textContent = '🔀 Shuffle Topic';
+                    updateFlashcard();
+                });
+                
+                topicList.appendChild(li);
+            });
+        }
+
+        // ============================================
+        // FLASHCARD DISPLAY FUNCTION
+        // ============================================
+        function updateFlashcard() {
+            // Reset card to front view
+            flashcardElement.classList.remove('flipped');
+            
+            // Get current topic and card
+            const topic = mathTopics[currentTopicIndex];
+            const card = topic.cards[currentCardIndex];
+            
+            // Update display
+            questionContent.innerHTML = card.question;
+            answerContent.innerHTML = card.answer;
+            frontTopic.textContent = topic.name;
+            backTopic.textContent = topic.name;
+            
+            // Update counters
+            const totalCards = getTotalCardCount();
+            cardPosition.textContent = `Card ${currentCardIndex + 1} of ${topic.cards.length} | Total: ${totalCards} cards`;
+            currentTopic.textContent = topic.name;
+            
+            // Mark as reviewed
+            const cardId = `${topic.id}-${currentCardIndex}`;
+            reviewedCards.add(cardId);
+            
+            // Update button states
+            updateButtonStates();
+            
+            // Update topic progress
+            updateTopicProgress();
+        }
+
+        // ============================================
+        // PROGRESS TRACKING
+        // ============================================
+        function updateProgress() {
+            const totalCards = getTotalCardCount();
+            const reviewedCount = reviewedCards.size;
+            const percentage = Math.round((reviewedCount / totalCards) * 100);
+            
+            progressFill.style.width = `${percentage}%`;
+            progressText.textContent = `${reviewedCount}/${totalCards} cards reviewed (${percentage}%)`;
+        }
+
+        function updateTopicProgress() {
+            const topic = mathTopics[currentTopicIndex];
+            const topicCardCount = topic.cards.length;
+            
+            // Count reviewed cards in current topic
+            let reviewedInTopic = 0;
+            for (let i = 0; i < topicCardCount; i++) {
+                const cardId = `${topic.id}-${i}`;
+                if (reviewedCards.has(cardId)) reviewedInTopic++;
+            }
+            
+            topicProgress.textContent = `Current topic: ${reviewedInTopic}/${topicCardCount} cards`;
+            updateProgress();
+        }
+
+        function getTotalCardCount() {
+            return mathTopics.reduce((total, topic) => total + topic.cards.length, 0);
+        }
+
+        // ============================================
+        // BUTTON STATE MANAGEMENT
+        // ============================================
+        function updateButtonStates() {
+            const topic = mathTopics[currentTopicIndex];
+            
+            // Previous button
+            prevBtn.disabled = currentCardIndex === 0;
+            prevBtn.style.opacity = currentCardIndex === 0 ? "0.5" : "1";
+            
+            // Next button
+            nextBtn.disabled = currentCardIndex === topic.cards.length - 1;
+            nextBtn.style.opacity = currentCardIndex === topic.cards.length - 1 ? "0.5" : "1";
+        }
+
+        // ============================================
+        // EVENT LISTENERS SETUP
+        // ============================================
+        function setupEventListeners() {
+            // Card flip on click
+            flashcardElement.addEventListener('click', () => {
+                flashcardElement.classList.toggle('flipped');
+            });
+            
+            // Flip button
+            flipBtn.addEventListener('click', () => {
+                flashcardElement.classList.toggle('flipped');
+            });
+            
+            // Previous button
+            prevBtn.addEventListener('click', () => {
+                if (currentCardIndex > 0) {
+                    currentCardIndex--;
+                    updateFlashcard();
+                }
+            });
+            
+            // Next button
+            nextBtn.addEventListener('click', () => {
+                const topic = mathTopics[currentTopicIndex];
+                if (currentCardIndex < topic.cards.length - 1) {
+                    currentCardIndex++;
+                    updateFlashcard();
+                }
+            });
+            
+            // Shuffle button
+            shuffleBtn.addEventListener('click', () => {
+                const topic = mathTopics[currentTopicIndex];
+                
+                if (!isShuffled) {
+                    // Shuffle the current topic's cards
+                    const shuffled = [...topic.cards];
+                    for (let i = shuffled.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+                    }
+                    
+                    topic.cards = shuffled;
+                    currentCardIndex = 0;
+                    isShuffled = true;
+                    shuffleBtn.textContent = '↻ Original Order';
+                } else {
+                    // Restore original order
+                    topic.cards = [...originalCardOrders[topic.id]];
+                    currentCardIndex = 0;
+                    isShuffled = false;
+                    shuffleBtn.textContent = '🔀 Shuffle Topic';
+                }
+                
+                updateFlashcard();
+            });
+            
+            // Formula mode button
+            formulaBtn.addEventListener('click', () => {
+                formulaMode = !formulaMode;
+                
+                if (formulaMode) {
+                    // Enter formula mode: show only formula cards
+                    formulaBtn.textContent = '📖 All Topics';
+                    formulaBtn.style.background = '#d32f2f';
+                    
+                    // Filter to show only formula topics
+                    const formulaDeck = mathTopics.find(topic => topic.id === "formulas");
+                    
+                    // Temporarily store original topics
+                    window.originalTopics = mathTopics;
+                    window.currentTopicIndex = currentTopicIndex;
+                    
+                    // Replace with formula deck only
+                    mathTopics.length = 0;
+                    mathTopics.push(formulaDeck);
+                    currentTopicIndex = 0;
+                    currentCardIndex = 0;
+                    
+                    // Update display
+                    renderTopicList();
+                } else {
+                    // Exit formula mode: restore all topics
+                    formulaBtn.textContent = '📐 Formula Sheet';
+                    formulaBtn.style.background = '#ff9800';
+                    
+                    // Restore original topics
+                    mathTopics.length = 0;
+                    window.originalTopics.forEach(topic => mathTopics.push(topic));
+                    
+                    currentTopicIndex = window.currentTopicIndex || 0;
+                    currentCardIndex = 0;
+                    
+                    // Update topic list display
+                    renderTopicList();
+                }
+                
+                updateFlashcard();
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (event) => {
+                const topic = mathTopics[currentTopicIndex];
+                
+                switch(event.key) {
+                    case 'ArrowLeft':
+                        if (currentCardIndex > 0) {
+                            currentCardIndex--;
+                            updateFlashcard();
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (currentCardIndex < topic.cards.length - 1) {
+                            currentCardIndex++;
+                            updateFlashcard();
+                        }
+                        break;
+                    case ' ':
+                    case 'Enter':
+                        event.preventDefault();
+                        flashcardElement.classList.toggle('flipped');
+                        break;
+                    case 'r':
+                    case 'R':
+                        // Reset to first card in topic
+                        currentCardIndex = 0;
+                        updateFlashcard();
+                        break;
+                    case 'f':
+                    case 'F':
+                        // Toggle formula mode
+                        formulaBtn.click();
+                        break;
+                }
+            });
+            
+            // Touch swipe for mobile
+            let touchStartX = 0;
+            flashcardElement.addEventListener('touchstart', (event) => {
+                touchStartX = event.changedTouches[0].screenX;
+            });
+            
+            flashcardElement.addEventListener('touchend', (event) => {
+                const touchEndX = event.changedTouches[0].screenX;
+                const swipeThreshold = 50;
+                
+                // Right swipe: previous card
+                if (touchEndX - touchStartX > swipeThreshold && currentCardIndex > 0) {
+                    currentCardIndex--;
+                    updateFlashcard();
+                }
+                // Left swipe: next card
+                else if (touchStartX - touchEndX > swipeThreshold) {
+                    const topic = mathTopics[currentTopicIndex];
+                    if (currentCardIndex < topic.cards.length - 1) {
+                        currentCardIndex++;
+                        updateFlashcard();
+                    }
+                }
+            });
+        }
+
+        // ============================================
+        // START THE APPLICATION
+        // ============================================
+        // Initialize when page loads
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
